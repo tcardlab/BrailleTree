@@ -1,21 +1,21 @@
 <!--Defines alphabet and places letters in tree structure-->
 <template>
   <svg :x="x" :y="y" style="overflow:visible;">
-    <letter :size="size" :glyph="LetterArray(display)" :dx="0" :dy="0" />
+    <letter :size="_$.size" :glyph="LetterArray(_$.display)" :dx="0" :dy="0" />
     <g v-for="(j, j2) in [-1, 0, 1]" :key="j2">
       <letter
-        :size="size"
-        :glyph="LetterArray(display, j2)"
-        :dx="x1 + 'mm'"
-        :dy="j * y1 + 'mm'"
+        :size="_$.size"
+        :glyph="LetterArray(_$.display, j2)"
+        :dx="_$.x1 + 'mm'"
+        :dy="j * _$.y1 + 'mm'"
       />
       <letter
         v-for="(k, k2) in [-1, 0, 1]"
         :key="k2"
-        :size="size"
-        :glyph="LetterArray(display, j2, k2)"
-        :dx="+x1 + +x2 + 'mm'"
-        :dy="k * y2 + j * y1 + 'mm'"
+        :size="_$.size"
+        :glyph="LetterArray(_$.display, j2, k2)"
+        :dx="+_$.x1 + +_$.x2 + 'mm'"
+        :dy="k * _$.y2 + j * _$.y1 + 'mm'"
       />
     </g>
   </svg>
@@ -28,7 +28,7 @@ export default {
   components: {
     Letter
   },
-  props: ['x', 'y', 'x1', 'x2', 'y1', 'y2', 'size', 'display'],
+  props: ['x', 'y'],
   methods: {
     // Top-2-Bottom
     LetterArray: function(pick, for1, for2) {
@@ -37,10 +37,6 @@ export default {
         .split(/'|/)
         .concat(['and', 'for', 'of', 'the', 'with', '(...)'])
       alph = numbers.concat(alph)
-      /* const alph = 'AB,CDEFGHIJ.KL;MNOPQRST!UV?XYZ'
-        .split(/'|/)
-        .concat(['and', 'for', 'of', 'the', 'with', '( )'])
-        .concat("12''34567890''".split(/'|/)) */
       if (typeof for1 === 'undefined') {
         return ['#', ' ', "'", '-'][pick] // First cell
       } else if (typeof for2 === 'undefined') {

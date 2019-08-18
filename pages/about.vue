@@ -3,57 +3,57 @@
     <div>
       <div>
         <label>x1</label>
-        <input v-model="x1" type="range" min="10" max="30" />
-        <span>{{ x1 }}</span>
+        <input v-model="_$.x1" type="range" min="10" max="30" />
+        <span>{{ _$.x1 }}</span>
       </div>
       <div>
         <label>x2</label>
-        <input v-model="x2" type="range" min="10" max="18" />
-        <span>{{ x2 }}</span>
+        <input v-model="_$.x2" type="range" min="10" max="18" />
+        <span>{{ _$.x2 }}</span>
       </div>
       <div>
         <label>y1</label>
-        <input v-model="y1" type="range" min="10" max="40" />
-        <span>{{ y1 }}</span>
+        <input v-model="_$.y1" type="range" min="10" max="40" />
+        <span>{{ _$.y1 }}</span>
       </div>
       <div>
         <label>y2</label>
-        <input v-model="y2" type="range" min="10" max="20" />
-        <span>{{ y2 }}</span>
+        <input v-model="_$.y2" type="range" min="10" max="20" />
+        <span>{{ _$.y2 }}</span>
       </div>
       <div>
         <label>width</label>
-        <input v-model="width" type="range" min="0" max="6.5" step="0.25" />
-        <span>{{ width }}</span>
+        <input v-model="_$.width" type="range" min="0" max="6.5" step="0.25" />
+        <span>{{ _$.width }}</span>
       </div>
       <div>
         <label>gap</label>
         <!--or if x1/2-2 if it is smaller...-->
         <input
-          v-model="gap"
+          v-model="_$.gap"
           type="range"
           min="0"
-          :max="Math.min(x1, x2) / 2 - 2"
+          :max="Math.min(_$.x1, _$.x2) / 2 - 2"
           step="0.25"
         />
-        <span>{{ gap }}mm</span>
+        <span>{{ _$.gap }}mm</span>
       </div>
       <div>
         <label>font size</label>
-        <input v-model="size" type="range" min="4" max="8" step="0.25" />
-        <span>{{ size }}mm</span>
+        <input v-model="_$.size" type="range" min="4" max="8" step="0.25" />
+        <span>{{ _$.size }}mm</span>
       </div>
 
-      <base-checkbox v-model="vueblank" />
+      <base-checkbox v-model="_$.vueblank" />
       <h4>Toggle Outline</h4>
 
-      <base-checkbox v-model="vuepath" />
+      <base-checkbox v-model="_$.vuepath" />
       <h4>Toggle Paths</h4>
 
-      <base-checkbox v-model="vuelabel" />
+      <base-checkbox v-model="_$.vuelabel" />
       <h4>Toggle lables</h4>
 
-      <h4>Braille <base-checkbox v-model="vuealph" /> Letters</h4>
+      <h4>Braille <base-checkbox v-model="_$.vuealph" /> Letters</h4>
 
       <!--<base-checkbox v-model="vuebraille"></base-checkbox>
       <h4>Toggle braille</h4>-->
@@ -68,15 +68,9 @@
       <!--Overflow does not work... so negatives dont show...-->
       <!--works in cli and codepen, nuxt issue?-->
       <Tree
-        v-if="display < 4 && vuealph == 0"
-        :x="boarder + 'mm'"
+        v-if="_$.display < 4 && _$.vuealph == 0"
+        :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
-        :x1="x1"
-        :y1="y1"
-        :x2="x2"
-        :y2="y2"
-        :vueblank="vueblank"
-        :display="display"
       />
       <!--need to add dot[3,6] selector-->
       <!--<choices ></choices> DELETE?-->
@@ -84,36 +78,21 @@
       <!--Doesnt show for some reason... oveflow?-->
       <!--works in cli and codepen, nuxt issue?-->
       <branches
-        :x="boarder + 'mm'"
+        :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
-        :x1="x1"
-        :y1="y1"
-        :x2="x2"
-        :y2="y2"
-        :gap="gap"
-        :width="width"
-        :size="size"
-        :vuelabel="vuelabel"
-        :vuepath="vuepath"
       />
       <!--add toggle labels-->
 
       <!--[0-10], [11-20], [21-25], numbers, all-->
       <letters
-        v-if="display < 4 && vuealph == 1"
-        :x="boarder + 'mm'"
+        v-if="_$.display < 4 && _$.vuealph == 1"
+        :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
-        :x1="x1"
-        :y1="y1"
-        :x2="x2"
-        :y2="y2"
-        :size="size"
-        :display="display"
       />
 
       <all
-        v-if="display == 4 && vuealph == 1"
-        :x="boarder + 'mm'"
+        v-if="_$.display == 4 && _$.vuealph == 1"
+        :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
         :y1="y1"
@@ -124,8 +103,8 @@
       />
 
       <all-braille
-        v-if="display == 4 && vuealph == 0"
-        :x="boarder + 'mm'"
+        v-if="_$.display == 4 && _$.vuealph == 0"
+        :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
         :y1="y1"
@@ -138,8 +117,8 @@
       />
 
       <all2
-        v-if="display == 5"
-        :x="boarder + 'mm'"
+        v-if="_$.display == 5"
+        :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
         :y1="y1"
@@ -152,8 +131,8 @@
     </svg>
     <div>
       <label>display</label>
-      <input v-model="display" type="range" min="0" max="5" />
-      <span>{{ ["#'s", 'A-J', 'K-T', 'U-Z', 'All', 'All2'][display] }}</span>
+      <input v-model="_$.display" type="range" min="0" max="5" />
+      <span>{{ ["#'s", 'A-J', 'K-T', 'U-Z', 'All', 'All2'][_$.display] }}</span>
     </div>
 
     <link
@@ -193,39 +172,18 @@ export default {
     Branches,
     AllBraille
   },
-  data() {
-    return {
-      boarder: 20, // 3 or 10
-      // tree
-      x1: 25, // 25
-      x2: 15, // 15
-      y1: 36, // 35
-      y2: 12, // 10
-      vueblank: true,
-      vuebraille: true, // !vuealph and delete this or vice versa 1 switch
-      display: 1, // #'s, A-J, K-T, U-Z, All[braille||Alph], All2[Both]
-      // Branches
-      width: 2.5,
-      gap: 2.5,
-      vuepath: true,
-      // letters
-      size: 7,
-      vuealph: false,
-      vuelabel: true
-    }
-  },
   computed: {
     compheight() {
       // moved boarder out of multiplication it needs to be large for All
-      return 2 * (+this.y1 + +this.y2 + 3.25) + +this.boarder
+      return 2 * (+this._$.y1 + +this._$.y2 + 3.25) + +this._$.boarder
     },
     compwidth() {
-      if (this.display > '3') {
-        const initial = +this.x1 + +this.x2 + 4 + 2 * this.boarder
-        const expanded = 2 * (+this.gap + +this.size + 1)
+      if (this._$.display > '3') {
+        const initial = +this._$.x1 + +this._$.x2 + 4 + 2 * this._$.boarder
+        const expanded = 2 * (+this._$.gap + +this._$.size + 1)
         return initial + expanded // extra width for All, give 2 extra columns
       } else {
-        return +this.x1 + +this.x2 + 4 + 2 * this.boarder
+        return +this._$.x1 + +this._$.x2 + 4 + 2 * this._$.boarder
       }
     }
   },
@@ -233,7 +191,7 @@ export default {
     /* eslint-disable no-unused-vars, no-var */
     downloadSVG: function() {
       // var svgRoot = document.getElementById('htmlsvg')
-      var svgRoot = this.$refs.htmlsvg
+      var svgRoot = this._$.$refs.htmlsvg
       var svgSource = svgRoot.outerHTML
       var svgDataUri = 'data:image/svg+xml;base64,' + btoa(svgSource)
       var link = document.getElementById('dwnld')

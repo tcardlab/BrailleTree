@@ -15,15 +15,6 @@
       <branches
         :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
-        :x1="_$.x1"
-        :y1="_$.y1"
-        :x2="_$.x2"
-        :y2="_$.y2"
-        :gap="_$.gap"
-        :width="_$.width"
-        :size="_$.size"
-        :vuelabel="_$.vuelabel"
-        :vuepath="_$.vuepath"
       ></branches>
     </svg>
     vuex store: {{ $store.state.x1 }}
