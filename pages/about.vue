@@ -13,13 +13,13 @@
       </div>
       <div>
         <label>y1</label>
-        <input v-model="yGroup" type="range" min="10" max="40" />
-        <span>{{ yGroup }}</span>
+        <input v-model="y1" type="range" min="10" max="40" />
+        <span>{{ y1 }}</span>
       </div>
       <div>
         <label>y2</label>
-        <input v-model="yInner" type="range" min="10" max="20" />
-        <span>{{ yInner }}</span>
+        <input v-model="y2" type="range" min="10" max="20" />
+        <span>{{ y2 }}</span>
       </div>
       <div>
         <label>width</label>
@@ -72,9 +72,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :vueblank="vueblank"
         :display="display"
       />
@@ -87,9 +87,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :gap="gap"
         :width="width"
         :size="size"
@@ -104,9 +104,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :size="size"
         :display="display"
       />
@@ -116,9 +116,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :size="size"
         :gap="gap"
       />
@@ -128,9 +128,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :vueblank="vueblank"
         :display="display"
         :size="size"
@@ -142,9 +142,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :vueblank="vueblank"
         :size="size"
         :gap="gap"
@@ -199,8 +199,8 @@ export default {
       // tree
       x1: 25, // 25
       x2: 15, // 15
-      yGroup: 36, // 35
-      yInner: 12, // 10
+      y1: 36, // 35
+      y2: 12, // 10
       vueblank: true,
       vuebraille: true, // !vuealph and delete this or vice versa 1 switch
       display: 1, // #'s, A-J, K-T, U-Z, All[braille||Alph], All2[Both]
@@ -217,7 +217,7 @@ export default {
   computed: {
     compheight() {
       // moved boarder out of multiplication it needs to be large for All
-      return 2 * (+this.yGroup + +this.yInner + 3.25) + +this.boarder
+      return 2 * (+this.y1 + +this.y2 + 3.25) + +this.boarder
     },
     compwidth() {
       if (this.display > '3') {

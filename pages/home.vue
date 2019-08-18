@@ -6,9 +6,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :vueblank="vueblank"
         :display="display"
       ></Tree>
@@ -16,9 +16,9 @@
         :x="boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
         :x1="x1"
-        :y1="yGroup"
+        :y1="y1"
         :x2="x2"
-        :y2="yInner"
+        :y2="y2"
         :gap="gap"
         :width="width"
         :size="size"
@@ -27,15 +27,18 @@
       ></branches>
     </svg>
     vuex store: {{ $store.state.x1 }}
+    {{ this.x1 }}
+    {{ this.y1 }}
+    {{ _$.y1 }}
   </div>
 </template>
 
 <script>
 import Tree from '~/components/Tree.vue'
 import Branches from '~/components/Branches.vue'
+//import StoreRoute from '~/store/storeRoute.js'
 
 export default {
-  name: 'test',
   components: {
     Tree,
     Branches
@@ -46,8 +49,8 @@ export default {
       // tree
       x1: 25, // 25
       x2: 15, // 15
-      yGroup: 36, // 35
-      yInner: 12, // 10
+      y1: 36,
+      y2: 12, // 10
       vueblank: true,
       vuebraille: true,
       // Branches
@@ -62,8 +65,11 @@ export default {
     }
   },
   computed: {
+    /*_$() {
+      return this.$store.state
+    },*/
     compheight() {
-      return 2 * (+this.yGroup + +this.yInner + 3.25 + +this.boarder) // 6.5 or 3.25?
+      return 2 * (+this.y1 + +this.y2 + 3.25 + +this.boarder) // 6.5 or 3.25?
     },
     compwidth() {
       return +this.x1 + +this.x2 + 4 + 2 * this.boarder
