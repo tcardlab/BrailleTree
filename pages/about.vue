@@ -54,9 +54,6 @@
       <h4>Toggle lables</h4>
 
       <h4>Braille <base-checkbox v-model="_$.vuealph" /> Letters</h4>
-
-      <!--<base-checkbox v-model="vuebraille"></base-checkbox>
-      <h4>Toggle braille</h4>-->
     </div>
 
     <svg
@@ -65,25 +62,18 @@
       :height="compheight + 'mm'"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <!--Overflow does not work... so negatives dont show...-->
-      <!--works in cli and codepen, nuxt issue?-->
+
       <Tree
         v-if="_$.display < 4 && _$.vuealph == 0"
         :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
       />
-      <!--need to add dot[3,6] selector-->
-      <!--<choices ></choices> DELETE?-->
 
-      <!--Doesnt show for some reason... oveflow?-->
-      <!--works in cli and codepen, nuxt issue?-->
       <branches
         :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
       />
-      <!--add toggle labels-->
 
-      <!--[0-10], [11-20], [21-25], numbers, all-->
       <letters
         v-if="_$.display < 4 && _$.vuealph == 1"
         :x="_$.boarder + 'mm'"
@@ -94,39 +84,18 @@
         v-if="_$.display == 4 && _$.vuealph == 1"
         :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
-        :x1="x1"
-        :y1="y1"
-        :x2="x2"
-        :y2="y2"
-        :size="size"
-        :gap="gap"
       />
 
       <all-braille
         v-if="_$.display == 4 && _$.vuealph == 0"
         :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
-        :x1="x1"
-        :y1="y1"
-        :x2="x2"
-        :y2="y2"
-        :vueblank="vueblank"
-        :display="display"
-        :size="size"
-        :gap="gap"
       />
 
       <all2
         v-if="_$.display == 5"
         :x="_$.boarder + 'mm'"
         :y="compheight / 2 - 3.25 + 'mm'"
-        :x1="x1"
-        :y1="y1"
-        :x2="x2"
-        :y2="y2"
-        :vueblank="vueblank"
-        :size="size"
-        :gap="gap"
       />
     </svg>
     <div>
