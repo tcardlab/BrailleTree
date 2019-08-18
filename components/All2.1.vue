@@ -2,34 +2,23 @@
 <!-- Very similar to Letters, but i used v-html for better formatting -->
 <template>
   <svg :x="x" :y="y" style="overflow:visible;">
-    <all-braille
-      :x="0"
-      :y="0"
-      :x1="x1"
-      :y1="y1"
-      :x2="x2"
-      :y2="y2"
-      :vueblank="vueblank"
-      :display="0"
-      :size="size"
-      :gap="gap"
-    />
-    <letter :size="size" v-html="LetterArray()" :dx="0" :dy="0"></letter>
+    <all-braille x="0" y="0"/>
+    <letter :size="_$.size" v-html="LetterArray()" dx="0" dy="0"/>
     <g v-for="(j, j2) in [-1, 0, 1]" :key="j2">
       <letter
-        :size="size"
+        :size="_$.size"
         v-html="LetterArray(j2)"
-        :dx="x1 - 1.5 + 'mm'"
-        :dy="j * y1 + 'mm'"
+        :dx="_$.x1 - 1.5 + 'mm'"
+        :dy="j * _$.y1 + 'mm'"
       />
-      <!-- ^made room for number x1-? -->
+      <!-- ^made room for number _$.x1-? -->
       <letter
         v-for="(k, k2) in [-1, 0, 1]"
         :key="k2"
-        :size="size"
+        :size="_$.size"
         v-html="LetterArray(j2, k2)"
-        :dx="+x1 + +x2 + 'mm'"
-        :dy="k * y2 + j * y1 + 'mm'"
+        :dx="+_$.x1 + +_$.x2 + 'mm'"
+        :dy="k * _$.y2 + j * _$.y1 + 'mm'"
       />
     </g>
   </svg>
@@ -42,7 +31,7 @@ import AllBraille from './AllBraille.vue'
 
 // retruns SVG-subscript html for numbers
 const rawHtml = function(size, number) {
-  // <tspan baseline-shift="sub" :font-size="size / 2 + 'mm'" dx="-1em">
+  // <tspan baseline-shift="sub" :font-_$.size="_$.size / 2 + 'mm'" dx="-1em">
   return `<tspan font-size="${size}mm"> ${number} </tspan>`
 }
 
@@ -66,25 +55,14 @@ export default {
     Tree,
     AllBraille
   },
-  props: [
-    'x',
-    'y',
-    'x1',
-    'x2',
-    'y1',
-    'y2',
-    'size',
-    'display',
-    'vueblank',
-    'gap'
-  ],
+  props: ['x', 'y'],
   methods: {
     // Top-2-Bottom
     LetterArray: function(for1, for2) {
       if (typeof for1 === 'undefined') {
         // First cell
         const init = [' ', "'", '-', '']
-        const disp = +this.gap + +this.size + 3 // column displacement
+        const disp = +this._$.gap + +this._$.size + 3 // column displacement
         return (
           init[0] +
           `<tspan x="${-disp}mm" dy='3.5mm' > ${init[1]} </tspan>` +
@@ -94,11 +72,11 @@ export default {
         // 1st branch cells
         const range = [0, 1, 2, 3]
         const [col1, col2, col3, num] = range.map(i => findGlyph(i, for1))
-        const x = +this.x1 + 2 // 2nd branch location
-        const disp = +this.gap + +this.size - 3 // column displacement
+        const x = +this._$.x1 + 2 // 2nd branch location
+        const disp = +this._$.gap + +this._$.size - 3 // column displacement
         return (
           `<tspan x="${x - disp * 1.5}mm" dy='12mm'> ${col1 +
-            rawHtml(this.size / 2, num)} </tspan>` +
+            rawHtml(this._$.size / 2, num)} </tspan>` +
           `<tspan x="${x - disp * 2}mm" dy='8mm'> ${col2} </tspan>` +
           `<tspan x="${x - disp}mm"> ${col3} </tspan>`
         ) // dy affexts both <tspan> for some reason...?
@@ -107,11 +85,11 @@ export default {
         /* eslint-disable one-var, no-var, no-redeclare */
         const range = [0, 1, 2, 3]
         var [col1, col2, col3, num] = range.map(i => findGlyph(i, for1, for2))
-        const x = +this.x1 + +this.x2 // 2nd branch location
-        const disp = +this.gap + +this.size + 1 // column displacement
+        const x = +this._$.x1 + +this._$.x2 // 2nd branch location
+        const disp = +this._$.gap + +this._$.size + 1 // column displacement
         return (
           `<tspan x="${x + disp}mm" dy='3.5mm' > ${col1 +
-            rawHtml(this.size / 2, num)} </tspan>` +
+            rawHtml(this._$.size / 2, num)} </tspan>` +
           `<tspan x="${x + disp * 2}mm" > ${col2} </tspan>` +
           `<tspan x="${x + disp * 3}mm" > ${col3} </tspan>`
         )

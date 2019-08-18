@@ -1,10 +1,11 @@
+export const strict = false
 export const state = () => ({
     boarder: 10, // 3
     // tree
     x1: 25, // 25
     x2: 15, // 15
-    yGroup: 36, // 35
-    yInner: 12, // 10
+    y1: 36, // 35
+    y2: 12, // 10
     vueblank: true,
     vuebraille: true,
     // Branches
