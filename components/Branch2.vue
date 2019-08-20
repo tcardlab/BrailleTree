@@ -1,38 +1,31 @@
-<!--Renders all branches and determines branch labels-->
+<!--Renders indevidual branch path with text-->
 <template>
   <svg
-    :x="x"
-    :y="y"
+    :x="dx"
+    :y="dy"
     style="overflow:visible;"
+    width="1mm"
+    height="1mm"
+    viewBox="0 0 1 1"
     :visibility="_$.vuepath ? 'show' : 'hidden'"
   >
-    <g v-for="(j, j2) in [-1, 0, 1]" :key="j2">
-      <branch
-        :dstr="dStr(j)"
-        :id="_$.vuelabel ? ['Top', 'Both', 'Bottom'][j2] : ''"
-        dx="0"
-        dy="0"
-        :size="_$.size"
-      />
-      <branch
-        v-for="k in [-1, 0, 1]" :key="k"
-        :dstr="dStr(j, k)"
-        id
-        :dx="_$.x1 + 'mm'"
-        :dy="j * _$.y1 + 'mm'"
-      />
-    </g>
+    <path :id="id" :d="dStr(for1, for2)"></path>
+
+    <text
+      v-if="id != ''"
+      :dy="id == 'Bottom' ? '.9em' : '-.35em'"
+      :font-size="+_$.size / 4 + 'mm'"
+    >
+      <textPath :href="'#' + id" startOffset="25%" text-anchor="middle">
+        {{ id }}
+      </textPath>
+    </text>
   </svg>
 </template>
 
 <script>
-import Branch from './Branch.vue'
-
 export default {
-  components: {
-    Branch
-  },
-  props: ['x', 'y'],
+  props: ['for1', 'for2', 'dx', 'dy', 'id'],
   methods: {
     /* eslint-disable eqeqeq, no-undef, no-unused-vars, 
        no-var, no-redeclare */

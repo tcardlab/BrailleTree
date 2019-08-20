@@ -1,33 +1,23 @@
-<!--Renders all braille cells in Ternary Tree-->
+<!--Renders indevidual Braille Cells-->
 <template>
-  <svg :x="x" :y="y" style="overflow:visible;">
-    <Cell :vueblank="_$.vueblank" :binarr="BinaryArray()" :dx="0" :dy="0" />
-    <g v-for="(j, j2) in [-1, 0, 1]" :key="j2">
-      <Cell
-        :vueblank="_$.vueblank"
-        :binarr="BinaryArray(j2)"
-        :dx="_$.x1 + 'mm'"
-        :dy="j * _$.y1 + 'mm'"
-      />
-      <Cell
-        v-for="(k, k2) in [-1, 0, 1]" :key="k2"
-        :binarr="BinaryArray(j2, k2)"
-        :dx="+_$.x1 + +_$.x2 + 'mm'"
-        :dy="k * _$.y2 + j * _$.y1 + 'mm'"
-        :vueblank="_$.vueblank"
-      />
-    </g>
+  <svg :x="dx" :y="dy" style="overflow:visible;">
+    <circle
+      v-for="(dot, i) in BinaryArray(for1, for2)"
+      :key="(dot, i)"
+      :display="dot === '' ? 'none' : 'visible'"
+      :fill="dot ? 'black' : 'none'"
+      :cx="i > 2 ? '3.25mm' : '0.75mm'"
+      :cy="(i % 3) * 2.5 + 0.75 + 'mm'"
+      :stroke="_$.vueblank ? 'black' : 'none'"
+      r="0.75mm"
+    />
+    <g v-html="rawhtml"></g>
   </svg>
 </template>
 
 <script>
-import Cell from './Cell.vue'
-
 export default {
-  components: {
-    Cell
-  },
-  props: ['x', 'y'],
+  props: ['for1', 'for2', 'dx', 'dy', 'rawhtml'],
   methods: {
     // Top-2-Bottom
     BinaryArray: function(for1, for2) {

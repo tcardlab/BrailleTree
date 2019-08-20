@@ -18,8 +18,7 @@
         :rawhtml="Iterate(j2)"
       />
       <Cell
-        v-for="(k, k2) in [-1, 0, 1]"
-        :key="k2"
+        v-for="(k, k2) in [-1, 0, 1]" :key="k2"
         :binarr="BinaryArray(j2, k2)"
         :dx="+_$.x1 + +_$.x2 + 'mm'"
         :dy="k * _$.y2 + j * _$.y1 + 'mm'"
