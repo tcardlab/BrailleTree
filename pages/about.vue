@@ -1,60 +1,7 @@
 <template>
   <div class="container">
-    <div>
-      <div>
-        <label>x1</label>
-        <input v-model="_$.x1" type="range" min="10" max="30" />
-        <span>{{ _$.x1 }}</span>
-      </div>
-      <div>
-        <label>x2</label>
-        <input v-model="_$.x2" type="range" min="10" max="18" />
-        <span>{{ _$.x2 }}</span>
-      </div>
-      <div>
-        <label>y1</label>
-        <input v-model="_$.y1" type="range" min="10" max="40" />
-        <span>{{ _$.y1 }}</span>
-      </div>
-      <div>
-        <label>y2</label>
-        <input v-model="_$.y2" type="range" min="10" max="20" />
-        <span>{{ _$.y2 }}</span>
-      </div>
-      <div>
-        <label>width</label>
-        <input v-model="_$.width" type="range" min="0" max="6.5" step="0.25" />
-        <span>{{ _$.width }}</span>
-      </div>
-      <div>
-        <label>gap</label>
-        <!--or if x1/2-2 if it is smaller...-->
-        <input
-          v-model="_$.gap"
-          type="range"
-          min="0"
-          :max="Math.min(_$.x1, _$.x2) / 2 - 2"
-          step="0.25"
-        />
-        <span>{{ _$.gap }}mm</span>
-      </div>
-      <div>
-        <label>font size</label>
-        <input v-model="_$.size" type="range" min="4" max="8" step="0.25" />
-        <span>{{ _$.size }}mm</span>
-      </div>
 
-      <base-checkbox v-model="_$.vueblank" />
-      <h4>Toggle Outline</h4>
-
-      <base-checkbox v-model="_$.vuepath" />
-      <h4>Toggle Paths</h4>
-
-      <base-checkbox v-model="_$.vuelabel" />
-      <h4>Toggle lables</h4>
-
-      <h4>Braille <base-checkbox v-model="_$.vuealph" /> Letters</h4>
-    </div>
+    <Formatter/>
 
     <svg
       ref="htmlsvg"
@@ -98,6 +45,9 @@
         :y="compheight / 2 - 3.25 + 'mm'"
       />
     </svg>
+
+
+
     <div>
       <label>display</label>
       <input v-model="_$.display" type="range" min="0" max="5" />
@@ -125,7 +75,7 @@
 <script>
 import All from '~/components/All.vue'
 import All2 from '~/components/All2.1.vue'
-import BaseCheckbox from '~/components/BaseCheckbox.vue'
+import Formatter from '~/components/Formatter.vue'
 import Letters from '~/components/Letters.vue'
 import Tree from '~/components/Tree.vue'
 import Branches from '~/components/Branches.vue'
@@ -137,7 +87,7 @@ export default {
     Letters,
     All,
     All2,
-    BaseCheckbox,
+    Formatter,
     Branches,
     AllBraille
   },
