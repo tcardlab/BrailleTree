@@ -14,11 +14,13 @@
         
       <!-- Init Cell -->
       <Cell2 :dx="0" :dy="0"/>
+      <Letter2 dx="0" dy="0"/>
 
       <g v-for="(j, j2) in [-1, 0, 1]" :key="j2">
         <!--First Branch-->
         <Cell2 :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'" />
         <Branch2 :for1="j" dx="0" dy="0" :id="_$.vuelabel ? ['Top', 'Both', 'Bottom'][j2] : ''"/>
+        <Letter2 :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'"/>
 
         <g v-for="(k, k2) in [-1, 0, 1]" :key="k2">
           <!--Second Branching-->
@@ -26,13 +28,18 @@
             :dx="+_$.x1 + +_$.x2 + 'mm'"
             :dy="k * _$.y2 + j * _$.y1 + 'mm'"
           />
-          <Branch2 :for1="j" :for2="k"
+          <Branch2 :for1="j2" :for2="k"
             :dx="_$.x1 + 'mm'"
             :dy="j * _$.y1 + 'mm'"
+          />
+          <Letter2 :for1="j2" :for2="k2"
+            :dx="+_$.x1 + +_$.x2 + 'mm'"
+            :dy="k * _$.y2 + j * _$.y1 + 'mm'"
           />
         </g>
       </g>
     </svg>
+
 
   </svg>
 </template>
@@ -45,25 +52,25 @@
 import All from '~/components/All.vue'
 import All2 from '~/components/All2.1.vue'
 import Formatter from '~/components/Formatter.vue'
-import Letters from '~/components/Letters.vue'
 import Tree from '~/components/Tree.vue'
 import Branches from '~/components/Branches.vue'
 import AllBraille from '~/components/AllBraille.vue'
 /* eslint-disable vue/no-unused-components */
 import Cell2 from './Cell2.vue'
 import Branch2 from './Branch2.vue'
+import Letter2 from '~/components/Letter2.vue'
 
 export default {
   components: {
     Tree,
-    Letters,
     All,
     All2,
     Formatter,
     Branches,
     AllBraille,
     Cell2,
-    Branch2
+    Branch2,
+    Letter2,
   },
   computed: {
     compheight() {
