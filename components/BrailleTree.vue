@@ -5,13 +5,7 @@
     :height="compheight + 'mm'"
     xmlns="http://www.w3.org/2000/svg"
   >
-
-    <svg 
-      :x="_$.boarder + 'mm'" 
-      :y="compheight / 2 - 3.25 + 'mm'" 
-      style="overflow:visible;">
-      
-        
+    <svg :x="_$.boarder + 'mm'" :y="compheight / 2 - 3.25 + 'mm'" style="overflow:visible;"> 
       <!-- Init Cell -->
       <Cell2 :dx="0" :dy="0"/>
       <Letter2 dx="0" dy="0"/>
@@ -39,35 +33,16 @@
         </g>
       </g>
     </svg>
-
-
   </svg>
 </template>
 
-
-
-
 <script>
-/* eslint-disable vue/no-unused-components */
-import All from '~/components/All.vue'
-import All2 from '~/components/All2.1.vue'
-import Formatter from '~/components/Formatter.vue'
-import Tree from '~/components/Tree.vue'
-import Branches from '~/components/Branches.vue'
-import AllBraille from '~/components/AllBraille.vue'
-/* eslint-disable vue/no-unused-components */
 import Cell2 from './Cell2.vue'
 import Branch2 from './Branch2.vue'
 import Letter2 from '~/components/Letter2.vue'
 
 export default {
   components: {
-    Tree,
-    All,
-    All2,
-    Formatter,
-    Branches,
-    AllBraille,
     Cell2,
     Branch2,
     Letter2,
