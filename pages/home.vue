@@ -38,7 +38,7 @@ export default {
       return 2 * (+this._$.y1 + +this._$.y2 + 3.25 + +this._$.boarder) // 6.5 or 3.25?
     },
     compwidth() {
-      return +this._$.x1 + +this._$.x2 + 4 + 2 * this._$.boarder
+      return +this._$.x1 + +this._$.x2 + 4 + 3 * this._$.boarder
     },
   }
 }
