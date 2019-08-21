@@ -7,26 +7,26 @@
   >
     <svg :x="_$.boarder + 'mm'" :y="compheight / 2 - 3.25 + 'mm'" style="overflow:visible;"> 
       <!-- Init Cell -->
-      <Cell2 :dx="0" :dy="0"/>
-      <Letter2 dx="0" dy="0"/>
+      <Cell :dx="0" :dy="0"/>
+      <Letter dx="0" dy="0"/>
 
       <g v-for="(j, j2) in [-1, 0, 1]" :key="j2">
         <!--First Branch-->
-        <Cell2 :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'" />
-        <Branch2 :for1="j" dx="0" dy="0" :id="_$.vuelabel ? ['Top', 'Both', 'Bottom'][j2] : ''"/>
-        <Letter2 :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'"/>
+        <Cell :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'" />
+        <Branch :for1="j" dx="0" dy="0" :id="_$.vuelabel ? ['Top', 'Both', 'Bottom'][j2] : ''"/>
+        <Letter :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'"/>
 
         <g v-for="(k, k2) in [-1, 0, 1]" :key="k2">
           <!--Second Branching-->
-          <Cell2 :for1="j2" :for2="k2"
+          <Cell :for1="j2" :for2="k2"
             :dx="+_$.x1 + +_$.x2 + 'mm'"
             :dy="k * _$.y2 + j * _$.y1 + 'mm'"
           />
-          <Branch2 :for1="j2" :for2="k"
+          <Branch :for1="j2" :for2="k"
             :dx="_$.x1 + 'mm'"
             :dy="j * _$.y1 + 'mm'"
           />
-          <Letter2 :for1="j2" :for2="k2"
+          <Letter :for1="j2" :for2="k2"
             :dx="+_$.x1 + +_$.x2 + 'mm'"
             :dy="k * _$.y2 + j * _$.y1 + 'mm'"
           />
@@ -37,15 +37,15 @@
 </template>
 
 <script>
-import Cell2 from './Cell2.vue'
-import Branch2 from './Branch2.vue'
-import Letter2 from '~/components/Letter3.vue'
+import Cell from './Cell.vue'
+import Branch from './Branch.vue'
+import Letter from '~/components/Letter.vue'
 
 export default {
   components: {
-    Cell2,
-    Branch2,
-    Letter2,
+    Cell,
+    Branch,
+    Letter,
   },
   computed: {
     compheight() {
