@@ -1,7 +1,7 @@
 <!--Renders indevidual Braille Cells-->
 <template>
   <svg :x="dx" :y="dy" style="overflow:visible;"
-    v-if="_$.vuealph == 0">
+    v-if="_$.vuealph == 0 || _$.display==5">
     <circle
       v-for="(dot, i) in BinaryArray(for1, for2)"
       :key="(dot, i)"

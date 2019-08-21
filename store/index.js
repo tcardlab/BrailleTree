@@ -17,5 +17,5 @@ export const state = () => ({
     vuealph: false,
     vuelabel: true,
     // All
-    display: 0 // 0(first 12),1(dot3),2(dot3&6),3(all)
+    display: 1 // 0(first 12),1(dot3),2(dot3&6),3(all)
   })
