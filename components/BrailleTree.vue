@@ -39,7 +39,7 @@
 <script>
 import Cell2 from './Cell2.vue'
 import Branch2 from './Branch2.vue'
-import Letter2 from '~/components/Letter2.vue'
+import Letter2 from '~/components/Letter3.vue'
 
 export default {
   components: {

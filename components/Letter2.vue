@@ -18,11 +18,13 @@ export default {
   methods: {
     // Top-2-Bottom
     LetterArray: function(pick, for1, for2) {
+      //Define Glyph set
       const numbers = '12,34567890.'.split(/'|/)
       let alph = 'AB,CDEFGHIJ.KL;MNOPQRST!UV?XYZ'
         .split(/'|/)
         .concat(['and', 'for', 'of', 'the', 'with', '(...)'])
       alph = numbers.concat(alph)
+      //Assign to branch given location in set
       if (typeof for1 === 'undefined') {
         return ['#', ' ', "'", '-'][pick] // First cell
       } else if (typeof for2 === 'undefined') {
