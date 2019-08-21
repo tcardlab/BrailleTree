@@ -1,6 +1,6 @@
 export const strict = false
 export const state = () => ({
-    boarder: 10, // 3
+    boarder: 20, // 10, 3
     // tree
     x1: 25, // 25
     x2: 15, // 15
@@ -10,11 +10,12 @@ export const state = () => ({
     vuebraille: true,
     // Branches
     width: 2.5,
-    gap: 1.5,
+    gap: 2,
     vuepath: true,
     // letters
-    size: 8,
+    size: 7,
     vuealph: false,
     vuelabel: true,
-    display: 0 // 0(first 12),1(dot3),2(dot3&6),3(all)
+    // All
+    display: 1 // 0(first 12),1(dot3),2(dot3&6),3(all)
   })
