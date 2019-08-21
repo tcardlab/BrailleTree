@@ -1,7 +1,14 @@
 <template>
-  <div class="container" align="center">
-    
-    <BrailleTree />
+  <div class="container" align="center" id="main">
+
+    <!--Display Braille @ proper mm sale -->
+    <BrailleTree class="d-none d-sm-table-cell"/>
+    <!--Display scaled braille for mobile -->
+    <div class="d-sm-none">
+      <svg viewBox="0 0 400 500"> <!-- :viewBox="viewbox"-->
+        <BrailleTree />
+      </svg>
+    </div>
 
     <div>
       <h5>Braille <base-checkbox v-model="_$.vuealph"/> Letters</h5>
@@ -23,5 +30,14 @@ export default {
     BrailleTree,
     BaseCheckbox,
   },
+  computed: {
+    viewbox() {
+      if (this._$.display<4) {
+        return "0 0 400 500" //"0 0 300 450"
+      } else {
+        return "0 0 400 500"
+      } 
+    }
+  }
 }
 </script>

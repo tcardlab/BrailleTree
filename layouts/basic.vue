@@ -16,7 +16,7 @@
     
     <div class="container-fluid">
       <!-- larger than md = 2-8-2 // md and below = 12(fullscreen) -->
-      <b-row class="justify-content-center" style="background:#eee">
+      <b-row class="justify-content-center" style="background:#eee"> <!-- #f2f5f7  fafafa-->
         <b-col col md="2" class="d-none d-md-table-cell">1 of 3</b-col>
         <b-col col sm="12" md="8" style="background:white">
           <nuxt/>
