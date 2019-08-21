@@ -33,7 +33,7 @@ export default {
         return alph[3 + for1 * 3 + for2 + num * 12]
       }
     },
-    // Top-2-Bottom
+    // Top-2-Bottom (_$.display determines which case is renderend)
     LetterArray: function(for1, for2) {
       if (typeof for1 === 'undefined') {
         // Init cell
