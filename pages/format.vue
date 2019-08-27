@@ -2,7 +2,7 @@
   <div class="container">
 
     <Formatter/>
-    
+
     <BrailleTree ref="htmlsvg"/>
 
     <div>
@@ -41,7 +41,7 @@ export default {
   methods: {
     /* eslint-disable no-unused-vars, no-var */
     downloadSVG() {
-      var svgRoot = this.$refs.htmlsvg
+      var svgRoot = this.$refs.htmlsvg.$el //ref identifies component, el gets its child svg
       var svgSource = svgRoot.outerHTML
       var svgDataUri = 'data:image/svg+xml;base64,' + btoa(svgSource)
       var link = this.$refs.dwnld

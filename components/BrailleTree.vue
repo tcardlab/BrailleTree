@@ -1,6 +1,5 @@
 <template>
   <svg
-    ref="htmlsvg"
     :width="compwidth + 'mm'"
     :height="compheight + 'mm'"
     xmlns="http://www.w3.org/2000/svg"
