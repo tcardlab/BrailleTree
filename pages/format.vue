@@ -2,8 +2,8 @@
   <div class="container">
 
     <Formatter/>
-
-    <BrailleTree/>
+    
+    <BrailleTree ref="htmlsvg"/>
 
     <div>
       <label>display</label>
@@ -17,7 +17,7 @@
     />
     <!--Bootstrap button-->
     <a
-      id="dwnld"
+      ref="dwnld"
       class="btn"
       href="#htmlsvg"
       @click="downloadSVG()"
@@ -40,12 +40,11 @@ export default {
   },
   methods: {
     /* eslint-disable no-unused-vars, no-var */
-    downloadSVG: function() {
-      // var svgRoot = document.getElementById('htmlsvg')
-      var svgRoot = this._$.$refs.htmlsvg
+    downloadSVG() {
+      var svgRoot = this.$refs.htmlsvg
       var svgSource = svgRoot.outerHTML
       var svgDataUri = 'data:image/svg+xml;base64,' + btoa(svgSource)
-      var link = document.getElementById('dwnld')
+      var link = this.$refs.dwnld
       link.setAttribute('href', svgDataUri)
     }
   }

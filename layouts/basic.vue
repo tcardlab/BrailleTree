@@ -20,16 +20,27 @@
         <b-col col md="2" class="d-none d-md-table-cell">1 of 3</b-col>
         <b-col col sm="12" md="8" style="background:white">
           <nuxt/>
+          <div style="height:100px; width:100%; background:green;">
+            footer2
+          </div>
         </b-col>
         <b-col col md="2" class="d-none d-md-table-cell">3 of 3</b-col>
       </b-row>
     </div>
+
+    <div style="height:100px; background:red;">
+      footer2
+    </div>
+
   </div>
 </template>
 
 <style>
 .container {
   height: 100vh;
+}
+.col {
+  padding: 0;
 }
 .navbar {
   width: 100%;
