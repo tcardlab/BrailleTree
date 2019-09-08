@@ -12,11 +12,11 @@
     <path :id="id" :d="dStr(for1, for2)"></path>
 
     <text
-      v-if="id != ''"
+      v-if="Boolean(id) == true"
       :dy="id == 'Bottom' ? '.9em' : '-.35em'"
       :font-size="+_$.size / 4 + 'mm'"
     >
-      <textPath :href="'#' + id" startOffset="25%" text-anchor="middle">
+      <textPath :xlink:href="'#' + id" startOffset="25%" text-anchor="middle">
         {{ id }}
       </textPath>
     </text>
