@@ -3,6 +3,7 @@
     :width="compwidth + 'mm'"
     :height="compheight + 'mm'"
     xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <svg :x="_$.boarder + 'mm'" :y="compheight / 2 - 3.25 + 'mm'" style="overflow:visible;"> 
       <!-- Init Cell -->
