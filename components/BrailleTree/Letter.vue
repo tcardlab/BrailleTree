@@ -23,7 +23,7 @@ export default {
     // Defines alph,nums,etc in branch order, indexs list, and returns glyph
     findGlyph: function(num, for1, for2) {
       let numbers = this._$.display>3 ? '12 34567890 ' : '12,34567890.'
-      let alph = 'AB,CDEFGHIJ.KL;MNOPQRST!UV?XYZ'
+      let alph = 'AB,CDEFGHIJ:KL;MNOPQRST!UV?XYZ'
         .split(/'|/)
         .concat(['and', 'for', 'of', 'the', 'with', '(...)'])
       alph = numbers.split(/'|/).concat(alph)
