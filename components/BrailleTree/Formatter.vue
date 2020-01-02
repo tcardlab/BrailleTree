@@ -40,7 +40,7 @@ BrailleTree features
 </template>
 
 <script>
-import BaseCheckbox from '~/components/BaseCheckbox.vue'
+import BaseCheckbox from './BaseCheckbox.vue'
 
 export default {
   components: {

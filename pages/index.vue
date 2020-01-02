@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import BaseCheckbox from '~/components/BaseCheckbox.vue'
-import BrailleTree from '~/components/BrailleTree.vue'
+import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
+import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
 
 export default {
   layout: 'basic',

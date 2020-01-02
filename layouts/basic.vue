@@ -21,7 +21,7 @@
         <b-col col sm="12" md="8" style="background:white">
           <nuxt/>
           <div style="height:100px; width:100%; background:green;">
-            footer2
+            footer1
           </div>
         </b-col>
         <b-col col md="2" class="d-none d-md-table-cell">3 of 3</b-col>

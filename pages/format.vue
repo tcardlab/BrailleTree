@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import Formatter from '~/components/Formatter.vue'
-import BrailleTree from '~/components/BrailleTree.vue'
+import Formatter from '~/components/BrailleTree/Formatter.vue'
+import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
 
 export default {
   components: {
