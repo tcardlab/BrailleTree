@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Cell from "./Cell.vue"
+import Cell from "./InteractiveCell.vue"
 import _ from "lodash"
 
 
@@ -60,7 +60,7 @@ export default {
       this.picked = this.randObj(braille)
       this.seen += 1
       var answer = this.selectTens(this.picked.val)
-      if (parseInt(this.picked.key)){
+      if (parseInt(this.picked.key)!=='Nan'){
         // Num or Letter
         var mod = this.randArr(['low', 'cap' , 'num'])
         switch(mod){
