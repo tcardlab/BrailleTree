@@ -82,6 +82,7 @@ export default {
       var cell0 = ['', '', 0, '', '', 0]
       var cell1 = ['', '', 1, '', '', 0]
       var cell2 = ['', '', 1, '', '', 1]
+      var cell3 = ['', '', 0, '', '', 1]
       // _$.display == 4 add whole cell
       if (+this._$.display === 4) {
         cell0 = this.BinaryArray(for1, for2, 1)
@@ -110,7 +111,8 @@ export default {
           return (
             iterCell(cell0, dx, stroke) +
             iterCell(cell1, dx * 2, stroke) +
-            iterCell(cell2, dx * 3, stroke)
+            iterCell(cell2, dx * 3, stroke) +
+            ((for1===2 && (for2===1 || for2===2))? iterCell(cell3, dx * 4, stroke): null)
           )
         } else {
           return iterCell(cell1, dx, stroke) + iterCell(cell2, dx * 2, stroke)

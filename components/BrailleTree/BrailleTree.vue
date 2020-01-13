@@ -53,7 +53,11 @@ export default {
       return 2 * (+this._$.y1 + +this._$.y2 + 3.25) + +this._$.boarder
     },
     compwidth() {
-      if (this._$.display > '3') {
+      if(this._$.display === '5') {
+        const initial = +this._$.x1 + +this._$.x2 + 5 + 2 * this._$.boarder
+        const expanded = 3 * (+this._$.gap + +this._$.size + 1)
+        return initial + expanded
+       }else if (this._$.display > '3') {
         const initial = +this._$.x1 + +this._$.x2 + 4 + 2 * this._$.boarder
         const expanded = 2 * (+this._$.gap + +this._$.size + 1)
         return initial + expanded // extra width for All, give 2 extra columns

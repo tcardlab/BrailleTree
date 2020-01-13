@@ -22,7 +22,7 @@ export default {
   methods: {
     // Defines alph,nums,etc in branch order, indexs list, and returns glyph
     findGlyph: function(num, for1, for2) {
-      let numbers = this._$.display>3 ? '12 34567890 ' : '12,34567890.'
+      let numbers = this._$.display>3 ? '12 34567890 ' : '12,34567890:'
       let alph = 'AB,CDEFGHIJ:KL;MNOPQRST!UV?XYZ'
         .split(/'|/)
         .concat(['and', 'for', 'of', 'the', 'with', '(...)'])
@@ -92,12 +92,19 @@ export default {
             `<tspan x="${x + disp}mm" > ${col2} <tspan>` +
             `<tspan x="${x + disp * 2}mm" > ${col3} <tspan>`
           )
-          case 5: return (
-            `<tspan x="${x + disp}mm" dy='3.5mm' > ${col1 +
-              rawHtml(this._$.size / 2, num)} </tspan>` +
-            `<tspan x="${x + disp * 2}mm" > ${col2} </tspan>` +
-            `<tspan x="${x + disp * 3}mm" > ${col3} </tspan>`
-          )
+          case 5: 
+            var font = col3.length>1? this._$.size/2: ''
+            var append = ''
+            if (for1===2 && (for2===1 || for2===2)) {
+              append =`<tspan x="${x + disp * 4}mm" > ${for2==1?'W':'.'} </tspan>`
+            }
+            return (
+              `<tspan x="${x + disp}mm" dy='3.5mm' > ${col1 +
+                rawHtml(this._$.size / 2, num)} </tspan>` +
+              `<tspan x="${x + disp * 2}mm" > ${col2} </tspan>` +
+              `<tspan style="font-size: ${font}mm;" x="${x + disp * 3}mm" > ${col3} </tspan>`+
+              append
+            )
         }
       }
     }
