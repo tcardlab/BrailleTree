@@ -11,7 +11,7 @@
     </div>
 
     <div style="user-select: none;">
-      <h5>Braille <base-checkbox v-model="_$.vuealph"/> Letters</h5>
+      <h5>Braille <base-checkbox v-model="_$.vuealph" :disable="_$.display==='5'? true:false"/> Letters</h5>
       <label>display</label>
       <input v-model="_$.display" type="range" min="0" max="5" />
       <span>{{ ["#'s", 'A-J', 'K-T', 'U-Z', 'All', 'All2'][_$.display] }}</span>
@@ -21,7 +21,7 @@
     Brialle is a different typographic representation of the alphabet.
     wiki – "... the dots are assigned in no obvious order" https://en.wikipedia.org/wiki/Braille#Derivation
 
-    root/fluency 
+    root/fluency
     root/editor
     root/FAQ
     root/Braille

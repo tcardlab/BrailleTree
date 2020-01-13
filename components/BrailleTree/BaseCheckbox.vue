@@ -4,11 +4,11 @@
     <input
       :style="'pointer-events:'+'none'"
       :checked="checked"
-      :disabled="_$.display==='5'? true:false"
+      :disabled="disable"
       @change="$emit('change', $event.target.checked)"
       type="checkbox"
     />
-    <span :style="'pointer-events:'+_$.display==='5'?'none':'auto'" class="slider round"></span>
+    <span class="slider round"></span>
   </label>
 </template>
 
@@ -19,6 +19,7 @@ export default {
     event: 'change'
   },
   props: {
+    disable: Boolean,
     checked: Boolean
   }
 }

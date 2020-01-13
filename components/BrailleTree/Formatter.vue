@@ -34,7 +34,7 @@ BrailleTree features
       </div>
 
       <div>
-        <h4>Braille <base-checkbox v-model="_$.vuealph" /> Letters</h4>
+        <h4>Braille <base-checkbox v-model="_$.vuealph" :disable="_$.display==='5'? true:false"/> Letters</h4>
       </div>
     </div>
 </template>
