@@ -1,5 +1,6 @@
 <template>
   <svg
+    style="user-select: none;"
     :width="compwidth + 'mm'"
     :height="compheight + 'mm'"
     xmlns="http://www.w3.org/2000/svg"

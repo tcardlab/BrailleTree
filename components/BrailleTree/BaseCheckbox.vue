@@ -2,11 +2,13 @@
 <template>
   <label class="switch">
     <input
-      type="checkbox"
+      :style="'pointer-events:'+'none'"
       :checked="checked"
+      :disabled="_$.display==='5'? true:false"
       @change="$emit('change', $event.target.checked)"
+      type="checkbox"
     />
-    <span class="slider round"></span>
+    <span :style="'pointer-events:'+_$.display==='5'?'none':'auto'" class="slider round"></span>
   </label>
 </template>
 
@@ -75,6 +77,13 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+input:disabled + .slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+  opacity: 0.5;
 }
 
 /* Rounded sliders */
