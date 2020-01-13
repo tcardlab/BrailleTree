@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
 
     <Formatter/>
 
@@ -34,6 +34,7 @@ import Formatter from '~/components/BrailleTree/Formatter.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
 
 export default {
+  layout: 'basic',
   components: {
     Formatter,
     BrailleTree

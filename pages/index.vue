@@ -20,12 +20,7 @@
     <p style="word-wrap:break-word;">
     Brialle is a different typographic representation of the alphabet.
     wiki – "... the dots are assigned in no obvious order" https://en.wikipedia.org/wiki/Braille#Derivation
-
-    root/fluency
-    root/editor
-    root/FAQ
-    root/Braille
-
+    <br>
     learn more at BrailleTree.com
     history of braille
     other braille projects
