@@ -3,15 +3,15 @@
     <rect x="-1mm" y="-1mm"
       width="100%" height="100%" fill="lightgreen"/>
     <circle
-      v-for="(dot, i) in cellindex?cellArr:binaryarray" :key="(dot, i)"
+      v-for="(dot, i) in Number.isInteger(cellindex)?cellArr:binaryarray" :key="(dot, i)"
       :display="dot === '' ? 'none' : 'visible'"
       :fill="dot ? 'black' : 'rgba(225,225,225,0)'"
       :cx="i>2 ? '3.25mm' : '0.75mm'"
       :cy="(i % 3) * 2.5 + 0.75 + 'mm'"
       x="300"
       r="0.75mm"
-      @mousedown="cellindex?updateArr(i):null"
-      @mouseup="cellindex?braillechange(cellindex):null"
+      @mousedown="updateArr(i)"
+      @mouseup="braillechange(cellindex)"
     />
   </svg>
 </template>

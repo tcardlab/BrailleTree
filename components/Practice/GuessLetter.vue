@@ -57,10 +57,10 @@ export default {
     pick() {
       this.picked = this.randObj(braille)
       this.seen += 1
+      var answer = this.selectTens(this.picked.val)
       if (parseInt(this.picked.key)){
         // Num or Letter
         var mod = this.randArr(['low', 'cap' , 'num'])
-        var answer = this.selectTens(this.picked.val)
         switch(mod){
           case 'cap': // multiple potential caps
             this.bArr = [mods['cap'], answer.bArr]

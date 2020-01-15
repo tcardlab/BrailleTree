@@ -1,7 +1,7 @@
 <template>
   <div class='wrapper'>
     <div>
-      <cell v-for="(arr,i) in bArr" :key="i" :class="answer"
+      <cell v-for="(arr,i) in bArr" :key="'cell-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
             @braillechange="updateResponse"/>
