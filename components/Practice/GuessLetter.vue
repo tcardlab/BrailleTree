@@ -44,14 +44,16 @@ export default {
     return{
       picked: {},
       answer: '',
-      bArr: [],
+      bArr: [[0,0,0,0,0,0]],
       response: '',
       score: 0,
       seen: 0,
     }
   },
   created(){
-    this.pick()
+    this.$nextTick(() => {
+      this.pick()
+    })
   },
   methods: {
     pick() {
@@ -84,7 +86,12 @@ export default {
     randObj(obj) { 
       var keys = Object.keys(obj)
       var k = keys[keys.length * Math.random() << 0]
-      return {key:k, val:obj[k]}
+      if (k === this.picked.key) {  // prevents repeats AND ensures good spread of types
+        var output = this.randObj(obj)
+        return output
+      } else {
+         return {key:k, val:obj[k]}
+      }
     },
     randArr(arr) { 
       var val = arr[arr.length * Math.random() << 0]

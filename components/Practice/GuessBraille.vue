@@ -46,14 +46,16 @@ export default {
     return {
       picked: {},
       answer: '',
-      bArr: [],
+      bArr: [[0,0,0,0,0,0]],
       response: [],
       score: 0,
       seen: 0,
     }
   },
   created(){
-    this.pick()
+    this.$nextTick(() => {
+      this.pick()
+    })
   },
   methods: {
     pick() {
@@ -99,7 +101,12 @@ export default {
       var bArr = arr[0].map((el, i) => {
         if (tens.includes(i+1)) {return 1} else {return el}
       })
-      return {ans: arr[1][indx], bArr: bArr}
+      var answer = arr[1][indx]
+      if (answer===" "|| answer===this.answer) { // if space of repeat
+        return this.selectTens(arr) // try again (wanted to call pick again, but its a pain)
+      } else {
+        return {ans: answer, bArr: bArr}
+      }
     },
     checkAnswer() {
       if(_.isEqual(this.response,this.bArr)) {
