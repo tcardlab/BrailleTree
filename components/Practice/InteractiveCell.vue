@@ -1,5 +1,5 @@
 <template>
-  <svg id="cell" :x="x" :y="y">
+  <svg id="cell" :x="x" :y="y" @mousedown="click=true" @mouseup="braillechange(cellindex)">
     <rect x="-1mm" y="-1mm"
       width="100%" height="100%" fill="lightgreen"/>
     <circle
@@ -11,17 +11,19 @@
       x="300"
       r="0.75mm"
       @mousedown="updateArr(i)"
-      @mouseup="braillechange(cellindex)"
+      @mouseover="click?updateArr(i):null"
     />
   </svg>
 </template>
 
 <script>
+//@mouseover="updateArr(i)"
 export default {
   props: ['x', 'y','binaryarray', 'cellindex'],
   data(){
     return{
-      cellArr: [0,0,0,0,0,0]
+      cellArr: [0,0,0,0,0,0],
+      click: false
     }
   },
   watch:{
@@ -31,13 +33,11 @@ export default {
   },
   methods: {
     updateArr(i) {
-      var test = this.cellArr
-      test[i] = Number(!this.cellArr[i])
-      this.cellArr = [...test]
+      this.cellArr.splice(i, 1, Number(!this.cellArr[i]))
     },
     braillechange: function (i) {
-      this.$emit('braillechange', 
-                 {bArr:this.cellArr, index:i})
+      this.$emit('braillechange', {bArr:this.cellArr, index:i})
+      this.click=false
     }
   }
 }
