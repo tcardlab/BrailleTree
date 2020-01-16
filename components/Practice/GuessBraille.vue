@@ -1,7 +1,7 @@
 <template>
   <div class='wrapper'>
     <div>
-      <cell v-for="(arr,i) in bArr" :key="i" :class="answer"
+      <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
             @braillechange="updateResponse"/>
@@ -60,7 +60,7 @@ export default {
       this.picked = this.randObj(braille)
       this.seen += 1
       var answer = this.selectTens(this.picked.val)
-      if (Number.isInteger(+this.picked.key)){
+      if (!isNaN(parseInt(this.picked.key))){
         // Num or Letter
         var mod = this.randArr(['low', 'cap' , 'num'])
         switch(mod){
@@ -108,10 +108,8 @@ export default {
         this.pick()
       }
     },
-    updateResponse(variable) {
-      var test = this.response
-      test[variable.index] = variable.bArr
-      this.response = [...test]
+    updateResponse(emitedLoad) {
+      this.response.splice(emitedLoad.index, 1, emitedLoad.bArr)
       this.checkAnswer()
     },
   }
