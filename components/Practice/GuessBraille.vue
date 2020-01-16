@@ -60,7 +60,7 @@ export default {
       this.picked = this.randObj(braille)
       this.seen += 1
       var answer = this.selectTens(this.picked.val)
-      if (parseInt(this.picked.key)!=='Nan'){
+      if (Number.isInteger(+this.picked.key)){
         // Num or Letter
         var mod = this.randArr(['low', 'cap' , 'num'])
         switch(mod){

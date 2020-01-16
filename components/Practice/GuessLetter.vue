@@ -1,7 +1,7 @@
 <template>
   <div class='wrapper'>
     <div>
-      <cell2 v-for="(arr,i) in bArr" :key="i" :class="answer" :binaryarray="arr"/>
+      <cell v-for="(arr,i) in bArr" :key="i" :class="answer" :binaryarray="arr"/>
     </div>
     <div>
       <input v-model="response" 
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Cell2 from "./StaticCell.vue"
+import Cell from "./StaticCell.vue"
 
 
 const mods = {
@@ -39,7 +39,7 @@ const braille = {
  }
 
 export default {
-  components: {Cell2},
+  components: {Cell},
   data() {
     return{
       picked: {},
@@ -57,10 +57,10 @@ export default {
     pick() {
       this.picked = this.randObj(braille)
       this.seen += 1
-      if (parseInt(this.picked.key)!=='Nan'){
+      var answer = this.selectTens(this.picked.val)
+      if (Number.isInteger(+this.picked.key)){
         // Num or Letter
         var mod = this.randArr(['low', 'cap' , 'num'])
-        var answer = this.selectTens(this.picked.val)
         switch(mod){
           case 'cap': // multiple potential caps
             this.bArr = [mods['cap'], answer.bArr]
