@@ -1,5 +1,5 @@
 <template>
-  <svg id="cell" :x="x" :y="y" @mousedown="click=true" @mouseup="braillechange(cellindex)">
+  <svg id="cell" @mousedown="click=true" @mouseup="braillechange(cellindex)">
     <rect x="-1mm" y="-1mm"
       width="100%" height="100%" fill="lightgreen"/>
     <circle
@@ -19,7 +19,7 @@
 <script>
 //@mouseover="updateArr(i)"
 export default {
-  props: ['x', 'y','binaryarray', 'cellindex'],
+  props: ['i', 'binaryarray', 'cellindex'],
   data(){
     return{
       cellArr: [0,0,0,0,0,0],

@@ -1,8 +1,14 @@
 <template>
-  <b-container class="bv-example-row">
-    <b-row>
-      <b-col> <Guess-Braille/> </b-col>
-      <b-col> <Guess-Letter/>  </b-col>
+  <b-container class="practice-page">
+    <b-row class="practice-row">
+      <b-col class="practice-col" md="6">
+         <h3>Guess The Braille:</h3>
+         <Guess-Braille/> 
+      </b-col>
+      <b-col class="practice-col" md="6"> 
+        <h3>Guess The Letter:</h3>
+        <Guess-Letter/>  
+      </b-col>
     </b-row>
   </b-container>
 </template>
@@ -16,6 +22,16 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.practice-page {
+  height: calc(100vh - 159px);
+}
 
+.practice-row {
+  padding: 15px;
+}
+
+.practice-col {
+  border: 2px solid  gray !important;
+}
 </style>

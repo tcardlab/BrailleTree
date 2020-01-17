@@ -1,7 +1,7 @@
 <template>
   <div class='wrapper'>
     <div>
-      <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer" :binaryarray="arr"/>
+      <cell v-for="(arr,i) in bArr" :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`" :key="answer+'-'+i" :class="answer" :i="i" :binaryarray="arr"/>
     </div>
     <div>
       <input v-model="response" 
@@ -122,12 +122,18 @@ h2 {
   margin: 0px;
 }
 
+#cell {
+  transform: scale(1.5)
+}
+
 .wrapper {
   width: 100%;
-  background-color: red;
+  height: 100%;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  user-select: none;
 }
 </style>

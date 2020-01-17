@@ -4,6 +4,7 @@
       <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
+            :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`"
             @braillechange="updateResponse"/>
     </div>
     <div>
@@ -131,7 +132,8 @@ h3 {
 
 .wrapper {
   width: 100%;
-  background-color: red;
+  height: 100%;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
