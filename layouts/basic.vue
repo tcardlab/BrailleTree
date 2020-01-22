@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-layout">
     <b-navbar toggleable="sm" type="dark" variant="info">
       <b-navbar-brand href="/">
         <img src="../assets/Brailletree.png" style="filter: invert(1);"/>
@@ -10,10 +10,10 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/format">editor</b-nav-item>
-          <b-nav-item href="/practice">practice</b-nav-item>
+          <b-nav-item href="/format">Editor</b-nav-item>
+          <b-nav-item href="/practice">Practice</b-nav-item>
           <b-nav-item href="#">fluency/proficiency</b-nav-item>
-          <b-nav-item href="#">FAQ</b-nav-item>
+          <b-nav-item href="/faq">FAQ</b-nav-item>
           <b-nav-item href="#">More Braille</b-nav-item>
         </b-navbar-nav>
 
@@ -23,18 +23,16 @@
     <div class="container-fluid">
       <!-- larger than md = 2-8-2 // md and below = 12(fullscreen) -->
       <b-row class="justify-content-center" style="background:#eee"> <!-- #f2f5f7  fafafa-->
-        <b-col col md="2" class="d-none d-md-table-cell">
+        <b-col col md="2" class="d-none d-md-table-cell"/>
 
-        </b-col>
         <b-col col sm="12" md="8" style="background:white">
           <nuxt style="padding: 15px"/>
           <div style="height:100px; width:100%; background:green;">
             footer1
           </div>
         </b-col>
-        <b-col col md="2" class="d-none d-md-table-cell">
 
-        </b-col>
+        <b-col col md="2" class="d-none d-md-table-cell"/>
       </b-row>
     </div>
 

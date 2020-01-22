@@ -1,9 +1,10 @@
 <template>
   <div class='wrapper'>
     <div>
-      <cell v-for="(arr,i) in bArr" :key="i" :class="answer"
+      <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
+            :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`"
             @braillechange="updateResponse"/>
     </div>
     <div>
@@ -15,7 +16,7 @@
 </template>
 
 <script>
-import Cell from "./Cell.vue"
+import Cell from "./InteractiveCell.vue"
 import _ from "lodash"
 
 
@@ -46,21 +47,23 @@ export default {
     return {
       picked: {},
       answer: '',
-      bArr: [],
+      bArr: [[0,0,0,0,0,0]],
       response: [],
       score: 0,
       seen: 0,
     }
   },
   created(){
-    this.pick()
+    this.$nextTick(() => {
+      this.pick()
+    })
   },
   methods: {
     pick() {
       this.picked = this.randObj(braille)
       this.seen += 1
       var answer = this.selectTens(this.picked.val)
-      if (parseInt(this.picked.key)){
+      if (!isNaN(parseInt(this.picked.key))){
         // Num or Letter
         var mod = this.randArr(['low', 'cap' , 'num'])
         switch(mod){
@@ -99,7 +102,12 @@ export default {
       var bArr = arr[0].map((el, i) => {
         if (tens.includes(i+1)) {return 1} else {return el}
       })
-      return {ans: arr[1][indx], bArr: bArr}
+      var answer = arr[1][indx]
+      if (answer===" "|| answer===this.answer) { // if space of repeat
+        return this.selectTens(arr) // try again (wanted to call pick again, but its a pain)
+      } else {
+        return {ans: answer, bArr: bArr}
+      }
     },
     checkAnswer() {
       if(_.isEqual(this.response,this.bArr)) {
@@ -108,10 +116,8 @@ export default {
         this.pick()
       }
     },
-    updateResponse(variable) {
-      var test = this.response
-      test[variable.index] = variable.bArr
-      this.response = [...test]
+    updateResponse(emitedLoad) {
+      this.response.splice(emitedLoad.index, 1, emitedLoad.bArr)
       this.checkAnswer()
     },
   }
@@ -126,7 +132,8 @@ h3 {
 
 .wrapper {
   width: 100%;
-  background-color: red;
+  height: 100%;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,27 +1,29 @@
 <template>
-  <svg id="cell" :x="x" :y="y">
+  <svg id="cell" @mousedown="click=true" @mouseup="braillechange(cellindex)">
     <rect x="-1mm" y="-1mm"
       width="100%" height="100%" fill="lightgreen"/>
     <circle
-      v-for="(dot, i) in cellindex?cellArr:binaryarray" :key="(dot, i)"
+      v-for="(dot, i) in cellArr" :key="(dot, i)"
       :display="dot === '' ? 'none' : 'visible'"
       :fill="dot ? 'black' : 'rgba(225,225,225,0)'"
       :cx="i>2 ? '3.25mm' : '0.75mm'"
       :cy="(i % 3) * 2.5 + 0.75 + 'mm'"
       x="300"
       r="0.75mm"
-      @mousedown="cellindex?updateArr(i):null"
-      @mouseup="cellindex?braillechange(cellindex):null"
+      @mousedown="updateArr(i)"
+      @mouseover="click?updateArr(i):null"
     />
   </svg>
 </template>
 
 <script>
+//@mouseover="updateArr(i)"
 export default {
-  props: ['x', 'y','binaryarray', 'cellindex'],
+  props: ['i', 'binaryarray', 'cellindex'],
   data(){
     return{
-      cellArr: [0,0,0,0,0,0]
+      cellArr: [0,0,0,0,0,0],
+      click: false
     }
   },
   watch:{
@@ -31,20 +33,17 @@ export default {
   },
   methods: {
     updateArr(i) {
-      var test = this.cellArr
-      test[i] = Number(!this.cellArr[i])
-      this.cellArr = [...test]
+      this.cellArr.splice(i, 1, Number(!this.cellArr[i]))
     },
     braillechange: function (i) {
-      this.$emit('braillechange', 
-                 {bArr:this.cellArr, index:i})
+      this.$emit('braillechange', {bArr:this.cellArr, index:i})
+      this.click=false
     }
   }
 }
 </script>
 
 <style>
-
 #cell {
   width: 6mm;
   height: 8.5mm;

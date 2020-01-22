@@ -1,21 +1,75 @@
 <template>
-  <b-container class="bv-example-row">
-    <b-row>
-      <b-col> <Guess-Braille/> </b-col>
-      <b-col> <Guess-Letter/>  </b-col>
+  <b-container class="practice-page">
+    <b-row class="practice-row">
+      <b-col class="practice-col" md="6">
+         <h3>Guess The Braille:</h3>
+         <Guess-Braille/> 
+      </b-col>
+      <b-col class="practice-col" md="6"> 
+        <h3>Guess The Letter:</h3>
+        <Guess-Letter/>  
+      </b-col>
     </b-row>
+      <b-button v-b-toggle.collapse-1 variant="primary">Hint</b-button>
+      <div>
+        <b-collapse id="collapse-1" class="mt-2">
+          <b-card>
+            <!--Display Braille @ proper mm sale -->
+            <BrailleTree align="center" class="d-none d-sm-table mx-auto"/>
+            <!--Display scaled braille for mobile -->
+            <div class="d-sm-none" align="center" style="user-select: none;">
+              <svg viewBox="0 0 434.641 462.984">
+                <BrailleTree />
+              </svg>
+            </div>
+
+            <div align="center" style="user-select: none;">
+              <h5>Braille <base-checkbox v-model="_$.vuealph" :disable="_$.display==='5'? true:false"/> Letters</h5>
+              <label>display</label>
+              <input v-model="_$.display" type="range" min="0" max="5" />
+              <span>{{ ["#'s", 'A-J', 'K-T', 'U-Z', 'All', 'All2'][_$.display] }}</span>
+            </div>
+          </b-card>
+        </b-collapse>
+      </div>
+      <b-row class="quote-row">
+        <GuessQuote/>
+      </b-row>
   </b-container>
 </template>
 
 <script>
 import GuessBraille from "../components/Practice/GuessBraille.vue"
 import GuessLetter from "../components/Practice/GuessLetter.vue"
+import GuessQuote from "../components/Practice/GuessQuote.vue"
+
+import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
+import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
+
+
 export default {
   layout: 'basic',
-  components: {GuessBraille, GuessLetter}
+  components: {GuessBraille, GuessLetter, GuessQuote, BaseCheckbox, BrailleTree}
 }
 </script>
 
-<style>
+<style scoped>
+.practice-page {
+  min-height: calc(100vh - 159px);
+  height: auto;
+}
+
+.practice-row {
+  padding: 15px;
+}
+
+.quote-row {
+  padding: 15px;
+  justify-content: center;
+}
+
+.practice-col {
+  border: 2px solid  gray !important;
+}
 
 </style>

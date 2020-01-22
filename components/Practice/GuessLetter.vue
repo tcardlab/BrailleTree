@@ -1,7 +1,7 @@
 <template>
   <div class='wrapper'>
     <div>
-      <cell v-for="(arr,i) in bArr" :key="i" :class="answer" :binaryarray="arr"/>
+      <cell v-for="(arr,i) in bArr" :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`" :key="answer+'-'+i" :class="answer" :i="i" :binaryarray="arr"/>
     </div>
     <div>
       <input v-model="response" 
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Cell from "./Cell.vue"
+import Cell from "./StaticCell.vue"
 
 
 const mods = {
@@ -44,23 +44,25 @@ export default {
     return{
       picked: {},
       answer: '',
-      bArr: [],
+      bArr: [[0,0,0,0,0,0]],
       response: '',
       score: 0,
       seen: 0,
     }
   },
   created(){
-    this.pick()
+    this.$nextTick(() => {
+      this.pick()
+    })
   },
   methods: {
     pick() {
       this.picked = this.randObj(braille)
       this.seen += 1
-      if (parseInt(this.picked.key)){
+      var answer = this.selectTens(this.picked.val)
+      if (!isNaN(parseInt(this.picked.key))){
         // Num or Letter
         var mod = this.randArr(['low', 'cap' , 'num'])
-        var answer = this.selectTens(this.picked.val)
         switch(mod){
           case 'cap': // multiple potential caps
             this.bArr = [mods['cap'], answer.bArr]
@@ -84,7 +86,12 @@ export default {
     randObj(obj) { 
       var keys = Object.keys(obj)
       var k = keys[keys.length * Math.random() << 0]
-      return {key:k, val:obj[k]}
+      if (k === this.picked.key) {  // prevents repeats AND ensures good spread of types
+        var output = this.randObj(obj)
+        return output
+      } else {
+         return {key:k, val:obj[k]}
+      }
     },
     randArr(arr) { 
       var val = arr[arr.length * Math.random() << 0]
@@ -109,18 +116,24 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h2 {
   display: inline;
   margin: 0px;
 }
 
+#cell {
+  transform: scale(1.5)
+}
+
 .wrapper {
   width: 100%;
-  background-color: red;
+  height: 100%;
+  /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  user-select: none;
 }
 </style>
