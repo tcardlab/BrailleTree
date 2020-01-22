@@ -13,20 +13,20 @@
       <br><br>
       Braille, as I see it, is divided and organized by defineing features. 
       The Alphabet is easily destinguishable from punctuation and end marks from the remaining punctuation.
-    </p>
+    </p><br>
 
     <h5><strong>Has accesability technology depricated braille?</strong></h5>
     <p>
       text-to-speech(TTS) and speech-to-text(STT) 
       not good for math etc.
       not greate for writing privately/descretely.
-    </p>
+    </p><br>
 
     <h5><strong>Some other question?</strong></h5>
-    <p>more text</p>
+    <p>more text</p><br>
 
     <h5><strong>Some other question?</strong></h5>
-    <p>more text</p>
+    <p>more text</p><br>
 
   </div>
 </template>

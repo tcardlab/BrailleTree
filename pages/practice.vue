@@ -32,12 +32,16 @@
           </b-card>
         </b-collapse>
       </div>
+      <b-row class="quote-row">
+        <GuessQuote/>
+      </b-row>
   </b-container>
 </template>
 
 <script>
 import GuessBraille from "../components/Practice/GuessBraille.vue"
 import GuessLetter from "../components/Practice/GuessLetter.vue"
+import GuessQuote from "../components/Practice/GuessQuote.vue"
 
 import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
@@ -45,7 +49,7 @@ import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
 
 export default {
   layout: 'basic',
-  components: {GuessBraille, GuessLetter, BaseCheckbox, BrailleTree}
+  components: {GuessBraille, GuessLetter, GuessQuote, BaseCheckbox, BrailleTree}
 }
 </script>
 
@@ -57,6 +61,11 @@ export default {
 
 .practice-row {
   padding: 15px;
+}
+
+.quote-row {
+  padding: 15px;
+  justify-content: center;
 }
 
 .practice-col {
