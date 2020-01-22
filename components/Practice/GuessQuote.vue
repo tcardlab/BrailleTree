@@ -1,17 +1,24 @@
 <template>
   <div class='Hwrapper'>
     <div>
-      <cell v-for="(arr, i) in qArr" :key="i" :class="answer" :color="qMatch[i]" :binaryarray="arr"/>
+      <span class="braille-set" v-for="(arr, i) in qArr" :key="i">
+        <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
+        <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="qMatch[i]" :binaryarray="mods['cap']" />
+        <cell :class="answer" :color="qMatch[i]" :binaryarray="arr"/>
+      </span>
     </div>
     <br>
-    <div><cell v-for="(arr, i) in pArr" :key="i" :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
+    <div>
+      <span class="braille-set" v-for="(arr, i) in pArr" :key="i">
+        <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="pMatch[i]" :binaryarray="mods['cap']" />
+        <cell :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
+      </span>
     </div>
     <textarea
-           class="input-quote" 
-           v-model="responseQ" 
-           placeholder="Quote?"
-           >
-    </textarea>
+      class="input-quote" 
+      v-model="responseQ" 
+      placeholder="Quote?"
+    > </textarea>
     <span align="left">
       <strong>–</strong>
       <input
@@ -27,18 +34,7 @@
 
 <script>
 import Cell from "./HighlightCell.vue"
-
-/* const mods = {
-  num:[0, 0, 1, 1, 1, 1],
-  cap:[0, 0, 0, 0, 0, 1],
-} */
-
-const quotes = [
-  {'quote': "believe in the me that believes in you",
-   'person': "Kamina"},
-  {'quote': "life is like a pencil that will surely run out, but will leave the beautiful writing of life.",
-   'person': "Nami"}
-]
+import { quotes } from "./Quotes"
 
 const braille = {
   'a': [1, 0, 0, 0, 0, 0],
@@ -92,7 +88,10 @@ export default {
   components: {Cell},
   data() {
     return {
-      picked: {},
+      mods: {
+        num:[0, 0, 1, 1, 1, 1],
+        cap:[0, 0, 0, 0, 0, 1]
+      },
       answer: '',
       qArr: [],
       pArr: [],
@@ -124,6 +123,9 @@ export default {
     } 
   },
   methods: {
+    isUpperCase(string){ 
+      return /^[A-Z]*$/.test(string)
+    },
     pick() {
       this.answer = this.randArr(quotes)
       this.qArr = this.textToBArr(this.answer.quote)
@@ -155,6 +157,10 @@ export default {
   stroke: black;
 } */
 
+svg {
+  margin: 0 !important; /* idk margin-top might be good here */
+}
+
 .Hwrapper {
   width: 80%;
   height: auto;
@@ -183,5 +189,9 @@ textarea {
 input {
   margin-top: 8px !important;
   justify-content: left;
+}
+
+.braille-set {
+  display: inline-flex;
 }
 </style>
