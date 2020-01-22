@@ -10,10 +10,10 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/format">editor</b-nav-item>
-          <b-nav-item href="/practice">practice</b-nav-item>
+          <b-nav-item href="/format">Editor</b-nav-item>
+          <b-nav-item href="/practice">Practice</b-nav-item>
           <b-nav-item href="#">fluency/proficiency</b-nav-item>
-          <b-nav-item href="#">FAQ</b-nav-item>
+          <b-nav-item href="/faq">FAQ</b-nav-item>
           <b-nav-item href="#">More Braille</b-nav-item>
         </b-navbar-nav>
 
