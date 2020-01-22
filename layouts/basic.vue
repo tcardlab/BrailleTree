@@ -2,7 +2,7 @@
   <div class="my-layout">
     <b-navbar toggleable="sm" type="dark" variant="info">
       <b-navbar-brand href="/">
-        <img src="../assets/Brailletree.png" style="filter: invert(1);"/>
+        <img src="../assets/BrailleTree.png" style="filter: invert(1);"/>
         BrailleTree
       </b-navbar-brand>
 
