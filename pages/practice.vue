@@ -1,13 +1,20 @@
 <template>
   <b-container class="practice-page">
+    <h1 align="center">Practice</h1>
+    <hr>
     <b-row class="practice-row">
-      <b-col class="practice-col" md="6">
-         <h3>Guess The Braille:</h3>
+      <b-col class="practice-col" md="5">
+         <h3>Solve For Braille:</h3>
+         <p>Translate the given glyph to Braille using "click and drag" to toggle dots.</p>
          <Guess-Braille/> 
       </b-col>
-      <b-col class="practice-col" md="6"> 
-        <h3>Guess The Letter:</h3>
-        <Guess-Letter/>  
+      <b-col align="right" md="2">
+        <div class="vl"/>
+      </b-col>
+      <b-col class="practice-col" md="5"> 
+        <h3>Solve For Glyphs:</h3>
+        <p>Type the translation of the given braille.</p>
+        <Guess-Letter/>
       </b-col>
     </b-row>
       <b-button v-b-toggle.collapse-1 variant="primary">Hint</b-button>
@@ -69,7 +76,12 @@ export default {
 }
 
 .practice-col {
-  border: 2px solid  gray !important;
+  /* border: 2px solid  gray !important; */
+}
+.vl {
+  border-left: 1px solid lightgrey;
+  height: 100%;
+  width: 50%
 }
 
 </style>

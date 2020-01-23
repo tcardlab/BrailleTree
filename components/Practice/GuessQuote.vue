@@ -1,5 +1,7 @@
 <template>
   <div class='Hwrapper'>
+    <h3>Solve Quotes:</h3>
+    <p>NOTE: These quotes do not include numbers nor abbreviated words.</p>
     <div>
       <span class="braille-set" v-for="(arr, i) in qArr" :key="i">
         <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
@@ -22,10 +24,10 @@
     <span align="left">
       <strong>–</strong>
       <input
-           class="input-person"
-           v-model="responseP"
-           placeholder="Person?"
-           >
+        class="input-person"
+        v-model="responseP"
+        placeholder="Person?"
+      >
     
       <button @click="pick()">Next</button>
     </span>
@@ -170,7 +172,7 @@ svg {
   justify-content: left; 
   align-items: left;
   /* background-color: red; */
-  border: 2px solid  gray !important;
+  /* border: 2px solid  gray !important; */
   flex-direction: column;
   padding: 15px;
 }

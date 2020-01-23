@@ -1,5 +1,5 @@
 <template>
-  <svg id="cell" @mousedown="click=true" @mouseup="braillechange(cellindex)">
+  <svg id="cell" @mousedown="click=true" @mouseup="braillechange(cellindex)" @mouseleave="braillechange(cellindex)">
     <rect x="-1mm" y="-1mm"
       width="100%" height="100%" fill="lightgreen"/>
     <circle

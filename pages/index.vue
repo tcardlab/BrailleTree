@@ -1,21 +1,9 @@
 <template>
-  <div  align="center" >
+  <div  align="center">
 
     <p>
-      Brialle is a tactile typographic representation of the latin writting system. 
-      The Unified English Braille Code (UEB) recognizes two standard "Grades" of braille and a few additional sets for mathematics, coding, and music. 
-      The standard grades are built upon repeating cells of upto six raised dots. Each cell is either glyph or modifier that changes how the following cell(s) are read.
-      <br><br>
-      The beginning of ones braille journey starts at Grade 1, consisting of alphanumerics, punctuation, few common words, and limited modifiers. 
-      Grade 2 introduces more of these modifiers in the form of "contractions".
-      
-      <br><br>
-      
-      
       Braille, as I see it, is divided and organized by defineing features. 
       The Alphabet is easily destinguishable from punctuation and end marks from the remaining punctuation.
-
-      
     </p>
 
     <!--Display Braille @ proper mm sale -->
@@ -38,8 +26,6 @@
     Brialle is a different typographic representation of the alphabet.
     wiki – "... the dots are assigned in no obvious order" https://en.wikipedia.org/wiki/Braille#Derivation
     <br>
-
-    
 
     <br>
     learn more at BrailleTree.com

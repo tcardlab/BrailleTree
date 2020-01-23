@@ -123,17 +123,21 @@ h2 {
 }
 
 #cell {
-  transform: scale(1.5)
+  transform: scale(1.5);
 }
 
 .wrapper {
   width: 100%;
-  height: 100%;
+  height: auto;
   /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   user-select: none;
+}
+
+input {
+  margin-top: 5px;
 }
 </style>

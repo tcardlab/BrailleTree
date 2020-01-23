@@ -8,7 +8,7 @@
             @braillechange="updateResponse"/>
     </div>
     <div>
-    <h3> {{answer}} </h3>
+    <h3 class="answer"> {{answer}} </h3>
     <button @click="pick()">Pass</button>
     <p>Score: {{score}} / {{seen-1}}</p>
     </div>
@@ -132,11 +132,15 @@ h3 {
 
 .wrapper {
   width: 100%;
-  height: 100%;
+  height: auto;
   /* background-color: red; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.answer {
+  font-family: "Times New Roman"
 }
 </style>

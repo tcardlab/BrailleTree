@@ -12,7 +12,7 @@
         <b-navbar-nav>
           <b-nav-item href="/format">Editor</b-nav-item>
           <b-nav-item href="/practice">Practice</b-nav-item>
-          <b-nav-item href="#">fluency/proficiency</b-nav-item>
+          <b-nav-item href="#">Proficiency</b-nav-item>
           <b-nav-item href="/faq">FAQ</b-nav-item>
           <b-nav-item href="#">More Braille</b-nav-item>
         </b-navbar-nav>
@@ -55,4 +55,22 @@
 .navbar {
   width: 100%;
 }
+
+a.nav-link:hover {
+  color: white !important;
+  /* border-bottom: 2px solid white */
+}
+
+a.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;;
+  text-decoration: none !important;
+  /* border-bottom: 2px solid rgba(255, 255, 255, 0) */
+}
+
+.navbar {
+  
+  
+  
+}
+
 </style>

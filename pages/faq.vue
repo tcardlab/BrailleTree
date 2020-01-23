@@ -10,9 +10,6 @@
       <br><br>
       The beginning of ones braille journey starts at Grade 1, consisting of alphanumerics, punctuation, few common words, and limited modifiers. 
       Grade 2 introduces more of these modifiers in the form of "contractions".
-      <br><br>
-      Braille, as I see it, is divided and organized by defineing features. 
-      The Alphabet is easily destinguishable from punctuation and end marks from the remaining punctuation.
     </p><br>
 
     <h5><strong>Has accesability technology depricated braille?</strong></h5>
