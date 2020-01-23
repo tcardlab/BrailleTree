@@ -27,10 +27,10 @@ export const quotes = [
     'quote': 'The best way to find yourself is to lose yourself in the service of others.',
     'person': 'Mahatma Gandhi'
   },
-  {
+  /* {
     'quote': 'Of course I read Braille, yes.',
     'person': 'Stevie Wonder'
-  },
+  }, */
   {
     'quote': 'Learning to read music in Braille and play by ear helped me develop a damn good memory.',
     'person': 'Ray Charles'

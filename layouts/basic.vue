@@ -67,10 +67,4 @@ a.nav-link {
   /* border-bottom: 2px solid rgba(255, 255, 255, 0) */
 }
 
-.navbar {
-  
-  
-  
-}
-
 </style>
