@@ -10,11 +10,11 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/format">Editor</b-nav-item>
           <b-nav-item href="/practice">Practice</b-nav-item>
-          <b-nav-item href="#">Proficiency</b-nav-item>
+          <b-nav-item href="/Proficiency">Proficiency</b-nav-item>
           <b-nav-item href="/faq">FAQ</b-nav-item>
-          <b-nav-item href="#">More Braille</b-nav-item>
+           <b-nav-item href="/format">Editor</b-nav-item>
+          <b-nav-item href="/misc">More Braille</b-nav-item>
         </b-navbar-nav>
 
       </b-collapse>

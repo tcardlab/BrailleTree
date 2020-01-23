@@ -48,3 +48,10 @@ export default {
   },
 }
 </script>
+
+
+<style >
+#Bottom, .Bottom-1 {
+  fill: var(--info);
+}
+</style>
