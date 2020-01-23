@@ -7,15 +7,20 @@
       <br>
       <strong>3D models are availible as teaching aid to the blind at thingiverse?.</strong>
       <br>
-      If you unfamiliar with Braille please see the <a  href="/faq"><b-badge variant="info">FAQ Page</b-badge></a>.<!--info vs primary?-->
+      If you unfamiliar with Braille please see the <b-badge href="/faq" variant="info">FAQ Page</b-badge>.<!--info vs primary?-->
     </b-alert>
     <p>
       Braille, as I see it, is divided and organized by defineing features. 
       The Alphabet is easily destinguishable from punctuation and end marks from the remaining punctuation.
     </p>
     ⠦= ? How ""
-    ⠴= ! Forte
+    ⠖= ! Forte
     ⠲= . Dot
+
+    <Static-Cell color="#9dd" :binaryarray="[1,0,0,0,0,1]" style="fill: var(--info) !important;" />
+
+    <Static-Cell v-for="(arr,i) in [[0,1,1,0,0,1], [0,0,1,0,1,1], [0,1,0,0,1,1]]" :key="'test-'+i" color="#9dd" :binaryarray="arr" style="fill: var(--info) !important;" />
+
     <!--Display Braille @ proper mm sale -->
     <BrailleTree class="d-none d-sm-table-cell"/>
     <!--Display scaled braille for mobile -->
@@ -49,12 +54,14 @@
 <script>
 import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
+import StaticCell from '~/components/Practice/StaticCell.vue'
 
 export default {
   layout: 'basic',
   components: {
     BrailleTree,
     BaseCheckbox,
+    StaticCell
   },
 }
 </script>

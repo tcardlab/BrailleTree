@@ -1,7 +1,7 @@
 <template>
   <svg id="cell" :x="x" :y="y">
     <rect x="-1mm" y="-1mm"
-      width="100%" height="100%" fill="lightgreen"/>
+      width="100%" height="100%" :fill="color ? color:'lightgreen'"/>
     <circle
       v-for="(dot, i) in binaryarray" :key="(dot, i)"
       :display="dot === '' ? 'none' : 'visible'"
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ['x', 'y','binaryarray'],
+  props: ['x', 'y','binaryarray', 'color'],
 }
 </script>
 
