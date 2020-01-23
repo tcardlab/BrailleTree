@@ -1,11 +1,21 @@
 <template>
   <div  align="center">
-
+    <h1>BrailleTree</h1>
+    <hr>
+    <b-alert show> 
+      This article is for sighted people who wish to lean Grade 1 Braille and spread this method to the blind.
+      <br>
+      <strong>3D models are availible as teaching aid to the blind at thingiverse?.</strong>
+      <br>
+      If you unfamiliar with braille please see the <a  href="/faq"><b-badge variant="primary">FAQ Page</b-badge></a>.
+    </b-alert>
     <p>
       Braille, as I see it, is divided and organized by defineing features. 
       The Alphabet is easily destinguishable from punctuation and end marks from the remaining punctuation.
     </p>
-
+    ⠦= ? How ""
+    ⠴= ! Forte
+    ⠲= . Dot
     <!--Display Braille @ proper mm sale -->
     <BrailleTree class="d-none d-sm-table-cell"/>
     <!--Display scaled braille for mobile -->

@@ -14,7 +14,7 @@
       <g v-for="(j, j2) in [-1, 0, 1]" :key="j2">
         <!--First Branch-->
         <Cell :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'" />
-        <Branch :for1="j" dx="0" dy="0" :id="_$.vuelabel ? ['Top', 'Both', 'Bottom'][j2] : ''" :class="['Top', 'Both', 'Bottom'][j2]"/>
+        <Branch :for1="j" dx="0" dy="0" :id="_$.vuelabel ? ['Top', '2', 'Bottom'][j2] : ''" :class="['Top', 'Both', 'Bottom'][j2]"/>
         <Letter :for1="j2" :dx="_$.x1 + 'mm'" :dy="j * _$.y1 + 'mm'"/>
 
         <g v-for="(k, k2) in [-1, 0, 1]" :key="k2">

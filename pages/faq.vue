@@ -12,20 +12,26 @@
       Grade 2 introduces more of these modifiers in the form of "contractions".
     </p><br>
 
+    <h5><strong>Who created Braille?</strong></h5>
+    <p>
+      
+    </p><br>
+
     <h5><strong>Has accesability technology depricated braille?</strong></h5>
     <p>
+      init. thoughts:
       text-to-speech(TTS) and speech-to-text(STT) 
       not good for math etc.
       not greate for writing privately/descretely.
     </p><br>
 
     <h5><strong>On braille literacy rates?</strong></h5>
-    <p>more text</p><br>
+    <p>they are astronomically low</p><br>
 
     <h5><strong>Where can I learn more?</strong></h5>
-    <p>more text</p><br>
+    <p>not too sure yet...</p><br>
 
-    <h5><strong>Idk?</strong></h5>
+    <h5><strong>Idk? Need more</strong></h5>
     <p>more text</p><br>
 
   </div>
