@@ -1,7 +1,7 @@
 <template>
   <div class='Hwrapper'>
     <h3>Solve Quotes:</h3>
-    <p>NOTE: These quotes do not include numbers nor abbreviated words.</p>
+    <p>NOTE: These quotes do not include numbers nor abbreviated words. Correct answers are <strong>NOT</strong> automaticaly submitted.</p>
     <div>
       <span class="braille-set" v-for="(arr, i) in qArr" :key="i">
         <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->

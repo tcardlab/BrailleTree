@@ -5,7 +5,7 @@
     <b-row class="practice-row">
       <b-col class="practice-col" md="5">
          <h3>Solve For Braille:</h3>
-         <p>Translate the given glyph to Braille using "click and drag" to toggle dots.</p>
+         <p>Translate the given glyph to Braille using "click and drag" to toggle dots. Correct answers are automatically submitted.</p>
          <Guess-Braille/> 
       </b-col>
       <b-col align="right" md="2">
@@ -13,7 +13,7 @@
       </b-col>
       <b-col class="practice-col" md="5"> 
         <h3>Solve For Glyphs:</h3>
-        <p>Type the translation of the given braille.</p>
+        <p>Type the translation of the given braille. Correct answers are automatically submitted.</p>
         <Guess-Letter/>
       </b-col>
     </b-row>
@@ -75,9 +75,10 @@ export default {
   justify-content: center;
 }
 
-.practice-col {
-  /* border: 2px solid  gray !important; */
-}
+/* .practice-col {
+  border: 2px solid  gray !important;
+} */
+
 .vl {
   border-left: 1px solid lightgrey;
   height: 100%;
