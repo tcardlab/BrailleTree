@@ -7,7 +7,7 @@
       <br>
       <strong>3D models are availible as teaching aid to the blind at thingiverse?.</strong>
       <br>
-      If you unfamiliar with braille please see the <a  href="/faq"><b-badge variant="primary">FAQ Page</b-badge></a>.
+      If you unfamiliar with braille please see the <a  href="/faq"><b-badge variant="info">FAQ Page</b-badge></a>.<!--info vs primary?-->
     </b-alert>
     <p>
       Braille, as I see it, is divided and organized by defineing features. 
