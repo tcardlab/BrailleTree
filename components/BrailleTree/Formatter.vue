@@ -6,8 +6,14 @@ BrailleTree features
 
 <template>
   <div>
+      <div v-for = "(v,k) in toggle" :key="k" >
+        <span>
+          <base-checkbox v-model="_$[k]"/> <strong>{{v}}</strong>
+        </span>
+      </div>
+      <br>
       <div v-for = "(v,k) in slider" :key="k" >
-        <label>{{ k }}</label>
+        <label><strong>{{ k }}</strong></label>
         <input v-model="_$[v.model]" type="range" :min="v.range[0]" :max="v.range[1]" :step="v.step" />
         <span>{{ _$[v.model] }} mm</span>
       </div>
@@ -17,7 +23,7 @@ BrailleTree features
           to prevent "both" arrow from inverting, gap:[–>] inverted: ]<–[
           get min of x1 and x2 and determin max allowed value
         -->
-        <label>gap</label>
+        <label><strong>gap</strong></label>
         <input
           v-model="_$.gap"
           type="range"
@@ -26,15 +32,6 @@ BrailleTree features
           step="0.25"
         />
         <span>{{ _$.gap }} mm</span>
-      </div>
-
-      <div v-for = "(v,k) in toggle" :key="k" >
-        <base-checkbox v-model="_$[k]" />
-        <h4>{{v}}</h4>
-      </div>
-
-      <div>
-        <h4>Braille <base-checkbox v-model="_$.vuealph" :disable="_$.display==='5'? true:false"/> Letters</h4>
       </div>
     </div>
 </template>
