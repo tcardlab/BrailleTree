@@ -9,6 +9,11 @@
       <br>
       If you unfamiliar with Braille please see the <b-badge href="/faq" variant="info">FAQ Page</b-badge>.<!--info vs primary?-->
     </b-alert>
+
+    <h3 align="left">Braille In 1 Minute:</h3>
+    <iframe src='https://gfycat.com/ifr/WarlikeGreatAltiplanochinchillamouse?autoplay=0' frameborder='0' scrolling='no' allowfullscreen width='640' height='517'></iframe><p> <a href="https://gfycat.com/warlikegreataltiplanochinchillamouse-braille-in-one-minute-accessibility">via Gfycat</a></p>
+
+
     <p>
       Braille, as I see it, is divided and organized by defineing features. 
       The Alphabet is easily destinguishable from punctuation and end marks from the remaining punctuation.
