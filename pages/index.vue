@@ -5,13 +5,20 @@
     <b-alert show> 
       This article is for sighted people who wish to lean Grade 1 Braille and spread this method to the blind.
       <br>
-      <strong>3D models are availible as teaching aid to the blind at thingiverse?.</strong>
+      <strong>3D models are availible as teaching aid to the blind at 
+        <b-badge href="/faq" variant="info">
+          <strong>Thingiverse</strong> <font-awesome-icon icon="external-link-alt"  style="font-size: 0.75rem"/>
+        </b-badge>.
+      </strong>
       <br>
       If you unfamiliar with Braille please see the <b-badge href="/faq" variant="info">FAQ Page</b-badge>.<!--info vs primary?-->
     </b-alert>
 
     <h3 align="left">Braille In 1 Minute:</h3>
-    <iframe src='https://gfycat.com/ifr/WarlikeGreatAltiplanochinchillamouse?autoplay=0' frameborder='0' scrolling='no' allowfullscreen width='640' height='517'></iframe><p> <a href="https://gfycat.com/warlikegreataltiplanochinchillamouse-braille-in-one-minute-accessibility">via Gfycat</a></p>
+    <iframe src='https://gfycat.com/ifr/WarlikeGreatAltiplanochinchillamouse?autoplay=0' frameborder='0' scrolling='no' allowfullscreen width='640' height='517'></iframe>
+    <!-- <p> <a href="https://gfycat.com/warlikegreataltiplanochinchillamouse-braille-in-one-minute-accessibility">via Gfycat</a></p> -->
+
+     <font-awesome-icon icon="external-link-alt"  style="font-size: 1rem"/>
 
 
     <p>
@@ -60,6 +67,7 @@
 import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
 import StaticCell from '~/components/Practice/StaticCell.vue'
+
 
 export default {
   layout: 'basic',
