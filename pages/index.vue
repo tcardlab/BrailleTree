@@ -3,7 +3,7 @@
     <h1>BrailleTree</h1>
     <hr>
     <b-alert show> 
-      This article is for sighted people who wish to lean Grade 1 Braille and spread this method to the blind.
+      This article is for sighted people who wish to learn Grade 1 Braille and spread this method to the blind.
       <br>
       <strong>3D models are availible as teaching aid to the blind at 
         <b-badge href="/faq" variant="info">
@@ -11,7 +11,7 @@
         </b-badge>.
       </strong>
       <br>
-      If you unfamiliar with Braille please see the <b-badge href="/faq" variant="info">FAQ Page</b-badge>.<!--info vs primary?-->
+      If you are unfamiliar with Braille please see the <b-badge href="/faq" variant="info">FAQ Page</b-badge>.<!--info vs primary?-->
     </b-alert>
 
     <h3 align="left">Braille In 1 Minute:</h3>
@@ -22,8 +22,8 @@
 
 
     <p>
-      Braille, as I see it, is divided and organized by defineing features. 
-      The Alphabet is easily destinguishable from punctuation and end marks from the remaining punctuation.
+      Braille, as I see it, is divided and organized by defining features. 
+      The Alphabet is easily distinguishable from punctuation, and end marks from internal punctuation.
     </p>
     ⠦= ? How ""
     ⠖= ! Forte

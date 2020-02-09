@@ -6,9 +6,9 @@
     <p > <!-- align="left" style="width: 90%" style="text-indent: 3em;"  &nbsp;&nbsp;&nbsp;&nbsp; -->
       Brialle is a tactile typographic representation of the latin writting system. 
       The Unified English Braille Code (UEB) recognizes two standard "Grades" of braille and a few additional sets for mathematics, coding, and music. 
-      The standard grades are built upon repeating cells of upto six raised dots. Each cell is either a glyph or modifier that changes how following cells are read.
+      The standard grades are built upon repeating cells of up to six raised dots. Each cell is either a glyph or modifier that changes how following cells are read.
       <br><br>
-      The beginning of ones braille journey starts at Grade 1, consisting of alphanumerics, punctuation, few common words, and limited modifiers. 
+      The beginning of one's braille journey starts at Grade 1, consisting of alphanumerics, punctuation, few common words, and limited modifiers. 
       Grade 2 introduces more of these modifiers in the form of "contractions".
     </p><br>
 
