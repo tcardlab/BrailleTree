@@ -50,7 +50,7 @@
     </div>
     
     <p style="word-wrap:break-word;">
-    Brialle is a different typographic representation of the alphabet.
+    Braille is a different typographic representation of the alphabet.
     wiki – "... the dots are assigned in no obvious order" https://en.wikipedia.org/wiki/Braille#Derivation
     <br>
 
