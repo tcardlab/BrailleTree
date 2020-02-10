@@ -4,7 +4,7 @@
     <hr>
     <h5><strong>What is braille?</strong></h5>
     <p > <!-- align="left" style="width: 90%" style="text-indent: 3em;"  &nbsp;&nbsp;&nbsp;&nbsp; -->
-      Brialle is a tactile typographic representation of the latin writting system. 
+      Braille is a tactile typographic representation of the latin writing system. 
       The Unified English Braille Code (UEB) recognizes two standard "Grades" of braille and a few additional sets for mathematics, coding, and music. 
       The standard grades are built upon repeating cells of up to six raised dots. Each cell is either a glyph or modifier that changes how following cells are read.
       <br><br>
@@ -17,12 +17,13 @@
       
     </p><br>
 
-    <h5><strong>Has accesability technology depricated braille?</strong></h5>
+    <h5><strong>Has accessability technology deprecated braille?</strong></h5>
     <p>
       init. thoughts:
       text-to-speech(TTS) and speech-to-text(STT) 
       not good for math etc.
-      not greate for writing privately/descretely.
+      not great for writing privately/discretely.
+      etc. so much more
     </p><br>
 
     <h5><strong>On braille literacy rates?</strong></h5>

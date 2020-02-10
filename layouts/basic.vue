@@ -11,10 +11,10 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="/practice">Practice</b-nav-item>
-          <b-nav-item href="/Proficiency">Proficiency</b-nav-item>
+          <b-nav-item href="/proficiency">Proficiency</b-nav-item>
           <b-nav-item href="/faq">FAQ</b-nav-item>
            <b-nav-item href="/format">Editor</b-nav-item>
-          <b-nav-item href="/misc">More Braille</b-nav-item>
+          <b-nav-item href="/gallery">More Braille</b-nav-item>
         </b-navbar-nav>
 
       </b-collapse>
@@ -27,6 +27,7 @@
 
         <b-col col sm="12" md="8" style="background:white">
           <nuxt style="padding: 15px"/>
+          
           <div style="height:100px; width:100%; background:green;">
             footer1
           </div>
@@ -42,8 +43,27 @@
       contact
     </div>
 
+    <b-alert
+      v-model="showBottom"
+      class="position-fixed fixed-bottom m-0 rounded-0 text-center"
+      style="z-index: 2000;"
+      variant="warning"
+    >
+      NOTE: Under active development. Written content is currently being added. 
+    </b-alert>
+
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      showBottom: true,
+    }
+  }
+}
+</script>
 
 <style>
 .container {
