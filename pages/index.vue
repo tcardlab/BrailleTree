@@ -5,7 +5,7 @@
     <b-alert show> 
       This article is for sighted people who wish to learn Grade 1 Braille and spread this method to the blind.
       <br>
-      <strong>3D models are availible as teaching aid to the blind at 
+      <strong>3D models are available as teaching aid to the blind at 
         <b-badge href="https://3dprint.nih.gov/users/thomas-card/model" variant="info">
           <strong>Thingiverse</strong> <font-awesome-icon icon="external-link-alt"  style="font-size: 0.75rem"/>
         </b-badge>.
