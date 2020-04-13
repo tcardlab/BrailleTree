@@ -1,6 +1,6 @@
 <template>
   <div class='wrapper'>
-    <div @touchstart.prevent="scroll" > <!-- @touchmove.prevent="scroll" -->
+    <div>
       <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
@@ -139,7 +139,6 @@ h3 {
   align-items: center;
   flex-direction: column;
   user-select: none;
-  /* touch-action: none; */
 }
 
 .answer {
