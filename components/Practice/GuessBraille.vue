@@ -1,6 +1,6 @@
 <template>
   <div class='wrapper'>
-    <div @scroll.passive="onScroll" > <!-- @touchmove.prevent="scroll" -->
+    <div @touchstart.prevent="scroll" > <!-- @touchmove.prevent="scroll" -->
       <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
@@ -59,9 +59,6 @@ export default {
     })
   },
   methods: {
-    onScroll(e) {
-      e.preventDefault()
-    },
     pick() {
       this.picked = this.randObj(braille)
       this.seen += 1
