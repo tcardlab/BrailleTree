@@ -1,6 +1,6 @@
 <template>
   <div class='wrapper'>
-    <div @touchmove.prevent >
+    <div @scroll.prevent >
       <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
