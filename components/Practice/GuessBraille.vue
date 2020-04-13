@@ -138,6 +138,8 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  user-select: none;
+  touch-action: none;
 }
 
 .answer {

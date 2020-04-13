@@ -106,7 +106,7 @@ export default {
       index: 0,
     }
   },
-  created(){
+  beforeMount(){
     this.pick()
   },
   computed: {
