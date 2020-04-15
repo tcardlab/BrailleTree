@@ -1,11 +1,12 @@
 <template>
-  <div class='wrapper'>
+  <div class='wrapper' @touchmove="test($event)">
     <div>
-      <cell v-for="(arr,i) in bArr" :key="answer+'-'+i" :class="answer"
+      <cell v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
             :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`"
-            @braillechange="updateResponse"/>
+            @braillechange="updateResponse"
+      /><!--  v-model="response" -->
     </div>
     <div>
     <h3 class="answer"> {{answer}} </h3>
@@ -51,6 +52,7 @@ export default {
       response: [],
       score: 0,
       seen: 0,
+      lastID: '',
     }
   },
   created(){
@@ -86,6 +88,7 @@ export default {
         this.bArr = [answer.bArr]
         this.answer = answer.ans
       }
+      this.response = this.bArr.length===2? [[0,0,0,0,0,0], [0,0,0,0,0,0]]: [[0,0,0,0,0,0]]
     },
     randObj(obj) { 
       var keys = Object.keys(obj)
@@ -119,6 +122,17 @@ export default {
     updateResponse(emitedLoad) {
       this.response.splice(emitedLoad.index, 1, emitedLoad.bArr)
       this.checkAnswer()
+    },
+    test(e) {
+      var touch = e.touches[0]
+      const xy = [touch.clientX, touch.clientY]
+      var el = document.elementFromPoint(...xy)
+      if (el.tagName === 'circle' && this.lastID !== el.id) { 
+        var arr = this.response[+el.id[0]] // eslint-disable-line
+        arr = arr.splice(+el.id[1], 1, Number(!arr[+el.id[1]]))
+        this.lastID = el.id
+        this.checkAnswer()
+      }
     },
   }
 }
