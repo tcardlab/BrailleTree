@@ -1,9 +1,15 @@
 <template>
-  <svg id="cell" @mousedown="click=true" @mouseup="braillechange(cellindex)" @mouseleave="braillechange(cellindex)">
+  <svg id="cell" 
+    @mousedown="click=true"
+    @mouseup="braillechange(cellindex)" 
+    @mouseleave="braillechange(cellindex)"
+    @touchstart="noScroll"
+  >
     <rect x="-1mm" y="-1mm"
       width="100%" height="100%" fill="lightgreen"/>
     <circle
-      v-for="(dot, i) in cellArr" :key="(dot, i)"
+      v-for="(dot, i) in binaryarray" :key="(dot, i)"
+      :id="cellindex+''+i"
       :display="dot === '' ? 'none' : 'visible'"
       :fill="dot ? 'black' : 'rgba(225,225,225,0)'"
       :cx="i>2 ? '3.25mm' : '0.75mm'"
@@ -16,7 +22,7 @@
   </svg>
 </template>
 
-<script>
+<script> 
 //@mouseover="updateArr(i)"
 export default {
   props: ['i', 'binaryarray', 'cellindex'],
@@ -26,21 +32,22 @@ export default {
       click: false
     }
   },
-  watch:{
-    binaryarray(){
-      this.cellArr=[0,0,0,0,0,0]
-    }
-  },
   methods: {
     updateArr(i) {
-      this.cellArr.splice(i, 1, Number(!this.cellArr[i]))
+      this.cellArr.splice(i, 1, Number(!this.binaryarray[i]))
     },
     braillechange: function (i) {
       this.$emit('braillechange', {bArr:this.cellArr, index:i})
       this.click=false
+    },
+    noScroll(e) {
+      if (e.touches.length == 1) { 
+        e.preventDefault() // Dragging with one finger won't scroll on touch devices
+      }
     }
   }
 }
+
 </script>
 
 <style>
