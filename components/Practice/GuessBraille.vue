@@ -1,11 +1,12 @@
 <template>
-  <div class='wrapper' @touchmove="test($event)" @touchstart="noScroll" @touchend="lastID=''">
+  <div class='wrapper' @touchmove="test($event)" @touchend="lastID=''">
     <div>
       <cell v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
             :binaryarray="arr"
             :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`"
             @braillechange="updateResponse"
+            @touchstart.native="noScroll"
       /><!--  v-model="response" -->
     </div>
     <div>
