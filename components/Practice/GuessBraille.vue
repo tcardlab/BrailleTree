@@ -1,5 +1,5 @@
 <template>
-  <div class='wrapper' @touchmove="test($event)">
+  <div class='wrapper' @touchmove="test($event)" @touchstart="noScroll">
     <div>
       <cell v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
             :cellindex="i"
@@ -134,6 +134,12 @@ export default {
         this.checkAnswer()
       }
     },
+    noScroll(e) {
+      if (e.touches.length == 1) { 
+        this.test(e)
+        e.preventDefault() // Dragging with one finger won't scroll on touch devices
+      }
+    }
   }
 }
 </script>
