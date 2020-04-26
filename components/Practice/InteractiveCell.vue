@@ -43,6 +43,7 @@ export default {
     noScroll(e) {
       if (e.touches.length == 1) { 
         e.preventDefault() // Dragging with one finger won't scroll on touch devices
+        this.$parent.test(e)
       }
     }
   }
