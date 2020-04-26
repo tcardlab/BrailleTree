@@ -124,7 +124,7 @@ export default {
       this.response.splice(emitedLoad.index, 1, emitedLoad.bArr)
       this.checkAnswer()
     },
-    test(e) {
+    touchToggle(e) {
       var touch = e.touches[0]
       const xy = [touch.clientX, touch.clientY]
       var el = document.elementFromPoint(...xy)
@@ -137,7 +137,7 @@ export default {
     },
     noScroll(e) {
       if (e.touches.length == 1) { 
-        this.test(e)
+        this.touchToggle(e)
         e.preventDefault() // Dragging with one finger won't scroll on touch devices
       }
     }
