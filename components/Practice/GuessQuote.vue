@@ -160,6 +160,7 @@ export default {
       this.pArr = this.textToBArr(this.answer.person)
       this.responseQ = ''
       this.responseP = ''
+      this.focus('quote')
     },
     textToBArr(quote) {
       return [...quote.toLowerCase()].map(s => braille[s])
