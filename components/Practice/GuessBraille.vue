@@ -1,11 +1,10 @@
 <template>
-  <div class='wrapper' @touchmove="touchToggle($event)" @touchend="lastID=''">
+  <div class='wrapper' @touchmove="touchToggle($event)" @touchend="checkAnswer()">
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
         <cell 
-          v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
-          :cellindex="i"
-          :binaryarray="arr"
-          @braillechange="updateResponse"
+          v-for="(arr, i) in response" :key="answer+'-'+i" :class="answer"
+          :cellIndex="i"
+          :binaryArr="arr"
           @touchstart.native="noScroll"
         />
     </div>
@@ -84,6 +83,14 @@ export default {
     }
   },
   methods: {
+    checkAnswer() { // Check Answer
+      this.lastID = ''
+      if(_.isEqual(this.response, this.bArr)) {
+        this.score += 1
+        this.response = []
+        this.pick()
+      }
+    },
     pick() {
       this.picked = this.randObj(braille)
       this.seen += 1
@@ -135,17 +142,6 @@ export default {
         return {ans: answer, bArr: bArr}
       }
     },
-    checkAnswer() {
-      if(_.isEqual(this.response,this.bArr)) {
-        this.score += 1
-        this.response = []
-        this.pick()
-      }
-    },
-    updateResponse(emitedLoad) {
-      this.response.splice(emitedLoad.index, 1, emitedLoad.bArr)
-      this.checkAnswer()
-    },
     touchToggle(e) {
       var touch = e.touches[0]
       const xy = [touch.clientX, touch.clientY]
@@ -162,6 +158,10 @@ export default {
         this.touchToggle(e)
         e.preventDefault() // Dragging with one finger won't scroll on touch devices
       }
+    },
+    updateArr(cellindex, i) {
+      const alias = this.response[cellindex]
+      alias.splice(i, 1, Number(!alias[i]))
     }
   }
 }
