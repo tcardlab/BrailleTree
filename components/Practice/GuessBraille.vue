@@ -1,13 +1,13 @@
 <template>
   <div class='wrapper' @touchmove="test($event)" @touchend="lastID=''">
-    <div>
-      <cell v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
-            :cellindex="i"
-            :binaryarray="arr"
-            :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`"
-            @braillechange="updateResponse"
-            @touchstart.native="noScroll"
-      /><!--  v-model="response" -->
+    <div :style="windowWidth<768?mobileStyle:desktopStyle">
+        <cell 
+          v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
+          :cellindex="i"
+          :binaryarray="arr"
+          @braillechange="updateResponse"
+          @touchstart.native="noScroll"
+        />
     </div>
     <div>
     <h3 class="answer"> {{answer}} </h3>
@@ -54,12 +54,38 @@ export default {
       score: 0,
       seen: 0,
       lastID: '',
+      windowWidth: 0
     }
   },
   created(){
     this.$nextTick(() => {
       this.pick()
     })
+  },
+  mounted() {
+    this.windowWidth = window.innerWidth
+    window.onresize = () => {
+        this.windowWidth = window.innerWidth
+    }
+  },
+  computed: {
+    mobileStyle() {
+      const cell = 22.677 // 6mm * 3.779px/mm
+      const scale = (0.5 * this.windowWidth) / (2 * cell) // both cells should fill half the screen
+      return {
+        transform: `scale(${scale}) translate(10%, 0%)`, 
+        'margin-top': `${(scale * 4) - 10}mm`,
+        'margin-bottom': `${(scale * 5.5) - 5}mm`
+      }
+    },
+    desktopStyle() {
+      const scale = 1.5 // both cells should fill half the screen
+      return {
+        transform: `scale(${scale}) translate(10%, 0%)`, 
+        'margin-top': `${(scale * 4) - 10}mm`,
+        'margin-bottom': `${(scale * 5.5) - 5}mm`
+      }
+    }
   },
   methods: {
     pick() {

@@ -5,7 +5,7 @@
     @mouseleave="braillechange(cellindex)"
   >
     <rect x="-1mm" y="-1mm"
-      width="100%" height="100%" fill="lightgreen"/>
+      width="6mm" height="8.5mm" fill="lightgreen"/>
     <circle
       v-for="(dot, i) in binaryarray" :key="(dot, i)"
       :id="cellindex+''+i"
@@ -51,6 +51,6 @@ export default {
   overflow: visible;
   stroke: black;
   /* transform: translate(2mm, 2mm) */
-  margin: 5mm 0mm 1mm 0mm
+  /*margin: 5mm 0mm 0mm 0mm*/
 }
 </style>
