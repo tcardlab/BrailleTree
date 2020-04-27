@@ -3,6 +3,7 @@
     <h3>Solve Quotes:</h3>
     <p>NOTE: These quotes do not include numbers, contractions, nor abbreviated words. Correct answers are <strong>NOT</strong> automaticaly submitted.</p>
     <div ref="scroll" :style="windowWidth<768? {'max-height':'150px', 'overflow-y':'scroll'}:{}">
+      <div>
       <span class="braille-set" v-for="(arr, i) in qArr" :key="'q-'+i">
         <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
         <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="qMatch[i]" :binaryarray="mods['cap']" />
@@ -16,18 +17,21 @@
           <cell :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
         </span>
       </div>
-    
+    </div>
     <textarea
       class="input-quote" 
       v-model="responseQ" 
       placeholder="Quote?"
+      @keypress.enter="focusPerson()"
     > </textarea>
     <span align="left">
       <strong>–</strong>
       <input
+        ref="person"
         class="input-person"
         v-model="responseP"
         placeholder="Person?"
+        @keypress.enter="pick()"
       >
     
       <button @click="pick()">Next</button>
@@ -117,8 +121,14 @@ export default {
   },
   watch: {
     responseQ() {
-     const column = this.responseQ.length * 22.677 / this.$refs.scroll.clientWidth | 0
-     this.$refs.scroll.scrollTop = column * 37.79
+      const rMods = this.responseQ.replace(/[^A-Z]/g, "").length
+      const column = (this.responseQ.length+rMods) * 22.677 / this.$refs.scroll.clientWidth | 0
+      this.$refs.scroll.scrollTop = column * 37.79
+
+      const qMods = this.answer.quote.replace(/[^A-Z]/g, "").length
+      if (this.responseQ.length+rMods === qMods + this.qArr.length) {
+        this.focusPerson()
+      }
     }
   },
   computed: {
@@ -159,6 +169,9 @@ export default {
       var val = arr[this.index]
       return val
     },
+    focusPerson() {
+      this.$refs.person.focus()
+    }
   },
 }
 </script>
