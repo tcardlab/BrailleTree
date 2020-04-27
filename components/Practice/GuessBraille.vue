@@ -1,9 +1,9 @@
 <template>
-  <div class='wrapper' @touchmove="touchToggle($event)" @touchend="lastID=''">
+  <div class='wrapper' @touchmove="touchToggle($event)" @touchend="checkAnswer()">
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
         <cell 
-          v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
-          :cellindex="i"
+          v-for="(arr, i) in response" :key="answer+'-'+i" :class="answer"
+          :cellIndex="i"
           :binaryArr="arr"
           @touchstart.native="noScroll"
         />
@@ -63,15 +63,6 @@ export default {
         this.windowWidth = window.innerWidth
     }
   },
-  watch: {
-    response() { // Check Answer
-      if(_.isEqual(this.response, this.bArr)) {
-        this.score += 1
-        this.response = []
-        this.pick()
-      }
-    }
-  },
   computed: {
     mobileStyle() {
       const cell = 22.677 // 6mm * 3.779px/mm
@@ -92,6 +83,14 @@ export default {
     }
   },
   methods: {
+    checkAnswer() { // Check Answer
+      this.lastID = ''
+      if(_.isEqual(this.response, this.bArr)) {
+        this.score += 1
+        this.response = []
+        this.pick()
+      }
+    },
     pick() {
       this.picked = this.randObj(braille)
       this.seen += 1
