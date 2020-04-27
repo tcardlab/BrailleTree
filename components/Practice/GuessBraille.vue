@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Cell from './Cell.vue' //"./InteractiveCell.vue" 
+import Cell from './Cell.vue'
 import _ from "lodash"
 import { mods, denseBraille } from './Quotes'
 

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import Cell from './Cell' //"./HighlightCell.vue"
+import Cell from './Cell'
 import { quotes, braille, mods } from "./Quotes"
 
 export default {

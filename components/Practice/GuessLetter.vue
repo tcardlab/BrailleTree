@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Cell from './Cell.vue' // "./StaticCell.vue"
+import Cell from './Cell.vue'
 import { mods, denseBraille } from './Quotes'
 
 export default {
