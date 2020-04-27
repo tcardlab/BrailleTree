@@ -1,13 +1,13 @@
 <template>
   <svg id="cell" 
     @mousedown="click=true"
-    @mouseup="braillechange(cellindex)" 
-    @mouseleave="braillechange(cellindex)"
+    @mouseup="click=false" 
+    @mouseleave="click=false"
   >
     <rect x="-1mm" y="-1mm"
       width="6mm" height="8.5mm" fill="lightgreen"/>
     <circle
-      v-for="(dot, i) in cellArr" :key="(dot, i)"
+      v-for="(dot, i) in binaryarray" :key="(dot, i)"
       :id="cellindex+''+i"
       :display="dot === '' ? 'none' : 'visible'"
       :fill="dot ? 'black' : 'rgba(225,225,225,0)'"
@@ -33,12 +33,10 @@ export default {
   },
   methods: {
     updateArr(i) {
-      this.cellArr.splice(i, 1, Number(!this.binaryarray[i]))
+      var tmp =  [...this.binaryarray]
+      tmp.splice(i, 1, Number(!this.binaryarray[i]))
+      this.$emit('braillechange', {bArr: tmp, index: this.cellindex})
     },
-    braillechange(cellindex) {
-      this.$emit('braillechange', {bArr:this.cellArr, index: cellindex})
-      this.click=false
-    }
   }
 }
 
@@ -50,7 +48,5 @@ export default {
   height: 8.5mm;
   overflow: visible;
   stroke: black;
-  /* transform: translate(2mm, 2mm) */
-  /*margin: 5mm 0mm 0mm 0mm*/
 }
 </style>
