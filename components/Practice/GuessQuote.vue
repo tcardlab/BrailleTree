@@ -2,19 +2,19 @@
   <div class='Hwrapper'>
     <h3>Solve Quotes:</h3>
     <p>NOTE: These quotes do not include numbers, contractions, nor abbreviated words. Correct answers are <strong>NOT</strong> automaticaly submitted.</p>
-    <div>
+    <div ref="scroll" :style="windowWidth<768? {'position': 'relative', 'max-height':'200px', 'overflow-y':'scroll'}:{}">
       <span class="braille-set" v-for="(arr, i) in qArr" :key="i">
         <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
         <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="qMatch[i]" :binaryarray="mods['cap']" />
         <cell :class="answer" :color="qMatch[i]" :binaryarray="arr"/>
       </span>
-    </div>
-    <br>
+    <br><br>
     <div>
       <span class="braille-set" v-for="(arr, i) in pArr" :key="i">
         <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="pMatch[i]" :binaryarray="mods['cap']" />
         <cell :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
       </span>
+    </div>
     </div>
     <textarea
       class="input-quote" 
@@ -104,10 +104,21 @@ export default {
       score: 0,
       seen: 0,
       index: 0,
+      windowWidth: 0,
     }
   },
   beforeMount(){
     this.pick()
+    this.windowWidth = window.innerWidth
+    window.onresize = () => {
+        this.windowWidth = window.innerWidth
+    }
+  },
+  watch: {
+    responseQ() {
+     const column = this.responseQ.length * 22.677 / this.$refs.scroll.clientWidth | 0
+     this.$refs.scroll.scrollTop = column * 37.79
+    }
   },
   computed: {
     qMatch(){
@@ -166,15 +177,14 @@ svg {
 }
 
 .Hwrapper {
-  width: 80%;
+  max-width: 687px;
+  width: 100%;
+  min-width: 70%;
   height: auto;
   display: flex;
   justify-content: left; 
   align-items: left;
-  /* background-color: red; */
-  /* border: 2px solid  gray !important; */
   flex-direction: column;
-  padding: 15px;
 }
 
 .input-quote {
