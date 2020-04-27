@@ -112,7 +112,7 @@ export default {
       windowWidth: 1000,
     }
   },
-  beforeMount(){
+  mounted(){
     this.pick()
     this.windowWidth = window.innerWidth
     window.onresize = () => {
