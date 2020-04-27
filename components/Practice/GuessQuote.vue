@@ -19,10 +19,11 @@
       </div>
     </div>
     <textarea
+      ref="quote"
       class="input-quote" 
       v-model="responseQ" 
       placeholder="Quote?"
-      @keypress.enter="focusPerson()"
+      @keypress.enter="focus('person')"
     > </textarea>
     <span align="left">
       <strong>–</strong>
@@ -32,6 +33,7 @@
         v-model="responseP"
         placeholder="Person?"
         @keypress.enter="pick()"
+        @keydown.delete="responseP.length===0?focus('quote'):{}"
       >
     
       <button @click="pick()">Next</button>
@@ -127,7 +129,7 @@ export default {
 
       const qMods = this.answer.quote.replace(/[^A-Z]/g, "").length
       if (this.responseQ.length+rMods === qMods + this.qArr.length) {
-        this.focusPerson()
+        this.focus('person')
       }
     }
   },
@@ -169,8 +171,8 @@ export default {
       var val = arr[this.index]
       return val
     },
-    focusPerson() {
-      this.$refs.person.focus()
+    focus(el) {
+      this.$refs[el].focus()
     }
   },
 }
