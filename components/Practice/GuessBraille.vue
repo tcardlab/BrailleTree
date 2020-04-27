@@ -57,12 +57,8 @@ export default {
       windowWidth: 0
     }
   },
-  created(){
-    this.$nextTick(() => {
-      this.pick()
-    })
-  },
   mounted() {
+    this.pick()
     this.windowWidth = window.innerWidth
     window.onresize = () => {
         this.windowWidth = window.innerWidth
