@@ -2,20 +2,21 @@
   <div class='Hwrapper'>
     <h3>Solve Quotes:</h3>
     <p>NOTE: These quotes do not include numbers, contractions, nor abbreviated words. Correct answers are <strong>NOT</strong> automaticaly submitted.</p>
-    <div ref="scroll" :style="windowWidth<768? {'position': 'relative', 'max-height':'200px', 'overflow-y':'scroll'}:{}">
-      <span class="braille-set" v-for="(arr, i) in qArr" :key="i">
+    <div ref="scroll" :style="windowWidth<768? {'max-height':'150px', 'overflow-y':'scroll'}:{}">
+      <span class="braille-set" v-for="(arr, i) in qArr" :key="'q-'+i">
         <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
         <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="qMatch[i]" :binaryarray="mods['cap']" />
         <cell :class="answer" :color="qMatch[i]" :binaryarray="arr"/>
       </span>
-    <br><br>
-    <div>
-      <span class="braille-set" v-for="(arr, i) in pArr" :key="i">
-        <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="pMatch[i]" :binaryarray="mods['cap']" />
-        <cell :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
-      </span>
-    </div>
-    </div>
+      </div>
+      <br/>
+      <div>
+        <span class="braille-set" v-for="(arr, i) in pArr" :key="'p-'+i">
+          <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="pMatch[i]" :binaryarray="mods['cap']" />
+          <cell :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
+        </span>
+      </div>
+    
     <textarea
       class="input-quote" 
       v-model="responseQ" 
@@ -104,7 +105,7 @@ export default {
       score: 0,
       seen: 0,
       index: 0,
-      windowWidth: 0,
+      windowWidth: 1000,
     }
   },
   beforeMount(){
