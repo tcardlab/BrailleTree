@@ -1,5 +1,5 @@
 <template>
-  <div class='wrapper' @touchmove="test($event)" @touchend="lastID=''">
+  <div class='wrapper' @touchmove="touchToggle($event)" @touchend="lastID=''">
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
         <cell 
           v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
