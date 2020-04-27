@@ -14,8 +14,8 @@
       :cy="(i % 3) * 2.5 + 0.75 + 'mm'"
       x="300"
       r="0.75mm"
-      @mousedown="updateArr(i)"
-      @mouseover="click?updateArr(i):null"
+      @mousedown="$parent.updateArr(cellindex, i)"
+      @mouseover="click?$parent.updateArr(cellindex, i):null"
     />
   </svg>
 </template>
@@ -27,15 +27,8 @@ export default {
     return{
       click: false
     }
-  },
-  methods: {
-    updateArr(i) {
-      const alias = this.binaryArr
-      alias.splice(i, 1, Number(!alias[i]))
-    },
   }
 }
-
 </script>
 
 <style>

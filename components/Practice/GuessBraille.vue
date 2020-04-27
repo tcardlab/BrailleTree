@@ -159,6 +159,10 @@ export default {
         this.touchToggle(e)
         e.preventDefault() // Dragging with one finger won't scroll on touch devices
       }
+    },
+    updateArr(cellindex, i) {
+      const alias = this.response[cellindex]
+      alias.splice(i, 1, Number(!alias[i]))
     }
   }
 }
