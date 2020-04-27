@@ -150,6 +150,7 @@ export default {
         var arr = this.response[+el.id[0]] // eslint-disable-line
         arr = arr.splice(+el.id[1], 1, Number(!arr[+el.id[1]]))
         this.lastID = el.id
+      } else if (!['rect', 'circle'].includes(el.tagName)){
         this.checkAnswer()
       }
     },
