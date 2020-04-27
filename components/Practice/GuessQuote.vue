@@ -6,15 +6,15 @@
       <div>
       <span class="braille-set" v-for="(arr, i) in qArr" :key="'q-'+i">
         <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
-        <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="qMatch[i]" :binaryarray="mods['cap']" />
-        <cell :class="answer" :color="qMatch[i]" :binaryarray="arr"/>
+        <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="getColor(qMatch[i])" :binaryArr="mods['cap']" />
+        <cell :class="answer" :color="getColor(qMatch[i])" :binaryArr="arr"/>
       </span>
       </div>
       <br/>
       <div>
         <span class="braille-set" v-for="(arr, i) in pArr" :key="'p-'+i">
-          <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="pMatch[i]" :binaryarray="mods['cap']" />
-          <cell :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
+          <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="getColor(pMatch[i])" :binaryArr="mods['cap']" />
+          <cell :class="answer" :color="getColor(pMatch[i])"  :binaryArr="arr"/> 
         </span>
       </div>
     </div>
@@ -42,67 +42,14 @@
 </template>
 
 <script>
-import Cell from "./HighlightCell.vue"
-import { quotes } from "./Quotes"
-
-const braille = {
-  'a': [1, 0, 0, 0, 0, 0],
-  'b': [1, 1, 0, 0, 0, 0],
-  'c': [1, 0, 0, 1, 0, 0],
-  'd': [1, 0, 0, 1, 1, 0],
-  'e': [1, 0, 0, 0, 1, 0],
-  'f': [1, 1, 0, 1, 0, 0],
-  'g': [1, 1, 0, 1, 1, 0],
-  'h': [1, 1, 0, 0, 1, 0],
-  'i': [0, 1, 0, 1, 0, 0],
-  'j': [0, 1, 0, 1, 1, 0],
-  'k': [1, 0, 1, 0, 0, 0],
-  'l': [1, 1, 1, 0, 0, 0],
-  'm': [1, 0, 1, 1, 0, 0],
-  'n': [1, 0, 1, 1, 1, 0],
-  'o': [1, 0, 1, 0, 1, 0],
-  'p': [1, 1, 1, 1, 0, 0],
-  'q': [1, 1, 1, 1, 1, 0],
-  'r': [1, 1, 1, 0, 1, 0],
-  's': [0, 1, 1, 1, 0, 0],
-  't': [0, 1, 1, 1, 1, 0],
-  'u': [1, 0, 1, 0, 0, 1],
-  'v': [1, 1, 1, 0, 0, 1],
-  'w': [0, 1, 0, 1, 1, 1],
-  'x': [1, 0, 1, 1, 0, 1],
-  'y': [1, 0, 1, 1, 1, 1],
-  'z': [1, 0, 1, 0, 1, 1],
-  '1': [1, 0, 0, 0, 0, 0],
-  '2': [1, 1, 0, 0, 0, 0],
-  '3': [1, 0, 0, 1, 0, 0],
-  '4': [1, 0, 0, 1, 1, 0],
-  '5': [1, 0, 0, 0, 1, 0],
-  '6': [1, 1, 0, 1, 0, 0],
-  '7': [1, 1, 0, 1, 1, 0],
-  '8': [1, 1, 0, 0, 1, 0],
-  '9': [0, 1, 0, 1, 0, 0],
-  '0': [0, 1, 0, 1, 1, 0],
-  ',': [0, 1, 0, 0, 0, 0],
-  ';': [0, 1, 1, 0, 0, 0],
-  ':': [0, 1, 0, 0, 1, 0],
-  '.': [0, 1, 0, 0, 1, 1],
-  '?': [0, 1, 1, 0, 0, 1],
-  '!': [0, 1, 1, 0, 1, 0],
-  "'": [0, 0, 1, 0, 0, 0],
-  '-': [0, 0, 1, 0, 0, 1],
-  ' ': [0, 0, 0, 0, 0, 0],
-  '(': [0, 1, 1, 0, 1, 1],
-  ')': [0, 1, 1, 0, 1, 1],
- }
+import Cell from './Cell' //"./HighlightCell.vue"
+import { quotes, braille, mods } from "./Quotes"
 
 export default {
   components: {Cell},
   data() {
     return {
-      mods: {
-        num:[0, 0, 1, 1, 1, 1],
-        cap:[0, 0, 0, 0, 0, 1]
-      },
+      mods: mods,
       answer: '',
       qArr: [],
       pArr: [],
@@ -151,6 +98,9 @@ export default {
     } 
   },
   methods: {
+    getColor(bool) {
+      return {true:'green', false:'red', undefined: 'white'}[bool]
+    },
     isUpperCase(string){ 
       return /^[A-Z]*$/.test(string)
     },
@@ -180,14 +130,6 @@ export default {
 </script>
 
 <style scoped>
-/* #cell {
-  width: 6mm;
-  height: 8.5mm;
-  position: relative;
-  display: inline;
-  overflow: visible;
-  stroke: black;
-} */
 
 svg {
   margin: 0 !important; /* idk margin-top might be good here */

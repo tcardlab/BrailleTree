@@ -1,11 +1,12 @@
 <template>
   <div class='wrapper' @touchmove="touchToggle($event)" @touchend="checkAnswer()">
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
-        <cell 
+        <Cell 
           v-for="(arr, i) in response" :key="answer+'-'+i" :class="answer"
           :cellIndex="i"
           :binaryArr="arr"
           @touchstart.native="noScroll"
+          touch
         />
     </div>
     <div>
@@ -17,33 +18,12 @@
 </template>
 
 <script>
-import Cell from "./InteractiveCell.vue"
+import Cell from './Cell.vue' //"./InteractiveCell.vue" 
 import _ from "lodash"
-
-
-const mods = {
-  num:[0, 0, 1, 1, 1, 1],
-  cap:[0, 0, 0, 0, 0, 1],
-}
-
-const braille = {
-    1:[[1, 0, 0, 0, 0, 0], ['a','k','u']],
-    2:[[1, 1, 0, 0, 0, 0], ['b','l','v']],
-    3:[[1, 0, 0, 1, 0, 0], ['c','m','x']],
-    4:[[1, 0, 0, 1, 1, 0], ['d','n','y']],
-    5:[[1, 0, 0, 0, 1, 0], ['e','o','z']],
-    6:[[1, 1, 0, 1, 0, 0], ['f','p','and']],
-    7:[[1, 1, 0, 1, 1, 0], ['g','q','for']],
-    8:[[1, 1, 0, 0, 1, 0], ['h','r','of']],
-    9:[[0, 1, 0, 1, 0, 0], ['i','s','the']],
-    0:[[0, 1, 0, 1, 1, 0], ['j','t','with', 'w']],
-    ' ':[[0, 0, 0, 0, 0, 0], [' ', "'",'-']],
-    ',':[[0, 1, 0, 0, 0, 0], [',',';', '?']],
-    ':':[[0, 1, 0, 0, 1, 0], [':','!', '(...)','.']],
- }
+import { mods, denseBraille } from './Quotes'
 
 export default {
-  components: {Cell},
+  components: { Cell },
   data(){
     return {
       picked: {},
@@ -56,11 +36,13 @@ export default {
       windowWidth: 0
     }
   },
-  mounted() {
+  beforeMount() {
     this.pick()
     this.windowWidth = window.innerWidth
+  },
+  mounted() {
     window.onresize = () => {
-        this.windowWidth = window.innerWidth
+      this.windowWidth = window.innerWidth
     }
   },
   computed: {
@@ -68,7 +50,7 @@ export default {
       const cell = 22.677 // 6mm * 3.779px/mm
       const scale = (0.5 * this.windowWidth) / (2 * cell) // both cells should fill half the screen
       return {
-        transform: `scale(${scale}) translate(10%, 0%)`, 
+        transform: `scale(${scale}) translate(0%, 0%)`, 
         'margin-top': `${(scale * 4) - 10}mm`,
         'margin-bottom': `${(scale * 5.5) - 5}mm`
       }
@@ -76,7 +58,7 @@ export default {
     desktopStyle() {
       const scale = 1.5 // both cells should fill half the screen
       return {
-        transform: `scale(${scale}) translate(10%, 0%)`, 
+        transform: `scale(${scale}) translate(0%, 0%)`, 
         'margin-top': `${(scale * 4) - 10}mm`,
         'margin-bottom': `${(scale * 5.5) - 5}mm`
       }
@@ -92,7 +74,7 @@ export default {
       }
     },
     pick() {
-      this.picked = this.randObj(braille)
+      this.picked = this.randObj(denseBraille)
       this.seen += 1
       var answer = this.selectTens(this.picked.val)
       if (!isNaN(parseInt(this.picked.key))){

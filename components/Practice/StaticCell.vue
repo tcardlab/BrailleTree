@@ -3,7 +3,7 @@
     <rect x="-1mm" y="-1mm"
       width="100%" height="100%" :fill="color ? color:'lightgreen'"/>
     <circle
-      v-for="(dot, i) in binaryarray" :key="(dot, i)"
+      v-for="(dot, i) in binaryArr" :key="(dot, i)"
       :display="dot === '' ? 'none' : 'visible'"
       :fill="dot ? 'black' : 'none'"
       :cx="i>2 ? '3.25mm' : '0.75mm'"
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ['x', 'y','binaryarray', 'color'],
+  props: ['x', 'y','binaryArr', 'color'],
 }
 </script>
 

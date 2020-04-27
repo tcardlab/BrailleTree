@@ -1,7 +1,14 @@
 <template>
   <div class='wrapper'>
     <div>
-      <cell v-for="(arr,i) in bArr" :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`" :key="answer+'-'+i" :class="answer" :i="i" :binaryarray="arr"/>
+      <cell 
+        v-for="(arr,i) in bArr" 
+        :cellIndex="i"
+        :binaryArr="arr"
+        :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`" 
+        :key="answer+'-'+i" 
+        :class="answer"
+      />
     </div>
     <div>
       <input v-model="response" 
@@ -14,29 +21,8 @@
 </template>
 
 <script>
-import Cell from "./StaticCell.vue"
-
-
-const mods = {
-  num:[0, 0, 1, 1, 1, 1],
-  cap:[0, 0, 0, 0, 0, 1],
-}
-
-const braille = {
-    1:[[1, 0, 0, 0, 0, 0], ['a','k','u']],
-    2:[[1, 1, 0, 0, 0, 0], ['b','l','v']],
-    3:[[1, 0, 0, 1, 0, 0], ['c','m','x']],
-    4:[[1, 0, 0, 1, 1, 0], ['d','n','y']],
-    5:[[1, 0, 0, 0, 1, 0], ['e','o','z']],
-    6:[[1, 1, 0, 1, 0, 0], ['f','p','and']],
-    7:[[1, 1, 0, 1, 1, 0], ['g','q','for']],
-    8:[[1, 1, 0, 0, 1, 0], ['h','r','of']],
-    9:[[0, 1, 0, 1, 0, 0], ['i','s','the']],
-    0:[[0, 1, 0, 1, 1, 0], ['j','t','with', 'w']],
-    ' ':[[0, 0, 0, 0, 0, 0], [' ', "'",'-']],
-    ',':[[0, 1, 0, 0, 0, 0], [',',';', '?']],
-    ':':[[0, 1, 0, 0, 1, 0], [':','!', '(...)','.']],
- }
+import Cell from './Cell.vue' // "./StaticCell.vue"
+import { mods, denseBraille } from './Quotes'
 
 export default {
   components: {Cell},
@@ -57,7 +43,7 @@ export default {
   },
   methods: {
     pick() {
-      this.picked = this.randObj(braille)
+      this.picked = this.randObj(denseBraille)
       this.seen += 1
       var answer = this.selectTens(this.picked.val)
       if (!isNaN(parseInt(this.picked.key))){
@@ -139,5 +125,6 @@ h2 {
 
 input {
   margin-top: 5px;
+  width: 50%;
 }
 </style>
