@@ -6,7 +6,7 @@
   >
     <rect x="-1mm" y="-1mm" fill="lightgreen"/>
     <circle
-      v-for="(dot, i) in response[cellindex]" :key="(dot, i)"
+      v-for="(dot, i) in binaryArr" :key="(dot, i)"
       :id="cellindex+''+i"
       :display="dot === '' ? 'none' : 'visible'"
       :fill="dot ? 'black' : 'rgba(225,225,225,0)'"
@@ -22,7 +22,7 @@
 
 <script> 
 export default {
-  props: ['response', 'cellindex'],
+  props: ['binaryArr', 'cellindex'],
   data(){
     return{
       click: false
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     updateArr(i) {
-      const alias = this.response[this.cellindex]
+      const alias = this.binaryArr
       alias.splice(i, 1, Number(!alias[i]))
     },
   }

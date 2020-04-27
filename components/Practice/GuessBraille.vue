@@ -4,7 +4,7 @@
         <cell 
           v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
           :cellindex="i"
-          :response="response"
+          :binaryArr="arr"
           @touchstart.native="noScroll"
         />
     </div>
