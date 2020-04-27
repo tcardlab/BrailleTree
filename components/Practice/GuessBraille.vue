@@ -4,8 +4,7 @@
         <cell 
           v-for="(arr,i) in response" :key="answer+'-'+i" :class="answer"
           :cellindex="i"
-          :binaryarray="arr"
-          @braillechange="updateResponse"
+          :response="response"
           @touchstart.native="noScroll"
         />
     </div>
@@ -62,6 +61,15 @@ export default {
     this.windowWidth = window.innerWidth
     window.onresize = () => {
         this.windowWidth = window.innerWidth
+    }
+  },
+  watch: {
+    response() { // Check Answer
+      if(_.isEqual(this.response, this.bArr)) {
+        this.score += 1
+        this.response = []
+        this.pick()
+      }
     }
   },
   computed: {
@@ -134,17 +142,6 @@ export default {
       } else {
         return {ans: answer, bArr: bArr}
       }
-    },
-    checkAnswer() {
-      if(_.isEqual(this.response,this.bArr)) {
-        this.score += 1
-        this.response = []
-        this.pick()
-      }
-    },
-    updateResponse(emitedLoad) {
-      this.response.splice(emitedLoad.index, 1, emitedLoad.bArr)
-      this.checkAnswer()
     },
     touchToggle(e) {
       var touch = e.touches[0]

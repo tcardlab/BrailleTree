@@ -4,10 +4,9 @@
     @mouseup="click=false" 
     @mouseleave="click=false"
   >
-    <rect x="-1mm" y="-1mm"
-      width="6mm" height="8.5mm" fill="lightgreen"/>
+    <rect x="-1mm" y="-1mm" fill="lightgreen"/>
     <circle
-      v-for="(dot, i) in binaryarray" :key="(dot, i)"
+      v-for="(dot, i) in response[cellindex]" :key="(dot, i)"
       :id="cellindex+''+i"
       :display="dot === '' ? 'none' : 'visible'"
       :fill="dot ? 'black' : 'rgba(225,225,225,0)'"
@@ -22,20 +21,17 @@
 </template>
 
 <script> 
-//@mouseover="updateArr(i)"
 export default {
-  props: ['binaryarray', 'cellindex'],
+  props: ['response', 'cellindex'],
   data(){
     return{
-      cellArr: this.binaryarray,
       click: false
     }
   },
   methods: {
     updateArr(i) {
-      var tmp =  [...this.binaryarray]
-      tmp.splice(i, 1, Number(!this.binaryarray[i]))
-      this.$emit('braillechange', {bArr: tmp, index: this.cellindex})
+      const alias = this.response[this.cellindex]
+      alias.splice(i, 1, Number(!alias[i]))
     },
   }
 }
@@ -43,7 +39,7 @@ export default {
 </script>
 
 <style>
-#cell {
+#cell, rect {
   width: 6mm;
   height: 8.5mm;
   overflow: visible;
