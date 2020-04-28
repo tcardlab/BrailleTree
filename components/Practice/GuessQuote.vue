@@ -58,7 +58,7 @@ export default {
       score: 0,
       seen: 0,
       index: 0,
-      windowWidth: 1000,
+      windowWidth: 0,
     }
   },
   mounted(){

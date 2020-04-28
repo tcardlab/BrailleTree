@@ -1,30 +1,34 @@
 <template>
   <div class='wrapper'>
-    <div>
+
+    <div :style="windowWidth<768?mobileStyle:desktopStyle">
       <cell 
-        v-for="(arr,i) in bArr" 
+        v-for="(arr,i) in bArr" :key="answer+'-'+i" 
         :cellIndex="i"
         :binaryArr="arr"
-        :style="`transform: scale(1.5) translate(${i*2}mm, 0mm)`" 
-        :key="answer+'-'+i" 
-        :class="answer"
       />
     </div>
+
     <div>
-      <input v-model="response" 
-            placeholder="answer?"
-            @keyup="checkAnswer"> <!--{{answer}}-->
+      <input 
+        v-model="response" 
+        placeholder="answer?"
+        @keyup="checkAnswer"
+      >
       <button @click="pick()">Pass</button>
       <p style="transition: all 1s">Score: {{score}} / {{seen-1}}</p>
     </div>
+
   </div>
 </template>
 
 <script>
 import Cell from './Cell.vue'
 import { mods, denseBraille } from './Quotes'
+import { MobileWrapperMixin } from './MobileWrapperMixin.js'
 
 export default {
+  mixins: [ MobileWrapperMixin ],
   components: {Cell},
   data() {
     return{
@@ -33,13 +37,11 @@ export default {
       bArr: [[0,0,0,0,0,0]],
       response: '',
       score: 0,
-      seen: 0,
+      seen: 0
     }
   },
-  created(){
-    this.$nextTick(() => {
-      this.pick()
-    })
+  mounted(){
+    this.pick()
   },
   methods: {
     pick() {
@@ -108,9 +110,6 @@ h2 {
   margin: 0px;
 }
 
-#cell {
-  transform: scale(1.5);
-}
 
 .wrapper {
   width: 100%;

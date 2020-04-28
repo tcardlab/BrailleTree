@@ -1,19 +1,31 @@
 <template>
-  <div class='wrapper' @touchmove="touchToggle($event)" @touchend="checkAnswer()">
+  <div
+    class='wrapper'
+    @touchmove="touchToggle($event)"
+    @touchend="checkAnswer()"
+  >
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
-        <Cell 
-          v-for="(arr, i) in response" :key="answer+'-'+i" :class="answer"
-          :cellIndex="i"
-          :binaryArr="arr"
-          @touchstart.native="noScroll"
-          touch
-        />
+      <Cell 
+        v-for="(arr, i) in response" :key="answer+'-'+i"
+        :cellIndex="i"
+        :binaryArr="arr"
+
+        @touchstart.native="noScroll"
+
+        @mouseup.native="checkAnswer()"
+        @mouseleave.native="checkAnswer()"
+        @mousedown.native="click=i"
+        :click="click===i&&(true)" 
+        touch
+      />
     </div>
+
     <div>
-    <h3 class="answer"> {{answer}} </h3>
-    <button @click="pick()">Pass</button>
-    <p>Score: {{score}} / {{seen-1}}</p>
+      <h3 class="answer"> {{answer}} </h3>
+      <button @click="pick()">Pass</button>
+      <p>Score: {{score}} / {{seen-1}}</p>
     </div>
+
   </div>
 </template>
 
@@ -21,8 +33,10 @@
 import Cell from './Cell.vue'
 import _ from "lodash"
 import { mods, denseBraille } from './Quotes'
+import { MobileWrapperMixin } from './MobileWrapperMixin.js'
 
 export default {
+  mixins: [ MobileWrapperMixin ],
   components: { Cell },
   data(){
     return {
@@ -33,40 +47,16 @@ export default {
       score: 0,
       seen: 0,
       lastID: '',
-      windowWidth: 0
+      click: false
     }
   },
-  beforeMount() {
+  mounted(){
     this.pick()
-    this.windowWidth = window.innerWidth
-  },
-  mounted() {
-    window.onresize = () => {
-      this.windowWidth = window.innerWidth
-    }
-  },
-  computed: {
-    mobileStyle() {
-      const cell = 22.677 // 6mm * 3.779px/mm
-      const scale = (0.5 * this.windowWidth) / (2 * cell) // both cells should fill half the screen
-      return {
-        transform: `scale(${scale}) translate(0%, 0%)`, 
-        'margin-top': `${(scale * 4) - 10}mm`,
-        'margin-bottom': `${(scale * 5.5) - 5}mm`
-      }
-    },
-    desktopStyle() {
-      const scale = 1.5 // both cells should fill half the screen
-      return {
-        transform: `scale(${scale}) translate(0%, 0%)`, 
-        'margin-top': `${(scale * 4) - 10}mm`,
-        'margin-bottom': `${(scale * 5.5) - 5}mm`
-      }
-    }
   },
   methods: {
     checkAnswer() { // Check Answer
       this.lastID = ''
+      this.click = false
       if(_.isEqual(this.response, this.bArr)) {
         this.score += 1
         this.response = []
@@ -150,7 +140,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h3 {
   display: inline;
   margin: 0px;
