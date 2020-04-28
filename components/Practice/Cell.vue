@@ -1,7 +1,5 @@
 <template>
-  <svg id="cell" 
-    ref="svg"
-  >
+  <svg id="cell" ref="svg">
     <rect :fill="color"/>
     <circle
       v-for="(dot, i) in binaryArr" :key="(dot, i)"

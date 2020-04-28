@@ -18,33 +18,33 @@ export const CellClickMixin = {
   },
   mounted() {
     if (this.touch) {
-      const svg = this.$refs.svg
-      this.assignEvents(this.events.svg, svg, 'addEventListener' )
-
-      const circleArr = this.$refs.circle
-      circleArr.forEach((c, i) => {
-        this.assignEvents(this.events.circle, c, 'addEventListener', i)
-      })
+      this.toggleEvents(true)
     }
   },
   beforeDestroy() {
     if (this.touch) {
-      const svg = this.$refs.svg
-      this.assignEvents(this.events.svg, svg, 'removeEventListener' )
-
-      const circleArr = this.$refs.circle
-      circleArr.forEach((c, i) => {
-        this.assignEvents(this.events.circle, c, 'removeEventListener', i)
-      })
+      this.toggleEvents(false)
     }
   },
   methods: {
+    // Event Handler
+    toggleEvents(bool) {
+      const method = bool?'addEventListener':'removeEventListener'
+      const svg = this.$refs.svg
+      this.assignEvents(this.events.svg, svg, method)
+
+      const circleArr = this.$refs.circle
+      circleArr.forEach((c, i) => {
+        this.assignEvents(this.events.circle, c, method, i)
+      })
+    },
     assignEvents(eventObj, el, method, payload={}) {
       //For each event in eventObj, apply method to given element + payload if needed
       for (let [k, v] of Object.entries(eventObj)) {
         el[method](k, ()=>v(payload))
       }
     },
+    // Events
     clicked() {
       this.click=true
     },
