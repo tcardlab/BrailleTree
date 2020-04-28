@@ -15,8 +15,6 @@
   </svg>
 </template>
 
-<!-- move touch stuff to mixin and explode with v-bind="attrs" -->
-<!-- v-bind="touch&&(attr.circle)" -->
 <script> 
 import { CellClickMixin } from './CellClickMixin.js'
 export default {
