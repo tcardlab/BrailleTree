@@ -36,11 +36,9 @@ export default {
       windowWidth: 0
     }
   },
-  beforeMount() {
+  mounted() {
     this.pick()
     this.windowWidth = window.innerWidth
-  },
-  mounted() {
     window.onresize = () => {
       this.windowWidth = window.innerWidth
     }
