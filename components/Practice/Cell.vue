@@ -43,13 +43,13 @@ export default {
       click: false,
       events: {
         svg: {
-          mousedown: 'this.clicked()',
-          mouseup: 'this.checkAnswer()', 
-          mouseleave: "this.touch&&(thischeckAnswer())",
+          mousedown: this.clicked,
+          mouseup: this.checkAnswer, 
+          mouseleave: this.checkAnswer,
         },
         circle: {
-          mousedown: "touch&&(update(cellIndex, i))",
-          mouseover: "click&&(update(cellIndex, i))",
+          mousedown: (i)=>this.update(this.cellIndex, i),
+          mouseover: (i)=>this.click&&(this.update(this.cellIndex, i)),
         }
       }
     }
@@ -57,17 +57,14 @@ export default {
   mounted() {
     if (this.touch) {
       const svg = this.$refs.svg
-      /* this.events.svg.forEach((k,v) => {
-        svg.addEventListener(k, ()=>eval(v))
-      }) */
-      svg.addEventListener('mousedown', ()=>this.clicked()) 
-      svg.addEventListener('mouseup', ()=>this.checkAnswer())
-      svg.addEventListener('mouseleave', ()=>this.checkAnswer())
-
+      for (let [k, v] of Object.entries(this.events.svg)) {
+        svg.addEventListener(k, ()=>v())
+      }
       const circleArr = this.$refs.circle
       circleArr.forEach((c, i) => {
-        c.addEventListener('mousedown', ()=>this.update(this.cellIndex, i)) 
-        c.addEventListener('mouseover', ()=>this.click&&(this.update(this.cellIndex, i)))
+        for (let [k, v] of Object.entries(this.events.circle)) {
+          c.addEventListener(k, ()=>v(i))
+        }
       })
     }
   },
