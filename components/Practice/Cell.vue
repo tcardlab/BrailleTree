@@ -57,28 +57,31 @@ export default {
   mounted() {
     if (this.touch) {
       const svg = this.$refs.svg
-      for (let [k, v] of Object.entries(this.events.svg)) {
-        svg.addEventListener(k, ()=>v())
-      }
+      this.assignEvents(this.events.svg, svg, 'addEventListener' )
+
       const circleArr = this.$refs.circle
       circleArr.forEach((c, i) => {
-        for (let [k, v] of Object.entries(this.events.circle)) {
-          c.addEventListener(k, ()=>v(i))
-        }
+        this.assignEvents(this.events.circle, c, 'addEventListener', i)
       })
     }
   },
   beforeDestroy() {
     if (this.touch) {
       const svg = this.$refs.svg
-      svg.removeEventListener('mousedown', ()=>this.clicked()) 
-      svg.removeEventListener('mouseup', ()=>this.checkAnswer())
-      svg.removeEventListener('mouseleave', ()=>this.checkAnswer())
+      this.assignEvents(this.events.svg, svg, 'removeEventListener' )
+
+      const circleArr = this.$refs.circle
+      circleArr.forEach((c, i) => {
+        this.assignEvents(this.events.circle, c, 'removeEventListener', i)
+      })
     }
   },
   methods: {
-    $eval (payload) {
-      return eval(payload) // eslint-disable-line
+    assignEvents(eventObj, el, method, payload={}) {
+      //For each event in eventObj, apply method to given element + payload if needed
+      for (let [k, v] of Object.entries(eventObj)) {
+        el[method](k, ()=>v(payload))
+      }
     },
     clicked() {
       this.click=true
