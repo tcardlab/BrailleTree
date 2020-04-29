@@ -1,5 +1,5 @@
 // Target element refs to assign events stored in data
-export const CellClickMixin = {
+export const EventHandlerMixin = {
   created() {
     if (this.toggleEvents) {
       console.log('toggleEvents recognized by CellClickMixin') // eslint-disable-line

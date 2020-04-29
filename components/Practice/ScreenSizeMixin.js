@@ -31,7 +31,7 @@ export const ScreenSizeMixin = {
       }
     },
     desktopStyle() {
-      const scale = 1.5 // both cells should fill half the screen
+      const scale = 2 // both cells should fill half the screen //1.5
       return {
         transform: `scale(${scale})`,
         'margin-top': `${(scale * 4) - 10}mm`,
