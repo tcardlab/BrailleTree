@@ -86,9 +86,10 @@ export default {
       const rMods = this.responseQ.replace(/[^A-Z]/g, "").length
       const column = (this.responseQ.length+rMods) * 22.677 / this.$refs.scroll.clientWidth | 0
       this.$refs.scroll.scrollTop = column * 37.79
-
-      const qMods = this.answer.quote.replace(/[^A-Z]/g, "").length
-      if (this.responseQ.length+rMods === qMods + this.qArr.length) {
+    },
+    qMatch() {
+      // If correct answer(matches===answerLength), move on to person
+      if (this.qMatch.length>0 && this.qMatch.reduce((a,b)=>a+b) === this.qArr.length) {
         this.focus('person')
       }
     }
@@ -108,7 +109,7 @@ export default {
       var comp = Number(this.responseP.length <= this.answer.person.length)
       var strs = [[...this.answer.person], [...this.responseP]]
       return strs[comp].map((s,i) => s===strs[1-comp][i])
-    } 
+    }
   },
   methods: {
     pick() {
