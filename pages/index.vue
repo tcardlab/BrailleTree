@@ -42,15 +42,6 @@
       
     </p>
 
-    <!--
-    learn more at BrailleTree.com
-    history of braille
-    other braille projects
-    <Static-Cell color="#9dd" :binaryarray="[1,0,0,0,0,1]" style="fill: var(--info) !important;" />
-
-    <Static-Cell v-for="(arr,i) in [[0,1,1,0,0,1], [0,0,1,0,1,1], [0,1,0,0,1,1]]" :key="'test-'+i" color="#9dd" :binaryarray="arr" style="fill: var(--info) !important;" />
-    -->
-
     <h3 align="left">Braille In 1 Minute:</h3>
     <br>
     <iframe style="max-width: 100%; max-height: 80vw;" src='https://gfycat.com/ifr/WarlikeGreatAltiplanochinchillamouse?autoplay=0' frameborder='0' scrolling='no' allowfullscreen width='640' height='517'></iframe>

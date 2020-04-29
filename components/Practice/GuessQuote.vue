@@ -2,29 +2,38 @@
   <div class='Hwrapper'>
     <h3>Solve Quotes:</h3>
     <p>NOTE: These quotes do not include numbers, contractions, nor abbreviated words. Correct answers are <strong>NOT</strong> automaticaly submitted.</p>
+
+    <!-- Mobile Scroll Wrapper -->
     <div ref="scroll" :style="windowWidth<768? {'max-height':'150px', 'overflow-y':'scroll'}:{}">
+      <!-- Quote Braille Cells -->
       <div>
-      <span class="braille-set" v-for="(arr, i) in qArr" :key="'q-'+i">
-        <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
-        <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="qMatch[i]" :binaryarray="mods['cap']" />
-        <cell :class="answer" :color="qMatch[i]" :binaryarray="arr"/>
-      </span>
+        <span class="braille-set" v-for="(arr, i) in qArr" :key="'q-'+i">
+          <!-- Maybe add number mod later. Will have to check if prior(i-1) was num too-->
+          <cell v-if="isUpperCase(answer.quote[i])" :class="answer" :color="getColor(qMatch[i])" :binaryArr="mods['cap']" />
+          <cell :class="answer" :color="getColor(qMatch[i])" :binaryArr="arr"/>
+        </span>
       </div>
+
       <br/>
+      <!-- Person Braille Cells -->
       <div>
         <span class="braille-set" v-for="(arr, i) in pArr" :key="'p-'+i">
-          <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="pMatch[i]" :binaryarray="mods['cap']" />
-          <cell :class="answer" :color="pMatch[i]"  :binaryarray="arr"/> 
+          <cell v-if="isUpperCase(answer.person[i])" :class="answer" :color="getColor(pMatch[i])" :binaryArr="mods['cap']" />
+          <cell :class="answer" :color="getColor(pMatch[i])"  :binaryArr="arr"/> 
         </span>
       </div>
     </div>
+
+    <!-- Quote Text Input -->
     <textarea
       ref="quote"
       class="input-quote" 
       v-model="responseQ" 
       placeholder="Quote?"
       @keypress.enter="focus('person')"
-    > </textarea>
+    />
+
+    <!-- Person Text Input & Next Button -->
     <span align="left">
       <strong>–</strong>
       <input
@@ -35,94 +44,40 @@
         @keypress.enter="pick()"
         @keydown.delete="responseP.length===0?focus('quote'):{}"
       >
-    
-      <button @click="pick()">Next</button>
+      <button @click="pick(); focus('quote')">Next</button>
     </span>
+
   </div>  
 </template>
 
 <script>
-import Cell from "./HighlightCell.vue"
-import { quotes } from "./Quotes"
-
-const braille = {
-  'a': [1, 0, 0, 0, 0, 0],
-  'b': [1, 1, 0, 0, 0, 0],
-  'c': [1, 0, 0, 1, 0, 0],
-  'd': [1, 0, 0, 1, 1, 0],
-  'e': [1, 0, 0, 0, 1, 0],
-  'f': [1, 1, 0, 1, 0, 0],
-  'g': [1, 1, 0, 1, 1, 0],
-  'h': [1, 1, 0, 0, 1, 0],
-  'i': [0, 1, 0, 1, 0, 0],
-  'j': [0, 1, 0, 1, 1, 0],
-  'k': [1, 0, 1, 0, 0, 0],
-  'l': [1, 1, 1, 0, 0, 0],
-  'm': [1, 0, 1, 1, 0, 0],
-  'n': [1, 0, 1, 1, 1, 0],
-  'o': [1, 0, 1, 0, 1, 0],
-  'p': [1, 1, 1, 1, 0, 0],
-  'q': [1, 1, 1, 1, 1, 0],
-  'r': [1, 1, 1, 0, 1, 0],
-  's': [0, 1, 1, 1, 0, 0],
-  't': [0, 1, 1, 1, 1, 0],
-  'u': [1, 0, 1, 0, 0, 1],
-  'v': [1, 1, 1, 0, 0, 1],
-  'w': [0, 1, 0, 1, 1, 1],
-  'x': [1, 0, 1, 1, 0, 1],
-  'y': [1, 0, 1, 1, 1, 1],
-  'z': [1, 0, 1, 0, 1, 1],
-  '1': [1, 0, 0, 0, 0, 0],
-  '2': [1, 1, 0, 0, 0, 0],
-  '3': [1, 0, 0, 1, 0, 0],
-  '4': [1, 0, 0, 1, 1, 0],
-  '5': [1, 0, 0, 0, 1, 0],
-  '6': [1, 1, 0, 1, 0, 0],
-  '7': [1, 1, 0, 1, 1, 0],
-  '8': [1, 1, 0, 0, 1, 0],
-  '9': [0, 1, 0, 1, 0, 0],
-  '0': [0, 1, 0, 1, 1, 0],
-  ',': [0, 1, 0, 0, 0, 0],
-  ';': [0, 1, 1, 0, 0, 0],
-  ':': [0, 1, 0, 0, 1, 0],
-  '.': [0, 1, 0, 0, 1, 1],
-  '?': [0, 1, 1, 0, 0, 1],
-  '!': [0, 1, 1, 0, 1, 0],
-  "'": [0, 0, 1, 0, 0, 0],
-  '-': [0, 0, 1, 0, 0, 1],
-  ' ': [0, 0, 0, 0, 0, 0],
-  '(': [0, 1, 1, 0, 1, 1],
-  ')': [0, 1, 1, 0, 1, 1],
- }
+import Cell from './Cell'
+import { quotes, braille, mods } from "./Quotes"
+import { ScreenSizeMixin } from './ScreenSizeMixin.js'
 
 export default {
-  components: {Cell},
+  mixins: [ ScreenSizeMixin ], // Gets screen width for mobile styling
+  components: { Cell },
   data() {
     return {
-      mods: {
-        num:[0, 0, 1, 1, 1, 1],
-        cap:[0, 0, 0, 0, 0, 1]
-      },
-      answer: '',
-      qArr: [],
-      pArr: [],
-      responseQ: '',
-      responseP: '',
+      mods: mods,    // capital and number binary array
+      current: 0,    // Track selected index to prevent repeated pick()
+      answer: {},    // pick() => randArr() sets person: and quote: strings
+      qArr: [],      // pick() => textToBArr() converts quote to [binaryArr's, ...]
+      pArr: [],      // pick() => textToBArr() converts person to [binaryArr's, ...]
+      responseQ: '', // computed: User input string compared to answer.quote
+      responseP: '', // computed: User input string compared to answer.person
+      // UI
       score: 0,
       seen: 0,
-      index: 0,
-      windowWidth: 1000,
     }
   },
   mounted(){
     this.pick()
-    this.windowWidth = window.innerWidth
-    window.onresize = () => {
-        this.windowWidth = window.innerWidth
-    }
   },
   watch: {
     responseQ() {
+      // Mobile: Scroll to answered cell
       const rMods = this.responseQ.replace(/[^A-Z]/g, "").length
       const column = (this.responseQ.length+rMods) * 22.677 / this.$refs.scroll.clientWidth | 0
       this.$refs.scroll.scrollTop = column * 37.79
@@ -134,7 +89,7 @@ export default {
     }
   },
   computed: {
-    qMatch(){
+    qMatch() {
       var resp = this.responseQ
       var ans = this.answer.quote
       var len = Math.min(this.responseQ.length, this.answer.quote.length)
@@ -144,35 +99,48 @@ export default {
       }
       return compare
     },
-    pMatch(){ //condensed version of the prior method
+    pMatch() { // condensed version of the prior method
       var comp = Number(this.responseP.length <= this.answer.person.length)
       var strs = [[...this.answer.person], [...this.responseP]]
       return strs[comp].map((s,i) => s===strs[1-comp][i])
     } 
   },
   methods: {
-    isUpperCase(string){ 
-      return /^[A-Z]*$/.test(string)
-    },
     pick() {
       this.answer = this.randArr(quotes)
       this.qArr = this.textToBArr(this.answer.quote)
       this.pArr = this.textToBArr(this.answer.person)
       this.responseQ = ''
       this.responseP = ''
-      this.focus('quote')
-    },
-    textToBArr(quote) {
-      return [...quote.toLowerCase()].map(s => braille[s])
     },
     randArr(arr) { 
       var index = arr.length * Math.random() << 0
       // prevent repeat
-      this.index = index===this.index? (index+1)%arr.length: index
-      var val = arr[this.index]
+      this.current = index===this.current? (index+1)%arr.length: index
+      var val = arr[this.current]
       return val
     },
+
+    // Helper Functions
+    textToBArr(quote) {
+      return [...quote.toLowerCase()].map(s => braille[s])
+    },
+    isUpperCase(string){ 
+      return /^[A-Z]*$/.test(string)
+    },
+    getColor(bool) {
+      return {true:'#9dd', false:'red', undefined: 'white'}[bool]
+    },
+
+    //UI
     focus(el) {
+      /* 
+      Set focus on:
+        New pick -> quote
+        finished quote -> person
+        quote + enter -> person
+        empty person + backspace -> Quote
+      */
       this.$refs[el].focus()
     }
   },
@@ -180,15 +148,6 @@ export default {
 </script>
 
 <style scoped>
-/* #cell {
-  width: 6mm;
-  height: 8.5mm;
-  position: relative;
-  display: inline;
-  overflow: visible;
-  stroke: black;
-} */
-
 svg {
   margin: 0 !important; /* idk margin-top might be good here */
 }
