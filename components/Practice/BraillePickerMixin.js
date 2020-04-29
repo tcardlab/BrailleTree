@@ -1,3 +1,4 @@
+// Picks random glyph(alph, num, punc) and convert to [binary array, ...]
 import { mods, denseBraille } from './Quotes'
 
 export const BraillePickerMixin = {

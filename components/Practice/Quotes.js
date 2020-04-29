@@ -1,3 +1,10 @@
+/*
+Stored data:
+  • braille – glyph : binary array mapping
+  • denseBraille – {groups : [base binary array, glyphs]}
+  • mods - capital and num modifier
+  • quotes
+*/
 export const braille = {
   'a': [1, 0, 0, 0, 0, 0],
   'b': [1, 1, 0, 0, 0, 0],

@@ -1,5 +1,5 @@
+// Exposes Reactive Page Sizing
 export const ScreenSizeMixin = {
-  /* Exposes Reactive Page Sizing */
   data() {
     return {
       windowWidth: 0,
