@@ -41,7 +41,7 @@
         class="input-person"
         v-model="responseP"
         placeholder="Person?"
-        @keypress.enter="pick()"
+        @keypress.enter="pick(); focus('quote')"
         @keydown.delete="responseP.length===0?focus('quote'):{}"
       >
       <button @click="pick(); focus('quote')">Next</button>
