@@ -14,7 +14,9 @@
 
     <h5><strong>Who created Braille?</strong></h5>
     <p>
-      
+      [Some believe that its design was intended to reduce confusion by ensuring a mix of sparse and dense cells. 
+      A common criticism of its early, American emulation was that pairing the number of dots to frequency made 
+      reading more difficult as sparse cells were all too common.] 
     </p><br>
 
     <h5><strong>Has accessability technology deprecated braille?</strong></h5>

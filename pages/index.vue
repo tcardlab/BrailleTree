@@ -69,40 +69,23 @@
     <h3>BrailleTree Explained:</h3>
 
     <p>
-      Despite its age, G1 Braille is still recognized, as a random mapping of Alphanumerics to cells. 
-      [Some believe that its design was intended to reduce confusion by ensuring a mix of sparse and dense cells. 
-      A common criticism of its early, American emulation was that pairing the number of dots to frequency made 
-      reading more difficult as sparse cells were all too common.] Contrary to such ideas is an organization that 
-      procedurally generates Braille with only a polydactyl handful of rules:
-    </p>
-    
-    <ol>
-      <li> A ternary tree of depth 2, projected east/right [Easy mental traversal]. </li>
-      <li> Depth corresponds to cell columns, depth 1 = Column 1 [Inherent logic]. </li>
-      <li> The first 2 dots of a column are filled, "top, both, bottom" relative to branch direction [Inherent logic]. </li>
-      <li> The Lowest global branch is reserved for punctuation, leaving 10 spots for alphanumerics[Easy distinction].</li>
-      <li> Alphanumerics are assigned top-to-bottom, left-to-right [~intuitive reading]. </li>
-      <li> Numbers are preceded with a number modifier. The alphabet is broken into sets of 10 [Rules 1-5 apply to all encodings (meta-rule)] 
-                        where dots 3 and 3+6 cover 11-20 & 21-26 respectively, “W” withholding (learn why). </li> 
-    </ol>
-    
-
-    <p>
-      While explicit instructions are often intimidating, I guarantee it is intuitive. 
-      These rules are an instructional formality, that will likely be forgotten once you understand the inherent organization. 
-      Before getting started, it's important to clarify that this is a mnemonic aid; you will be able to encode and decipher braille [G1], 
-      but fluency is a matter of practice & rote memorization (not just letters, but words, groupings, contractions and ultimately G2).
+      Despite its age, Grade 1 Braille (G1) is still recognized as a random mapping of Alphanumerics to cells. 
+      On the contrary, lies an organization that procedurally generates Braille with only a polydactyl handful of rules.
+      <!-- While explicit instructions are often intimidating, I guarantee this is intuitive. 
+      These rules are an instructional formality, that will likely be forgotten once you understand the inherent organization. --> 
+      However, before getting started, it's important to clarify that this is a mnemonic aid; you will be able to encode and decipher G1 Braille, 
+      but fluency is a matter of practice & rote memorization. <!-- (not just letters, but words, groupings, contractions and ultimately G2) -->
     </p>
     <div style="width: 90%">
       <h5>Step 1) Generating the Tree:</h5>
       <p>
-        The structure we will be working with is a ternary tree. This means at each node in the structure,
-        there are 3 branches. The tree has a depth of 2, meaning this branching process occurs twice off the root node. 
-        This tree will branch to the right as it best relates to Braille. To cover the entirety of Alphanumerics, 
+        This structure is a <i>ternary tree</i>- meaning each node in the structure has 3 branches. 
+        It also has a depth of 2, denoting this branching process occurs twice off the root node. 
+        The tree will branch to the right as it best relates to Braille. To cover the entirety of Alphanumerics, 
         there will be 4 such structures.
       </p>
 
-      <h5>Step 2) Assigning cell Columns:</h5>
+      <h5>Step 2) Assigning Columns:</h5>
       <p>Our first step in generating Braille is to assign cell columns by way of depth.</p>
       <ul>
         <li>The root (depth 0) has no columns</li>
@@ -113,10 +96,10 @@
 
       <h5>Step 3) Assigning Dots to Columns</h5>
       <p>
-        As you may know, Braille is often separated into repeating sets, distinguished by the last dots of each column.
+        Braille is separated into repeating sets, distinguished by the last dot of each column.
         For this reason, this structure only assigns the top 2 dots in a column. Given our rightward projection,
-        a branch upward corresponds to the top dot of the given column, horizontal is both,
-        and downward is just the bottom dot of the top 4. This lends itself to the saying "Top-2-Bottom".
+        a branch upward corresponds to the <strong>top</strong> dot of the given column, horizontal is the first <strong>two</strong> dots, and
+        downward is the <strong>bottom</strong> dot of the first two. This lends itself to the saying "Top-2-Bottom".
       </p>
 
       <h5>Step 4) Reserve Punctuation:</h5>
@@ -128,7 +111,7 @@
 
       <h5>Step 5) Assignment Order:</h5>
       <p>
-        Alphanumeric sets are assigned globally, in order from the top branch toward the bottom,
+        Alphanumeric sets are assigned globally– from the top branch toward the bottom,
         then to the next depth [Top-to-Bottom, Left-to-Right].
       </p>
 
