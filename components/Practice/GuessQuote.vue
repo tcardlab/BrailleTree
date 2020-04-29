@@ -129,7 +129,7 @@ export default {
       return /^[A-Z]*$/.test(string)
     },
     getColor(bool) {
-      return {true:'green', false:'red', undefined: 'white'}[bool]
+      return {true:'#9dd', false:'red', undefined: 'white'}[bool]
     },
 
     //UI

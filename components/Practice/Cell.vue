@@ -30,7 +30,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'lightgreen'
+      default: '#9dd' //#d1ecf1
     },
     touch: {
       type: Boolean
