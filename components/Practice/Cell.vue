@@ -9,10 +9,9 @@
       :cy="(i % 3) * 2.5 + 1.75 + 'mm'"
       r="0.75mm"
 
-      ref="circle"
       :id="touch&&(cellIndex+''+i)"
-      @mousedown="touch&&(update(cellIndex, i))"
-      @mouseover="click&&(update(cellIndex, i))"
+      @mousedown="touch&&($parent.updateArr(cellIndex, i))"
+      @mouseover="click&&($parent.updateArr(cellIndex, i))"
     />
   </svg>
 </template>
@@ -37,12 +36,6 @@ export default {
     },
     click: {
       type: Boolean
-    }
-  },
-  methods: {
-    update(cellIndex, i) {
-      // Update cells given dot(i) on mouse event
-      this.$parent.updateArr(cellIndex, i)
     }
   }
 }
