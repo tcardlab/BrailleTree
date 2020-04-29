@@ -1,9 +1,5 @@
 <template>
-  <svg id="cell" 
-    @mousedown="touch&&(click=true)"
-    @mouseup="touch&&(checkAnswer())" 
-    @mouseleave="touch&&(checkAnswer())"
-  >
+  <svg id="cell">
     <rect :fill="color"/>
     <circle
       v-for="(dot, i) in binaryArr" :key="(dot, i)"
@@ -13,14 +9,13 @@
       :cy="(i % 3) * 2.5 + 1.75 + 'mm'"
       r="0.75mm"
 
+      ref="circle"
       :id="touch&&(cellIndex+''+i)"
       @mousedown="touch&&(update(cellIndex, i))"
       @mouseover="click&&(update(cellIndex, i))"
     />
   </svg>
 </template>
-
-<!-- move touch stuff to mixin and explode with v-bind="attrs" -->
 
 <script> 
 export default {
@@ -33,25 +28,20 @@ export default {
     cellIndex: {
       type: [Number, String],
     },
-    touch: {
-      type: Boolean
-    },
     color: {
       type: String,
       default: 'lightgreen'
-    }
-  },
-  data(){
-    return{
-      click: false
+    },
+    touch: {
+      type: Boolean
+    },
+    click: {
+      type: Boolean
     }
   },
   methods: {
-    checkAnswer() {
-      this.click = false
-      this.$parent.checkAnswer()
-    },
     update(cellIndex, i) {
+      // Update cells given dot(i) on mouse event
       this.$parent.updateArr(cellIndex, i)
     }
   }
