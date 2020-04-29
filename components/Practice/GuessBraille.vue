@@ -27,15 +27,13 @@ import _ from "lodash"
 import { ScreenSizeMixin } from './ScreenSizeMixin.js'
 import { BraillePickerMixin } from './BraillePickerMixin.js'
 // interactivity
-import { EventHandlerMixin } from '../EventHandlerMixin.js'
 import { InteractiveCellMixin } from './InteractiveCellMixin'
 
 export default {
   mixins: [ 
     ScreenSizeMixin,     // Mobile Scale Wrapper
     BraillePickerMixin,  // pick()
-    EventHandlerMixin,   // Applies events
-    InteractiveCellMixin // interactive events
+    InteractiveCellMixin // Interaction functions
   ],
   components: { Cell },
   data(){

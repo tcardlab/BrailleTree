@@ -21,8 +21,8 @@ import { InteractiveCellMixin } from './InteractiveCellMixin'
 
 export default {
   mixins: [
-    EventHandlerMixin,
-    InteractiveCellMixin
+    EventHandlerMixin,   // Applies events
+    InteractiveCellMixin // mouse & touch events
   ],
   props: {
     binaryArr: {
@@ -35,7 +35,7 @@ export default {
     },
     color: {
       type: String,
-      default: '#9dd' //#d1ecf1
+      default: '#9dd' // #d1ecf1
     },
     touch: {
       type: Boolean
