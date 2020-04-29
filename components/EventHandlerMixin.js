@@ -31,11 +31,11 @@ export const EventHandlerMixin = {
       */
       const ref = this.$refs[key]
       const method = bool?'addEventListener':'removeEventListener'
-      if ( typeof ref ===  Array) {
+      if ( ref.length > 1) {
         ref.forEach((el, i) => {
-          this.assignEvents(this.events[key], el, method, payload ? {i: i, ...payload} : i)
+          this.assignEvents(this.events[key], el, method, payload.length>0 ? [ payload, i] : i)
         })
-      } else if ( typeof ref ===  Object ) {
+      } else {
         this.assignEvents(this.events[key], ref, method, payload)
       }
     },

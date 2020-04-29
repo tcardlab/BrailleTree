@@ -3,10 +3,6 @@ export const InteractiveCellMixin = {
     return {
       click: false,
       events:{
-        wrapper: { // ref in parent
-          /* touchmove: (e)=>this.$parent.touchToggle(e),
-          touchend:  this.checkAnswer, */
-        },
         svg: {
           touchstart: (e)=>this.noScroll(e),
           touchmove: (e)=>this.$parent.touchToggle(e),
@@ -23,26 +19,23 @@ export const InteractiveCellMixin = {
       }
     }
   },
-  mounted() {
-    if(this.touch) {
-      this.toggleEvents2(true)
-    }
-  },
   methods: {
     // Event Handler
-    toggleEvents2(bool) {
-      const method = bool?'addEventListener':'removeEventListener'
-      const el = this.$parent.$refs['wrapper']
-      console.log(el) //eslint-disable-line
-      this.assignEvents(this.events['wrapper'], el, method)
+    toggleEvents(bool) {
+      if(this.touch) {
+        //const method = bool?'addEventListener':'removeEventListener'
+        this.quickEvents(bool, 'svg')
+        this.quickEvents(bool, 'circle')
 
-      const svg = this.$refs['svg']
-      this.assignEvents(this.events['svg'], svg, method)
+        
+        /* const svg = this.$refs['svg']
+        this.assignEvents(this.events['svg'], svg, method) */
 
-      const circleArr = this.$refs['circle']
-      circleArr.forEach((c, i) => {
-        this.assignEvents(this.events['circle'], c, method, i)
-      })
+        /* const circleArr = this.$refs['circle']
+        circleArr.forEach((c, i) => {
+          this.assignEvents(this.events['circle'], c, method, i)
+        }) */
+      }
     },
 
     // Cell

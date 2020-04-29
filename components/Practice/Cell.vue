@@ -11,12 +11,7 @@
 
       ref="circle"
       :id="touch&&(cellIndex+''+i)"
-      
     />
-    <!-- 
-      @mousedown="touch&&(update(cellIndex, i))"
-      @mouseover="click&&(update(cellIndex, i))"
-    -->
   </svg>
 </template>
 

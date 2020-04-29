@@ -1,12 +1,5 @@
 <template>
-  <!-- 
-    @touchmove="touchToggle($event)"
-    @touchend="checkAnswer()" 
-  -->
-  <div
-    class='wrapper'
-    ref="wrapper"
-  >
+  <div class='wrapper'>
     <!-- Mobile Scale Wrapper -->
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
       <!-- Interactive Cell -->
@@ -15,13 +8,7 @@
         :cellIndex="i"
         :binaryArr="arr"
         touch
-      /><!--
-        :click="click===i&&(true)" 
-        @touchstart.native="noScroll" 
-        @mouseup.native="checkAnswer()"
-        @mouseleave.native="checkAnswer()"
-        @mousedown.native="click=i"
-      -->
+      />
     </div>
 
     <!-- Letter + Next Button -->
