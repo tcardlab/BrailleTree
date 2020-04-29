@@ -111,7 +111,7 @@
 
       <h5>Step 5) Assignment Order:</h5>
       <p>
-        Alphanumeric sets are assigned globally in depth order- from the top most branch toward the bottom,
+        Alphanumeric sets are assigned globally, in depth order- from the top most branch toward the bottom,
         then to the next depth [Top-to-Bottom, Left-to-Right].
       </p>
 
