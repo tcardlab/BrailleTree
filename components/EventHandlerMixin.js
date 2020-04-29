@@ -1,3 +1,4 @@
+// Target element refs to assign events stored in data
 export const CellClickMixin = {
   created() {
     if (this.toggleEvents) {
