@@ -2,7 +2,7 @@
   <div class='wrapper'>
     <!-- Mobile Scale Wrapper -->
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
-      <!-- Interactive Cell -->
+      <!-- Interactive Cell: Mouse & touch events separated -->
       <Cell 
         v-for="(arr, i) in response" :key="answer+'-'+i"
         :cellIndex="i"
@@ -11,12 +11,12 @@
 
         :click="click===i&&(true)"
         @mousedown.native="click=i"
-        @mouseup.native="checkAnswer()"
-        @mouseleave.native="checkAnswer()"
+        @mouseup.native="callCheckAnswer()"
+        @mouseleave.native="callCheckAnswer()"
 
         @touchstart.native="noScroll"
         @touchmove.native="touchToggle($event)"
-        @touchend.native="checkAnswer()"
+        @touchend.native="callCheckAnswer()"
       />
     </div>
 
@@ -32,8 +32,6 @@
 
 <script>
 import Cell from './Cell.vue'
-import _ from "lodash"
-
 import { ScreenSizeMixin } from './ScreenSizeMixin.js'
 import { BraillePickerMixin } from './BraillePickerMixin.js'
 import { InteractiveCellMixin } from './InteractiveCellMixin'
@@ -48,7 +46,6 @@ export default {
   data(){
     return {
       response: [],
-      // UI
       score: 0,
       seen: 0
     }
@@ -61,14 +58,11 @@ export default {
       // Called in pick() – important to initialize cell with correct shape
       this.response = this.bArr.length===2? [[0,0,0,0,0,0], [0,0,0,0,0,0]]: [[0,0,0,0,0,0]]
     },
-    checkAnswer() {
-      this.lastID = ''
+    callCheckAnswer () {
+      this.checkAnswer()
       this.click = false
-      if(_.isEqual(this.response, this.bArr)) {
-        this.score += 1
-        this.pick()
-      }
-    },
+      this.lastID = ''
+    }
   }
 }
 </script>

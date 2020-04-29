@@ -47,12 +47,6 @@ export default {
     setResponse() {
       // Called in pick() - resets answer after correct answer
       this.response = ''
-    },
-    checkAnswer() {
-      if(this.response===this.answer) {
-        this.score += 1
-        this.pick()
-      }
     }
   }
 }

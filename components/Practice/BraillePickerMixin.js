@@ -1,4 +1,5 @@
 import { mods, denseBraille } from './Quotes'
+const isEqual = require('lodash.isequal')
 
 export const BraillePickerMixin = {
   data() {
@@ -40,6 +41,15 @@ export const BraillePickerMixin = {
       // Delete current answer and initialize shape/type
       this.setResponse()
     },
+    checkAnswer() {
+      const answer = typeof this.response === 'string' ? this.answer : this.bArr
+      if(isEqual(this.response, answer)) {
+        this.score += 1
+        this.pick()
+      }
+    },
+
+    // Helper Functions
     randArr(arr) { 
       var val = arr[arr.length * Math.random() << 0]
       return val

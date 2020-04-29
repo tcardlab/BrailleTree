@@ -23,6 +23,7 @@ export const InteractiveCellMixin = {
         this.lastID = el.id
       } else if (!['rect', 'circle'].includes(el.tagName)){
         this.checkAnswer()
+        this.lastID = ''
       }
     },
     noScroll(e) {
