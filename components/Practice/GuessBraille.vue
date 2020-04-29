@@ -1,9 +1,5 @@
 <template>
-  <div
-    class='wrapper'
-    @touchmove="touchToggle($event)"
-    @touchend="checkAnswer()"
-  >
+  <div class='wrapper'>
     <!-- Mobile Scale Wrapper -->
     <div :style="windowWidth<768?mobileStyle:desktopStyle">
       <!-- Interactive Cell -->
@@ -11,14 +7,16 @@
         v-for="(arr, i) in response" :key="answer+'-'+i"
         :cellIndex="i"
         :binaryArr="arr"
+        touch
 
-        @touchstart.native="noScroll"
-
+        :click="click===i&&(true)"
+        @mousedown.native="click=i"
         @mouseup.native="checkAnswer()"
         @mouseleave.native="checkAnswer()"
-        @mousedown.native="click=i"
-        :click="click===i&&(true)" 
-        touch
+
+        @touchstart.native="noScroll"
+        @touchmove.native="touchToggle($event)"
+        @touchend.native="checkAnswer()"
       />
     </div>
 
@@ -35,17 +33,21 @@
 <script>
 import Cell from './Cell.vue'
 import _ from "lodash"
+
 import { ScreenSizeMixin } from './ScreenSizeMixin.js'
 import { BraillePickerMixin } from './BraillePickerMixin.js'
+import { InteractiveCellMixin } from './InteractiveCellMixin'
 
 export default {
-  mixins: [ ScreenSizeMixin, BraillePickerMixin ],
+  mixins: [ 
+    ScreenSizeMixin, 
+    BraillePickerMixin, 
+    InteractiveCellMixin
+  ],
   components: { Cell },
   data(){
     return {
       response: [],
-      lastID: '',
-      click: false,
       // UI
       score: 0,
       seen: 0
@@ -65,35 +67,6 @@ export default {
       if(_.isEqual(this.response, this.bArr)) {
         this.score += 1
         this.pick()
-      }
-    },
-
-    // Interactivity
-    updateArr(cellindex, i) {
-      // Update cells given dot(i) on mouse event
-      const alias = this.response[cellindex]
-      alias.splice(i, 1, Number(!alias[i]))
-    },
-
-    // Mobile Interactivity
-    touchToggle(e) {
-      // Get touched element 
-      var touch = e.touches[0]
-      const xy = [touch.clientX, touch.clientY]
-      var el = document.elementFromPoint(...xy)
-      // If touching new Dot => update; else => check answer
-      if (el.tagName === 'circle' && this.lastID !== el.id) {
-        this.updateArr(+el.id[0], +el.id[1]) 
-        this.lastID = el.id
-      } else if (!['rect', 'circle'].includes(el.tagName)){
-        this.checkAnswer()
-      }
-    },
-    noScroll(e) {
-      // Dragging with one finger won't scroll on touch devices
-      if (e.touches.length == 1) { 
-        this.touchToggle(e) // tap will toggle dot
-        e.preventDefault()
       }
     },
   }
