@@ -53,18 +53,18 @@
 <script>
 import Cell from './Cell'
 import { quotes, braille, mods } from "./Quotes"
-import { MobileWrapperMixin } from './MobileWrapperMixin.js'
+import { ScreenSizeMixin } from './ScreenSizeMixin.js'
 
 export default {
-  mixins: [ MobileWrapperMixin ], // Gets screen width for mobile styling
-  components: {Cell},
+  mixins: [ ScreenSizeMixin ], // Gets screen width for mobile styling
+  components: { Cell },
   data() {
     return {
       mods: mods,    // capital and number binary array
       current: 0,    // Track selected index to prevent repeated pick()
-      answer: {},    // pick()=>randArr() sets person: and quote: strings
-      qArr: [],      // pick()=>textToBArr() converts quote to [binaryArr's, ...]
-      pArr: [],      // pick()=>textToBArr() converts person to [binaryArr's, ...]
+      answer: {},    // pick() => randArr() sets person: and quote: strings
+      qArr: [],      // pick() => textToBArr() converts quote to [binaryArr's, ...]
+      pArr: [],      // pick() => textToBArr() converts person to [binaryArr's, ...]
       responseQ: '', // computed: User input string compared to answer.quote
       responseP: '', // computed: User input string compared to answer.person
       // UI

@@ -1,4 +1,5 @@
-export const MobileWrapperMixin = {
+export const ScreenSizeMixin = {
+  /* Exposes Reactive Page Sizing */
   data() {
     return {
       windowWidth: 0,
@@ -19,6 +20,7 @@ export const MobileWrapperMixin = {
     }
   },
   computed: {
+    // Stylings for GuessBraille & GuessLetter
     mobileStyle() {
       const cell = 22.677 // 6mm * 3.779px/mm
       const scale = (0.5 * this.windowWidth) / (2 * cell) // both cells should fill half the screen

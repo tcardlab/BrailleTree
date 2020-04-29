@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     update(cellIndex, i) {
+      // Update cells given dot(i) on mouse event
       this.$parent.updateArr(cellIndex, i)
     }
   }
