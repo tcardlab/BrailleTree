@@ -1,9 +1,11 @@
 <template>
+  <!-- 
+    @touchmove="touchToggle($event)"
+    @touchend="checkAnswer()" 
+  -->
   <div
     class='wrapper'
     ref="wrapper"
-    @touchmove="touchToggle($event)"
-    @touchend="checkAnswer()"
   >
     <!-- Mobile Scale Wrapper -->
     <div :style="windowWidth<768?mobileStyle:desktopStyle">

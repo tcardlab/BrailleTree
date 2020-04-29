@@ -42,7 +42,7 @@ export const EventHandlerMixin = {
     assignEvents(eventObj, el, method, payload={}) {
       //For each event in eventObj, apply method to given element + payload if needed
       for (let [k, v] of Object.entries(eventObj)) {
-        el[method](k, ()=>v(payload))
+        el[method](k, (e) => v(e, payload))
       }
     }
   }

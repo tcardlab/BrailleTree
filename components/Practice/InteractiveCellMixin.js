@@ -1,29 +1,32 @@
 export const InteractiveCellMixin = {
-  /* data() {
+  data() {
     return {
       events:{
         wrapper: {
-          touchmove: (e) => this.touchToggle(e),
+          touchmove: (e)=>this.touchToggle(e),
           touchend: this.checkAnswer
         },
-        svg: {
-          touchstart: (e) => this.noScroll(e),
-          mouseleave: this.checkAnswer(),
+        /* svg: {
+          touchstart: this.noScroll,
+          mouseleave: this.checkAnswer,
           mousedown: (i) => this.click=i,
-          mouseup: this.checkAnswer()
+          mouseup: this.checkAnswer
         },
         circle: {
           mousedown: (i) => this.updateArr(this.cellIndex, i),
           mouseover: (i) => this.click&&(this.updateArr(this.cellIndex, i))
-        }
+        } */
       }
     }
-  }, */
+  },
   methods: {
     // Event Handler
-    //toggleEvents(bool) {
-      //this.quickEvents(bool, wrapper, payload={})
-    //},
+    toggleEvents(bool) {
+      const method = bool?'addEventListener':'removeEventListener'
+      const el = this.$refs['wrapper']
+      this.assignEvents(this.events['wrapper'], el, method)
+    },
+
     // Interactivity
     updateArr(cellindex, i) {
       // Update cells given dot(i) on mouse event
@@ -33,7 +36,7 @@ export const InteractiveCellMixin = {
 
     // Mobile Interactivity
     touchToggle(e) {
-      // Get touched element 
+      // Get touched element
       var touch = e.touches[0]
       const xy = [touch.clientX, touch.clientY]
       var el = document.elementFromPoint(...xy)
