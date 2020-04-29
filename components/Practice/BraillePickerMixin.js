@@ -1,5 +1,5 @@
 // Picks random glyph(alph, num, punc) and convert to [binary array, ...]
-import { mods, denseBraille } from './Quotes'
+import { mods, denseBraille } from './Data.js'
 
 export const BraillePickerMixin = {
   data() {

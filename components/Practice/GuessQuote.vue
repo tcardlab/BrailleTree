@@ -52,7 +52,7 @@
 
 <script>
 import Cell from './Cell'
-import { quotes, braille, mods } from "./Quotes"
+import { quotes, braille, mods } from "./Data.js"
 import { ScreenSizeMixin } from './ScreenSizeMixin.js'
 
 export default {
