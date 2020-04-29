@@ -18,11 +18,15 @@ export const CellClickMixin = {
   },
   mounted() {
     if (this.touch) {
+      this.quickEvents(true, 'svg')
+      this.quickEvents(true, 'circle')
       this.toggleEvents(true)
     }
   },
   beforeDestroy() {
     if (this.touch) {
+      this.quickEvents(false, 'svg')
+      this.quickEvents(false, 'circle')
       this.toggleEvents(false)
     }
   },
@@ -30,13 +34,27 @@ export const CellClickMixin = {
     // Event Handler
     toggleEvents(bool) {
       const method = bool?'addEventListener':'removeEventListener'
-      const svg = this.$refs.svg
-      this.assignEvents(this.events.svg, svg, method)
 
-      const circleArr = this.$refs.circle
-      circleArr.forEach((c, i) => {
-        this.assignEvents(this.events.circle, c, method, i)
+      const el = this.$refs['svg']
+      this.assignEvents(this.events['svg'], el, method)
+
+      const elArr = this.$refs['circle']
+      elArr.forEach((el, i) => {
+        this.assignEvents(this.events['circle'], el, method, i)
       })
+    },
+    quickEvents(bool, key) {
+      // ensure ref name === this.events key
+      const ref = this.$refs[key]
+
+      const method = bool?'addEventListener':'removeEventListener'
+      if ( typeof ref ===  Array) {
+        ref.forEach((el, i) => {
+          this.assignEvents(this.events[key], el, method, i)
+        })
+      } else if ( typeof ref ===  Object ) {
+        this.assignEvents(this.events[key], ref, method)
+      }
     },
     assignEvents(eventObj, el, method, payload={}) {
       //For each event in eventObj, apply method to given element + payload if needed
