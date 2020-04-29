@@ -30,6 +30,7 @@
       class="input-quote" 
       v-model="responseQ" 
       placeholder="Quote?"
+      :maxlength="answer.quote.length"
       @keypress.enter="focus('person')"
     />
 
@@ -43,6 +44,7 @@
         placeholder="Person?"
         @keypress.enter="pick(); focus('quote')"
         @keydown.delete="responseP.length===0?focus('quote'):{}"
+        :maxlength="answer.person.length"
       >
       <button @click="pick(); focus('quote')">Next</button>
     </span>
@@ -62,7 +64,10 @@ export default {
     return {
       mods: mods,    // capital and number binary array
       current: 0,    // Track selected index to prevent repeated pick()
-      answer: {},    // pick() => randArr() sets person: and quote: strings
+      answer: {      // pick() => randArr() sets person: and quote: strings
+        quote: '',
+        person: ''
+      }, 
       qArr: [],      // pick() => textToBArr() converts quote to [binaryArr's, ...]
       pArr: [],      // pick() => textToBArr() converts person to [binaryArr's, ...]
       responseQ: '', // computed: User input string compared to answer.quote
