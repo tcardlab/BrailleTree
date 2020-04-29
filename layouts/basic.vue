@@ -1,7 +1,7 @@
 <template>
   <div class="my-layout">
     <b-navbar toggleable="sm" type="dark" variant="info">
-      <b-navbar-brand href="/">
+      <b-navbar-brand to="/">
         <img src="../assets/BrailleTree.png" style="filter: invert(1);"/>
         BrailleTree
       </b-navbar-brand>
@@ -10,11 +10,11 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/practice">Practice</b-nav-item>
-          <b-nav-item href="/proficiency">Proficiency</b-nav-item>
-          <b-nav-item href="/faq">FAQ</b-nav-item>
-           <b-nav-item href="/format">Editor</b-nav-item>
-          <b-nav-item href="/gallery">More Braille</b-nav-item>
+          <b-nav-item to="/practice">Practice</b-nav-item>
+          <b-nav-item to="/proficiency">Proficiency</b-nav-item>
+          <b-nav-item to="/faq">FAQ</b-nav-item>
+           <b-nav-item to="/format">Editor</b-nav-item>
+          <b-nav-item to="/gallery">More Braille</b-nav-item>
         </b-navbar-nav>
 
       </b-collapse>

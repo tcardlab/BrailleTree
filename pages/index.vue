@@ -69,13 +69,16 @@
     <h3>BrailleTree Explained:</h3>
 
     <p>
-      Despite its age, Grade 1 Braille (G1) is still recognized as a random mapping of Alphanumerics to cells. 
+      Despite its age, Grade 1 Braille (G1) is still recognized as a random mapping of Alphanumerics to cells.
       On the contrary, lies an organization that procedurally generates Braille with only a polydactyl handful of rules.
-      <!-- While explicit instructions are often intimidating, I guarantee this is intuitive. 
-      These rules are an instructional formality, that will likely be forgotten once you understand the inherent organization. --> 
-      However, before getting started, it's important to clarify that this is a mnemonic aid; you will be able to encode and decipher G1 Braille, 
-      but fluency is a matter of practice & rote memorization. <!-- (not just letters, but words, groupings, contractions and ultimately G2) -->
+      However, before getting started, it's important to clarify that this is a mnemonic aid; you will be able to encode and decipher G1 Braille,
+      but fluency is a matter of practice & rote memorization.
     </p>
+    <!-- 
+      While explicit instructions are often intimidating, I guarantee this is intuitive. 
+      These rules are an instructional formality, that will likely be forgotten once you understand
+      the inherent organization. memorization not just letters, but words, groupings, contractions and ultimately G2.
+    -->
     <div style="width: 90%">
       <h5>Step 1) Generating the Tree:</h5>
       <p>
@@ -146,7 +149,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #Bottom, .Bottom-1 {
   fill: var(--info);
 }
