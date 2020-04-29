@@ -5,7 +5,7 @@ BrailleTree features
 -->
 
 <template>
-  <div>
+  <div style="user-select: none;">
       <div v-for = "(v,k) in toggle" :key="k" >
         <span>
           <base-checkbox v-model="_$[k]"/> <strong>{{v}}</strong>

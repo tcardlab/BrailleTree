@@ -2,7 +2,7 @@
 <template>
   <label class="switch">
     <input
-      :style="'pointer-events:'+'none'"
+      style="pointer-events:none; user-select: none;"
       :checked="checked"
       :disabled="disable"
       @change="$emit('change', $event.target.checked)"

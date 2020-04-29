@@ -32,7 +32,7 @@
       <b-col align="center"  class="svg-col " md="8"> 
         <BrailleTree ref="htmlsvg"/>
 
-        <div>
+        <div style="user-select: none;">
           <div>
             <h4>Braille <base-checkbox v-model="_$.vuealph" :disable="_$.display==='5'? true:false"/> Letters</h4>
           </div>
