@@ -111,7 +111,7 @@
 
       <h5>Step 5) Assignment Order:</h5>
       <p>
-        Alphanumeric sets are assigned globally– from the top branch toward the bottom,
+        Alphanumeric sets are assigned globally in depth order- from the top most branch toward the bottom,
         then to the next depth [Top-to-Bottom, Left-to-Right].
       </p>
 
@@ -136,15 +136,12 @@
 <script>
 import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
-// import StaticCell from '~/components/Practice/StaticCell.vue'
-
 
 export default {
   layout: 'basic',
   components: {
     BrailleTree,
-    BaseCheckbox,
-    // StaticCell
+    BaseCheckbox
   },
 }
 </script>
