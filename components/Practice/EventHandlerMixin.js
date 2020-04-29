@@ -1,59 +1,41 @@
-// define a mixin object
 export const CellClickMixin = {
-  data(){
-    return{
-      click: false,
-      events: {
-        svg: {
-          mousedown: this.clicked,
-          mouseup: this.checkAnswer, 
-          mouseleave: this.checkAnswer,
-        },
-        circle: {
-          mousedown: (i)=>this.update(this.cellIndex, i),
-          mouseover: (i)=>this.click&&(this.update(this.cellIndex, i)),
-        }
-      }
+  created() {
+    if (this.toggleEvents) {
+      console.log('toggleEvents recognized by CellClickMixin') // eslint-disable-line
     }
   },
   mounted() {
-    if (this.touch) {
-      this.quickEvents(true, 'svg')
-      this.quickEvents(true, 'circle')
+    if (this.toggleEvents) {
+      // Write custom toggleEvents method to auto-run
       this.toggleEvents(true)
     }
   },
   beforeDestroy() {
-    if (this.touch) {
-      this.quickEvents(false, 'svg')
-      this.quickEvents(false, 'circle')
+    if (this.toggleEvents) {
       this.toggleEvents(false)
     }
   },
   methods: {
-    // Event Handler
-    toggleEvents(bool) {
-      const method = bool?'addEventListener':'removeEventListener'
-
-      const el = this.$refs['svg']
-      this.assignEvents(this.events['svg'], el, method)
-
-      const elArr = this.$refs['circle']
-      elArr.forEach((el, i) => {
-        this.assignEvents(this.events['circle'], el, method, i)
-      })
-    },
-    quickEvents(bool, key) {
-      // ensure ref name === this.events key
+    quickEvents(bool, key, payload={}) {
+      /*Use quickEvents if writing custom toggleEvents is overkill.
+        Expose "events" object (Must manually remove listeners if it updates).
+        Add ref names to target object and ensure ref name === this.events[key]
+        events: {
+          div1: {'mouseover': this.method1, ...}, // no input
+          div2: {'click': ()=>this.method2(this.input), ... }, // simple input
+          div3: {'touchstart': (payload)=> this.method3(payload), ...}, // quickEvents payload
+        }
+        add event in component mounted with bool=true and beforeDestroy with bool=false
+        or use in custom toggleEvents() method.
+      */
       const ref = this.$refs[key]
-
       const method = bool?'addEventListener':'removeEventListener'
       if ( typeof ref ===  Array) {
         ref.forEach((el, i) => {
-          this.assignEvents(this.events[key], el, method, i)
+          this.assignEvents(this.events[key], el, method, payload ? {i: i, ...payload} : i)
         })
       } else if ( typeof ref ===  Object ) {
-        this.assignEvents(this.events[key], ref, method)
+        this.assignEvents(this.events[key], ref, method, payload)
       }
     },
     assignEvents(eventObj, el, method, payload={}) {
@@ -61,17 +43,6 @@ export const CellClickMixin = {
       for (let [k, v] of Object.entries(eventObj)) {
         el[method](k, ()=>v(payload))
       }
-    },
-    // Events
-    clicked() {
-      this.click=true
-    },
-    checkAnswer() {
-      this.click = false
-      this.$parent.checkAnswer()
-    },
-    update(cellIndex, i) {
-      this.$parent.updateArr(cellIndex, i)
-    },
+    }
   }
 }
