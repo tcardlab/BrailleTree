@@ -1,40 +1,64 @@
 export const InteractiveCellMixin = {
   data() {
     return {
+      click: false,
       events:{
-        wrapper: {
-          touchmove: (e)=>this.touchToggle(e),
-          touchend: this.checkAnswer
+        wrapper: { // ref in parent
+          /* touchmove: (e)=>this.$parent.touchToggle(e),
+          touchend:  this.checkAnswer, */
         },
-        /* svg: {
-          touchstart: this.noScroll,
+        svg: {
+          touchstart: (e)=>this.noScroll(e),
+          touchmove: (e)=>this.$parent.touchToggle(e),
+          touchend:  this.checkAnswer,
+
           mouseleave: this.checkAnswer,
-          mousedown: (i) => this.click=i,
-          mouseup: this.checkAnswer
+          mouseup: this.checkAnswer,
+          mousedown:  () => this.click=true
         },
         circle: {
-          mousedown: (i) => this.updateArr(this.cellIndex, i),
-          mouseover: (i) => this.click&&(this.updateArr(this.cellIndex, i))
-        } */
+          mousedown:  (e, i) => this.$parent.updateArr(this.cellIndex, i),
+          mouseover:  (e, i) => this.click&&(this.$parent.updateArr(this.cellIndex, i))
+        }
       }
+    }
+  },
+  mounted() {
+    if(this.touch) {
+      this.toggleEvents2(true)
     }
   },
   methods: {
     // Event Handler
-    toggleEvents(bool) {
+    toggleEvents2(bool) {
       const method = bool?'addEventListener':'removeEventListener'
-      const el = this.$refs['wrapper']
+      const el = this.$parent.$refs['wrapper']
+      console.log(el) //eslint-disable-line
       this.assignEvents(this.events['wrapper'], el, method)
+
+      const svg = this.$refs['svg']
+      this.assignEvents(this.events['svg'], svg, method)
+
+      const circleArr = this.$refs['circle']
+      circleArr.forEach((c, i) => {
+        this.assignEvents(this.events['circle'], c, method, i)
+      })
     },
 
-    // Interactivity
-    updateArr(cellindex, i) {
-      // Update cells given dot(i) on mouse event
-      const alias = this.response[cellindex]
-      alias.splice(i, 1, Number(!alias[i]))
+    // Cell
+    noScroll(e) {
+      // Dragging with one finger won't scroll on touch devices
+      if (e.touches.length == 1) { 
+        this.$parent.touchToggle(e) // tap will toggle dot
+        e.preventDefault()
+      }
+    },
+    checkAnswer() {
+      this.click = false
+      this.$parent.checkAnswer()
     },
 
-    // Mobile Interactivity
+    // Parent
     touchToggle(e) {
       // Get touched element
       var touch = e.touches[0]
@@ -48,12 +72,11 @@ export const InteractiveCellMixin = {
         this.checkAnswer()
       }
     },
-    noScroll(e) {
-      // Dragging with one finger won't scroll on touch devices
-      if (e.touches.length == 1) { 
-        this.touchToggle(e) // tap will toggle dot
-        e.preventDefault()
-      }
+    updateArr(cellindex, i) {
+      console.log(i) //eslint-disable-line
+      // Update cells given dot(i) on mouse event
+      const alias = this.response[cellindex]
+      alias.splice(i, 1, Number(!alias[i]))
     }
   }
 }

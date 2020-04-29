@@ -14,15 +14,14 @@
         v-for="(arr, i) in response" :key="answer+'-'+i"
         :cellIndex="i"
         :binaryArr="arr"
-
-        @touchstart.native="noScroll"
-
+        touch
+      /><!--
+        :click="click===i&&(true)" 
+        @touchstart.native="noScroll" 
         @mouseup.native="checkAnswer()"
         @mouseleave.native="checkAnswer()"
         @mousedown.native="click=i"
-        :click="click===i&&(true)" 
-        touch
-      />
+      -->
     </div>
 
     <!-- Letter + Next Button -->
@@ -56,13 +55,12 @@ export default {
     return {
       response: [],
       lastID: '',
-      click: false,
       // UI
       score: 0,
       seen: 0
     }
   },
-  mounted(){
+  beforeMount(){
     this.pick()
   },
   methods: {

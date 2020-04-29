@@ -11,14 +11,24 @@
 
       ref="circle"
       :id="touch&&(cellIndex+''+i)"
+      
+    />
+    <!-- 
       @mousedown="touch&&(update(cellIndex, i))"
       @mouseover="click&&(update(cellIndex, i))"
-    />
+    -->
   </svg>
 </template>
 
 <script> 
+import { EventHandlerMixin } from '../EventHandlerMixin.js'
+import { InteractiveCellMixin } from './InteractiveCellMixin'
+
 export default {
+  mixins: [
+    EventHandlerMixin,
+    InteractiveCellMixin
+  ],
   props: {
     binaryArr: {
       type: Array,
@@ -35,15 +45,6 @@ export default {
     touch: {
       type: Boolean
     },
-    click: {
-      type: Boolean
-    }
-  },
-  methods: {
-    update(cellIndex, i) {
-      // Update cells given dot(i) on mouse event
-      this.$parent.updateArr(cellIndex, i)
-    }
   }
 }
 </script>
