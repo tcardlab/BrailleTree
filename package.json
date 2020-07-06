@@ -21,6 +21,7 @@
     "lodash.isequal": "^4.5.0",
     "nuxt": "^2.11.0",
     "nuxt-fontawesome": "^0.4.0",
+    "v-scroll-lock": "^1.2.0",
     "vuex-pathify": "^1.2.4"
   },
   "devDependencies": {

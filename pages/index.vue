@@ -74,6 +74,8 @@
       <span>{{ ["#'s", 'A-J', 'K-T', 'U-Z', 'All', 'All2'][_$.display] }}</span>
     </div>
 
+    <Explained/>
+
     <h3>BrailleTree Explained:</h3>
 
     <p>
@@ -147,12 +149,16 @@
 <script>
 import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
+//import Scroller from '~/components/Explanation/Scroller.vue'
+import Explained from '~/components/Explanation/Explained.vue'
 
 export default {
   layout: 'basic',
   components: {
     BrailleTree,
-    BaseCheckbox
+    BaseCheckbox,
+    //Scroller,
+    Explained
   },
 }
 </script>
