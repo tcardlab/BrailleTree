@@ -1,5 +1,5 @@
 <template>
-  <div @wheel="handleWheel">
+  <div @wheel="handleWheel" @keyup="nextItem">
     <slot :index="index"/>
   </div>
 </template>
@@ -27,13 +27,27 @@ export default {
   methods: {
     handleWheel(e) {
       if(!((this.index===+this.maxIndex&&e.deltaY>0)||(this.index===0&&e.deltaY<0))){
-        e.preventDefault();
+        e.preventDefault()
       }
       this.scroll += e.deltaY
     },
     setIndex(n) {
       this.index=n
+    },
+    nextItem(e) {
+      e.preventDefault()
+      if (e.keyCode === 38 && this.index >= 1) {
+        this.index--
+      } else if (e.keyCode === 40 && this.index < this.maxIndex) {
+        this.index++
+      }
     }
+  },
+  mounted () {
+    document.addEventListener("keydown", this.nextItem)
+  },
+  beforeDestroy () {
+    document.removeEventListener("keydown", this.nextItem);
   }
 }
 </script>
