@@ -88,57 +88,8 @@
       the inherent organization. memorization not just letters, but words, groupings, contractions and ultimately G2.
     -->
 
-    <Explained/>
+    <Explained style="width: 90%; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.3rem"/>
 
-    <div style="width: 90%">
-      <h5>Step 1) Generating the Tree:</h5>
-      <p>
-        This structure is a <i>ternary tree</i>- meaning each node in the structure has 3 branches. 
-        It also has a depth of 2, denoting this branching process occurs twice off the root node. 
-        The tree will branch to the right as it best relates to Braille. To cover the entirety of Alphanumerics, 
-        there will be 4 such structures.
-      </p>
-
-      <h5>Step 2) Assigning Columns:</h5>
-      <p>Our first step in generating Braille is to assign cell columns by way of depth.</p>
-      <ul>
-        <li>The root (depth 0) has no columns</li>
-        <li>depth 1 adds the first column of dots (1-3)</li>
-        <li>depth 2 adds the second column to the prior nodes cell.</li>
-      </ul>
-      <p>In this way, as you scan Braille cells one column at a time you move forward one branch in the tree.</p>
-
-      <h5>Step 3) Assigning Dots to Columns</h5>
-      <p>
-        Braille is separated into repeating sets, distinguished by the last dot of each column.
-        For this reason, this structure only assigns the top 2 dots in a column. Given our rightward projection,
-        a branch upward corresponds to the <strong>top</strong> dot of the given column, horizontal is the first <strong>two</strong> dots, and
-        downward is the <strong>bottom</strong> dot of the first two. This lends itself to the saying "Top-2-Bottom".
-      </p>
-
-      <h5>Step 4) Reserve Punctuation:</h5>
-      <p>
-        The lowest global node at each depth is reserved for punctuation. This will leave to nodes left for Alphanumerics.
-        This placement makes distinguishing the two very easy - as punctuation never occupy dots 1 or 4 while Alphanumerics must.
-        We won't assign punctuation just yet, as they are unsorted and require a little more effort (click more to see).
-      </p>
-
-      <h5>Step 5) Assignment Order:</h5>
-      <p>
-        Alphanumeric sets are assigned globally, in depth order- from the top most branch toward the bottom,
-        then to the next depth [Top-to-Bottom, Left-to-Right].
-      </p>
-
-      <h5>Step 6) Alphanumeric Sets:</h5>
-      <p>Sets are identified either through a modifier (numbers) or the presence of dots 3 & 6.</p>
-      <ul>
-        <li>[A - J] Is filled in the absence of 3&6</li>
-        <li>[1 - 9+0] Is identical to [A-J], but the string of #'s will be preceded by a number modifier.</li>
-        <li> K-T adds dot 3 to the cells. </li>
-        <li> [U, V, X, Y, Z] (u - Z minus w) adds dots 3&6 to each cell. Words [And, For, Of, The, With] fill the remaining spaces. They are in alphabetical order.</li>
-      </ul>
-      
-    </div>
     <h3> Punctuation: </h3>
 
     <h3> Gotchas and More: </h3>
