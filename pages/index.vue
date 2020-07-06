@@ -74,7 +74,7 @@
       <span>{{ ["#'s", 'A-J', 'K-T', 'U-Z', 'All', 'All2'][_$.display] }}</span>
     </div>
 
-    <h3>BrailleTree Explained:</h3>
+    <h3 id="explained">BrailleTree Explained:</h3>
 
     <p>
       Despite its age, Grade 1 Braille (G1) is still recognized as a random mapping of Alphanumerics to cells.
