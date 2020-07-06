@@ -1,0 +1,45 @@
+<svg width="407.86mm" height="394.79mm" version="1.1" viewBox="0 0 407.86 394.79" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+ <g transform="translate(4.1845e-7 3.1959)">
+  <g>
+   <g fill="#fff">
+    <g stroke="#f00" stroke-width="3">
+     <path d="m169.63 103.49a56.75 45.354 0 0 1-49.147-22.677 56.75 45.354 0 0 1 0-45.354 56.75 45.354 0 0 1 49.147-22.677" stroke-linejoin="round"/>
+     <path d="m169.63 58.138h-56.693"/>
+     <g transform="translate(0 136.06)">
+      <path d="m169.63 103.49a56.75 45.354 0 0 1-49.147-22.677 56.75 45.354 0 0 1 0-45.354 56.75 45.354 0 0 1 49.147-22.677" stroke-linejoin="round"/>
+      <path d="m169.63 58.138h-56.693"/>
+     </g>
+     <g transform="translate(0 272.13)">
+      <path d="m112.88 58.138a56.75 45.354 0 0 1 56.75-45.354" stroke-linejoin="round"/>
+      <path d="m169.63 58.138h-56.693"/>
+      <path transform="scale(1,-1)" d="m112.88-58.138a56.75 45.354 0 0 1 56.75-45.354" stroke-linejoin="round"/>
+     </g>
+     <g transform="translate(-56.693 136.06)">
+      <path d="m75.146 58.138a94.488 136.06 0 0 1 94.488-136.06" stroke-linejoin="round"/>
+      <path d="m169.63 58.138h-94.488"/>
+      <path transform="scale(1,-1)" d="m75.146-58.138a94.488 136.06 0 0 1 94.488-136.06" stroke-linejoin="round"/>
+     </g>
+    </g>
+    <circle cx="18.453" cy="194.2" r="6.5" stroke="#000" stroke-linejoin="round"/>
+    <g stroke="#000" stroke-linejoin="round">
+     <circle cx="112.94" cy="194.2" r="6.5"/>
+     <circle cx="112.94" cy="58.138" r="6.5"/>
+     <circle cx="112.94" cy="330.26" r="6.5"/>
+    </g>
+    <g stroke="#000" stroke-linejoin="round">
+     <circle cx="169.63" cy="194.2" r="6.5"/>
+     <circle cx="169.63" cy="239.56" r="6.5"/>
+     <circle cx="169.63" cy="148.85" r="6.5"/>
+     <circle cx="169.63" cy="284.91" r="6.5"/>
+     <circle cx="169.63" cy="330.26" r="6.5"/>
+     <circle cx="169.63" cy="375.62" r="6.5"/>
+     <circle cx="169.63" cy="103.49" r="6.5"/>
+     <circle cx="169.63" cy="58.138" r="6.5"/>
+     <circle cx="169.63" cy="12.783" r="6.5"/>
+    </g>
+   </g>
+  </g>
+ </g>
+
+</svg>

@@ -74,8 +74,6 @@
       <span>{{ ["#'s", 'A-J', 'K-T', 'U-Z', 'All', 'All2'][_$.display] }}</span>
     </div>
 
-    <Explained/>
-
     <h3>BrailleTree Explained:</h3>
 
     <p>
@@ -89,6 +87,9 @@
       These rules are an instructional formality, that will likely be forgotten once you understand
       the inherent organization. memorization not just letters, but words, groupings, contractions and ultimately G2.
     -->
+
+    <Explained/>
+
     <div style="width: 90%">
       <h5>Step 1) Generating the Tree:</h5>
       <p>
@@ -149,7 +150,6 @@
 <script>
 import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
-//import Scroller from '~/components/Explanation/Scroller.vue'
 import Explained from '~/components/Explanation/Explained.vue'
 
 export default {
@@ -157,7 +157,6 @@ export default {
   components: {
     BrailleTree,
     BaseCheckbox,
-    //Scroller,
     Explained
   },
 }

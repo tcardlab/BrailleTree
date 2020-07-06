@@ -1,7 +1,5 @@
 <template>
-  <div 
-    @wheel="handleScroll" 
-    style="overflow: scroll; height: 50px; background-color: red">
+  <div @wheel="handleWheel">
     <slot :index="index"/>
   </div>
 </template>
@@ -17,8 +15,8 @@ export default {
   },
   watch: {
     scroll() {
-      const deltaIndex = this.scroll / 30 | 0
-      if (Math.abs(deltaIndex) > 1) {
+      const deltaIndex = this.scroll / 50 | 0
+      if (deltaIndex !== 0) {
         const sum = this.index + deltaIndex
         this.index = sum <= 0 ? 0 : sum >= 5 ? 5 : sum
         this.scroll = 0
@@ -26,8 +24,10 @@ export default {
     }
   },
   methods: {
-    handleScroll(e) {
-      e.preventDefault();
+    handleWheel(e) {
+      if(!((this.index===5&&e.deltaY>0)||(this.index===0&&e.deltaY<0))){
+        e.preventDefault();
+      }
       this.scroll += e.deltaY
     }
   }

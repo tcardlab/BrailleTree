@@ -1,0 +1,36 @@
+<svg width="407.86mm" height="394.79mm" version="1.1" viewBox="0 0 407.86 394.79" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <style/>
+ <defs>
+  <path id="Top-5" d="m0.75-2q3.4167-22.818 22.25-30.75-16.75 8.9318-19.75 30.75z"/>
+  <path id="Both-2" d="M 6,2 23,3.25 6,4.5"/>
+  <path id="Bottom-9" d="m0.75 8.5q3.4167 22.818 22.25 30.75-16.75-8.9318-19.75-30.75z"/>
+ </defs>
+
+ <g transform="translate(4.1845e-7 3.1959)">
+  <g>
+   <g transform="matrix(2.5457 0 0 2.5457 -431.45 -444.73)">
+    <g transform="translate(285.19 229.65)" fill="none" stroke="#000" stroke-width=".39281">
+     <circle cx="2.8346" cy="2.8346" r=".75mm" display="visible"/>
+     <circle cx="2.8346" cy="12.283" r=".75mm" display="visible"/>
+     <circle cx="2.8346" cy="21.732" r=".75mm" display="visible"/>
+     <circle cx="12.283" cy="2.8346" r=".75mm" display="visible"/>
+     <circle cx="12.283" cy="12.283" r=".75mm" display="visible"/>
+     <circle cx="12.283" cy="21.732" r=".75mm" display="visible"/>
+    </g>
+    <g fill="#000000" font-family="Helvetica" stroke-width=".10393">
+     <text x="276.41644" y="242.69077" font-size="22.043px" style="line-height:1.25" xml:space="preserve"><tspan x="276.41644" y="242.69077" font-family="Helvetica" stroke-width=".10393">{</tspan></text>
+     <text x="265.56454" y="234.3855" font-size="8px" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="265.56454" y="234.3855" text-align="center">Depth</tspan><tspan x="265.56454" y="244.60915" text-align="center">1</tspan></text>
+    </g>
+    <g transform="matrix(-1 0 0 1 585.22 0)" fill="#000000" font-family="Helvetica" stroke-width=".10393">
+     <text x="276.41644" y="242.69077" font-size="22.043px" style="line-height:1.25" xml:space="preserve"><tspan x="276.41644" y="242.69077" font-family="Helvetica" stroke-width=".10393">{</tspan></text>
+     <text transform="scale(-1,1)" x="-265.68173" y="234.3855" font-size="8px" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="-265.68173" y="234.3855" text-align="center">Depth</tspan><tspan x="-265.68173" y="244.60915" text-align="center">2</tspan></text>
+    </g>
+    <g transform="rotate(-90 297.33 241.4)" fill="#000000" font-family="Helvetica" stroke-width=".10393">
+     <text x="276.41644" y="242.69077" font-size="22.043px" style="line-height:1.25" xml:space="preserve"><tspan x="276.41644" y="242.69077" font-family="Helvetica" stroke-width=".10393">{</tspan></text>
+     <text transform="rotate(90)" x="236.55983" y="-268.9144" font-size="8px" text-align="center" text-anchor="middle" style="line-height:1.25" xml:space="preserve"><tspan x="236.55983" y="-268.9144" text-align="center">Sets of</tspan><tspan x="236.55983" y="-258.69073" text-align="center">10</tspan></text>
+    </g>
+   </g>
+  </g>
+ </g>
+
+</svg>

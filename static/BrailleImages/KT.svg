@@ -1,0 +1,73 @@
+<svg width="407.86mm" height="394.79mm" version="1.1" viewBox="0 0 407.86 394.79" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <style/>
+ <defs>
+  <path id="Top-5" d="m0.75-2q3.4167-22.818 22.25-30.75-16.75 8.9318-19.75 30.75z"/>
+  <path id="Both-2" d="M 6,2 23,3.25 6,4.5"/>
+  <path id="Bottom-9" d="m0.75 8.5q3.4167 22.818 22.25 30.75-16.75-8.9318-19.75-30.75z"/>
+ </defs>
+
+ <g transform="translate(4.1845e-7 3.1959)">
+  <g transform="translate(10.894 181.92)" visibility="show">
+   <svg x="94.488" y="-136.06" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="M 0.75,-2 Q 3,-9 13,-8.75 5,-8 3.25,-2 Z"/>
+    <!---->
+   </svg>
+   <svg x="94.488" y="-136.06" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="m6 2 7 1.25-7 1.25"/>
+    <!---->
+   </svg>
+   <svg x="94.488" y="-136.06" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="m0.75 8.5q2.25 7 12.25 6.75-8-0.75-9.75-6.75z"/>
+    <!---->
+   </svg>
+   <svg x="94.488" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="M 0.75,-2 Q 3,-9 13,-8.75 5,-8 3.25,-2 Z"/>
+    <!---->
+   </svg>
+   <svg x="94.488" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="m6 2 7 1.25-7 1.25"/>
+    <!---->
+   </svg>
+   <svg x="94.488" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="m0.75 8.5q2.25 7 12.25 6.75-8-0.75-9.75-6.75z"/>
+    <!---->
+   </svg>
+   <svg x="94.488" y="136.06" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="M 0.75,-2 Q 3,-9 13,-8.75 5,-8 3.25,-2 Z"/>
+    <!---->
+   </svg>
+   <svg x="94.488" y="136.06" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="m6 2 7 1.25-7 1.25"/>
+    <!---->
+   </svg>
+   <svg x="94.488" y="136.06" width="1mm" height="1mm" overflow="visible" version="1.1" viewBox="0 0 1 1">
+    <path d="m0.75 8.5q2.25 7 12.25 6.75-8-0.75-9.75-6.75z"/>
+    <!---->
+   </svg>
+  </g>
+  <g transform="translate(10.894 181.92)" stroke-width="3.7795">
+   <path d="m2.8346 32.126q12.913 86.242 84.094 116.22-63.307-33.758-74.646-116.22z"/>
+   <path d="m22.677 7.5591 64.252 4.7244-64.252 4.7244"/>
+   <path d="m2.8346-7.5591q12.913-86.242 84.094-116.22-63.307 33.758-74.646 116.22z"/>
+  </g>
+ </g>
+
+ <g transform="translate(4.1845e-7 3.1959)" font-size="7mm">
+  <g>
+   <text x="10.893616" y="181.91733" dx="-1.2598425" dy="21.102364">'</text>
+   <text x="105.38181" y="45.854343" dx="-1.2598425" dy="21.102364">K</text>
+   <text x="162.07472" y="0.50000215" dx="-1.2598425" dy="21.102364">M</text>
+   <text x="162.07472" y="45.854343" dx="-1.2598425" dy="21.102364">N</text>
+   <text x="162.07472" y="91.208664" dx="-1.2598425" dy="21.102364">O</text>
+   <text x="105.38181" y="181.91733" dx="-1.2598425" dy="21.102364">L</text>
+   <text x="162.07472" y="136.563" dx="-1.2598425" dy="21.102364">P</text>
+   <text x="162.07472" y="181.91733" dx="-1.2598425" dy="21.102364">Q</text>
+   <text x="162.07472" y="227.27167" dx="-1.2598425" dy="21.102364">R</text>
+   <text x="105.38181" y="317.98032" dx="-1.2598425" dy="21.102364">;</text>
+   <text x="162.07472" y="272.62601" dx="-1.2598425" dy="21.102364">S</text>
+   <text x="162.07472" y="317.98032" dx="-1.2598425" dy="21.102364">T</text>
+   <text x="162.07472" y="363.33466" dx="-1.2598425" dy="21.102364">!</text>
+  </g>
+ </g>
+
+</svg>

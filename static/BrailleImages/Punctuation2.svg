@@ -1,0 +1,73 @@
+<svg width="407.86mm" height="394.79mm" version="1.1" viewBox="0 0 407.86 394.79" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <style/>
+ <defs>
+  <path id="Top-5" d="m0.75-2q3.4167-22.818 22.25-30.75-16.75 8.9318-19.75 30.75z"/>
+  <path id="Both-2" d="M 6,2 23,3.25 6,4.5"/>
+  <path id="Bottom-9" d="m0.75 8.5q3.4167 22.818 22.25 30.75-16.75-8.9318-19.75-30.75z"/>
+ </defs>
+
+ <g transform="translate(4.1845e-7 3.1959)">
+  <g>
+   <g>
+    <g fill="none" stroke-width="3">
+     <g stroke="#0f0">
+      <path d="m169.63 103.49a56.75 45.354 0 0 1-49.147-22.677 56.75 45.354 0 0 1 0-45.354 56.75 45.354 0 0 1 49.147-22.677" stroke-linejoin="round"/>
+      <path d="m169.63 58.138h-56.693"/>
+      <g transform="translate(0 136.06)">
+       <path d="m169.63 103.49a56.75 45.354 0 0 1-49.147-22.677 56.75 45.354 0 0 1 0-45.354 56.75 45.354 0 0 1 49.147-22.677" stroke-linejoin="round"/>
+       <path d="m169.63 58.138h-56.693"/>
+      </g>
+      <g transform="translate(0 272.13)">
+       <path d="m112.88 58.138a56.75 45.354 0 0 1 56.75-45.354" stroke="#0f0" stroke-linejoin="round"/>
+       <path d="m169.63 58.138h-56.693" stroke="#0f0"/>
+       <path transform="scale(1,-1)" d="m112.88-58.138a56.75 45.354 0 0 1 56.75-45.354" stroke="#b3b3b3" stroke-linejoin="round"/>
+      </g>
+     </g>
+     <g transform="translate(-56.693 136.06)">
+      <path d="m75.146 58.138a94.488 136.06 0 0 1 94.488-136.06" stroke="#f00" stroke-linejoin="round"/>
+      <path d="m169.63 58.138h-94.488" stroke="#f00"/>
+      <path transform="scale(1,-1)" d="m75.146-58.138a94.488 136.06 0 0 1 94.488-136.06" stroke="#b3b3b3" stroke-linejoin="round"/>
+     </g>
+    </g>
+    <circle cx="18.453" cy="194.2" r="6.5" fill="#fff" stroke="#000" stroke-linejoin="round"/>
+    <g stroke="#000" stroke-linejoin="round">
+     <circle cx="112.94" cy="194.2" r="6.5" fill="#f00"/>
+     <circle cx="112.94" cy="58.138" r="6.5" fill="#f00"/>
+     <circle cx="112.94" cy="330.26" r="6.5" fill="#fff"/>
+    </g>
+    <g stroke="#000" stroke-linejoin="round">
+     <g fill="#0f0">
+      <circle cx="169.63" cy="194.2" r="6.5"/>
+      <circle cx="169.63" cy="239.56" r="6.5"/>
+      <circle cx="169.63" cy="148.85" r="6.5"/>
+      <circle cx="169.63" cy="284.91" r="6.5"/>
+      <circle cx="169.63" cy="330.26" r="6.5"/>
+     </g>
+     <circle cx="169.63" cy="375.62" r="6.5" fill="#fff"/>
+     <g fill="#0f0">
+      <circle cx="169.63" cy="103.49" r="6.5"/>
+      <circle cx="169.63" cy="58.138" r="6.5"/>
+      <circle cx="169.63" cy="12.783" r="6.5"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+
+ <g transform="translate(4.1845e-7 3.1959)">
+  <g display="none">
+   <g transform="translate(10.894 181.92)" display="inline" font-size="1.75mm">
+    <text transform="matrix(3.7795 0 0 3.7795 .15884 -.11256)" dy="-0.34999999em"><textPath startOffset="25%" text-anchor="middle" xlink:href="#Top-5">Top</textPath></text>
+    <text transform="matrix(3.7795 0 0 3.7795 -.23392 -.055098)" dy="-0.34999999em"><textPath startOffset="25%" text-anchor="middle" xlink:href="#Both-2">Both</textPath></text>
+    <text transform="matrix(3.7795 0 0 3.7795 .16546 .10657)" dy="0.89999998em"><textPath startOffset="25%" text-anchor="middle" xlink:href="#Bottom-9">Bottom</textPath></text>
+   </g>
+  </g>
+  <g>
+   <g transform="rotate(-6.4823 194.24 177.51)">
+    <path id="path2132" transform="scale(1,-1)" d="m19.901-188.29a165.75 190.6 0 0 1 165.75-190.6" fill="none"/>
+    <text transform="rotate(-5.1712 136.92 335.82)" x="-17.519087" y="2.3661184" fill="#b3b3b3" font-family="sans-serif" font-size="25px" letter-spacing="0px" stroke-width=".26458" word-spacing=".69056px" style="line-height:1.25" xml:space="preserve"><textPath xlink:href="#path2132"><tspan dx="50 0.19" dy="25" fill="#b3b3b3" letter-spacing="0px" stroke-width=".26458" word-spacing=".69056px">Punctuation</tspan></textPath></text>
+   </g>
+  </g>
+ </g>
+
+</svg>

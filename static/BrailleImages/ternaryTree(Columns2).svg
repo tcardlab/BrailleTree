@@ -1,0 +1,107 @@
+<svg width="407.86mm" height="394.79mm" version="1.1" viewBox="0 0 407.86 394.79" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+ <g transform="translate(4.1845e-7 3.1959)">
+  <g>
+   <g>
+    <g fill="none" stroke-width="3">
+     <g stroke="#0f0">
+      <path d="m169.63 103.49a56.75 45.354 0 0 1-49.147-22.677 56.75 45.354 0 0 1 0-45.354 56.75 45.354 0 0 1 49.147-22.677" stroke-linejoin="round"/>
+      <path d="m169.63 58.138h-56.693"/>
+      <g transform="translate(0 136.06)">
+       <path d="m169.63 103.49a56.75 45.354 0 0 1-49.147-22.677 56.75 45.354 0 0 1 0-45.354 56.75 45.354 0 0 1 49.147-22.677" stroke-linejoin="round"/>
+       <path d="m169.63 58.138h-56.693"/>
+      </g>
+      <g transform="translate(0 272.13)">
+       <path d="m112.88 58.138a56.75 45.354 0 0 1 56.75-45.354" stroke-linejoin="round"/>
+       <path d="m169.63 58.138h-56.693"/>
+       <path transform="scale(1,-1)" d="m112.88-58.138a56.75 45.354 0 0 1 56.75-45.354" stroke-linejoin="round"/>
+      </g>
+     </g>
+     <g transform="translate(-56.693 136.06)" stroke="#f00">
+      <path d="m75.146 58.138a94.488 136.06 0 0 1 94.488-136.06" stroke-linejoin="round"/>
+      <path d="m169.63 58.138h-94.488"/>
+      <path transform="scale(1,-1)" d="m75.146-58.138a94.488 136.06 0 0 1 94.488-136.06" stroke-linejoin="round"/>
+     </g>
+    </g>
+    <circle cx="18.453" cy="194.2" r="6.5" fill="#fff" stroke="#000" stroke-linejoin="round"/>
+    <g fill="#f00" stroke="#000" stroke-linejoin="round">
+     <circle cx="112.94" cy="194.2" r="6.5"/>
+     <circle cx="112.94" cy="58.138" r="6.5"/>
+     <circle cx="112.94" cy="330.26" r="6.5"/>
+    </g>
+    <g fill="#0f0" stroke="#000" stroke-linejoin="round">
+     <circle cx="169.63" cy="194.2" r="6.5"/>
+     <circle cx="169.63" cy="239.56" r="6.5"/>
+     <circle cx="169.63" cy="148.85" r="6.5"/>
+     <circle cx="169.63" cy="284.91" r="6.5"/>
+     <circle cx="169.63" cy="330.26" r="6.5"/>
+     <circle cx="169.63" cy="375.62" r="6.5"/>
+     <circle cx="169.63" cy="103.49" r="6.5"/>
+     <circle cx="169.63" cy="58.138" r="6.5"/>
+     <circle cx="169.63" cy="12.783" r="6.5"/>
+    </g>
+   </g>
+  </g>
+ </g>
+
+ <g transform="translate(4.1845e-7 3.1959)" fill="#9dd" stroke="#000" stroke-linejoin="round">
+  <rect x="158.85" y="88.013" width="21.565" height="30.959"/>
+  <rect x="158.85" y="42.658" width="21.565" height="30.959"/>
+  <rect x="158.85" y="-2.6959" width="21.565" height="30.959"/>
+  <rect x="102.16" y="42.658" width="21.565" height="30.959"/>
+  <rect x="7.67" y="178.72" width="21.565" height="30.959"/>
+  <rect x="102.16" y="178.72" width="21.565" height="30.959"/>
+  <rect x="158.85" y="178.72" width="21.565" height="30.959"/>
+  <rect x="158.85" y="224.08" width="21.565" height="30.959"/>
+  <rect x="102.16" y="314.78" width="21.565" height="30.959"/>
+  <rect x="158.85" y="269.43" width="21.565" height="30.959"/>
+  <rect x="158.85" y="314.78" width="21.565" height="30.959"/>
+  <rect x="158.85" y="360.14" width="21.565" height="30.959"/>
+  <rect x="158.85" y="133.37" width="21.565" height="30.959"/>
+ </g>
+
+ <g transform="translate(4.1845e-7 3.1959)" stroke-linecap="round">
+  <g fill="none" stroke-width="6.666">
+   <g stroke="#f00">
+    <path d="m108.22 48.689v18.898"/>
+    <path d="m108.22 184.75v18.898"/>
+    <path d="m108.22 320.81v18.898"/>
+   </g>
+   <g stroke="#f00">
+    <path d="m164.91 48.689v18.898"/>
+    <path d="m164.91 3.3346v18.898"/>
+    <path d="m164.91 94.043v18.898"/>
+   </g>
+   <g transform="translate(9.4488)" stroke="#0f0">
+    <path d="m164.91 48.689v18.898"/>
+    <path d="m164.91 3.3346v18.898"/>
+    <path d="m164.91 94.043v18.898"/>
+   </g>
+   <g transform="translate(0 136.06)">
+    <g stroke="#f00">
+     <path d="m164.91 48.689v18.898"/>
+     <path d="m164.91 3.3346v18.898"/>
+     <path d="m164.91 94.043v18.898"/>
+    </g>
+    <g transform="translate(9.4488)" stroke="#0f0">
+     <path d="m164.91 48.689v18.898"/>
+     <path d="m164.91 3.3346v18.898"/>
+     <path d="m164.91 94.043v18.898"/>
+    </g>
+   </g>
+   <g transform="translate(0 272.13)">
+    <g stroke="#f00">
+     <path d="m164.91 48.689v18.898"/>
+     <path d="m164.91 3.3346v18.898"/>
+     <path d="m164.91 94.043v18.898"/>
+    </g>
+    <g transform="translate(9.4488)" stroke="#0f0">
+     <path d="m164.91 48.689v18.898"/>
+     <path d="m164.91 3.3346v18.898"/>
+     <path d="m164.91 94.043v18.898"/>
+    </g>
+   </g>
+  </g>
+ </g>
+
+</svg>
