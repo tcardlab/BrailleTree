@@ -154,7 +154,7 @@
   <g>
    <g transform="translate(10.894 181.92)" font-size="1.75mm">
     <text transform="matrix(3.7795 0 0 3.7795 .15884 -.11256)" dy="-0.34999999em"><textPath startOffset="25%" text-anchor="middle" xlink:href="#Top-5">Top</textPath></text>
-    <text transform="matrix(3.7795 0 0 3.7795 -.23392 -.055098)" dy="-0.34999999em"><textPath startOffset="25%" text-anchor="middle" xlink:href="#Both-2">Both</textPath></text>
+    <text transform="matrix(3.7795 0 0 3.7795 -.23392 -.055098)" dy="-0.34999999em"><textPath startOffset="25%" text-anchor="middle" xlink:href="#Both-2">2</textPath></text> <!-- Both-->
     <text transform="matrix(3.7795 0 0 3.7795 .16546 .10657)" dy="0.89999998em"><textPath startOffset="25%" text-anchor="middle" xlink:href="#Bottom-9">Bottom</textPath></text>
    </g>
   </g>

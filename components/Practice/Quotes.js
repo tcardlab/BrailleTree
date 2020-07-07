@@ -123,7 +123,7 @@ export const quotes = [
     'person': 'Jim Fiebig'
   },
   {
-    'quote': 'All thoughts, secret or spoken, belong in a coffee table book written in Braille, so you can really feel the emotions',
+    'quote': 'All thoughts, secret or spoken, belong in a coffee table book written in Braille, so you can really feel the emotions.',
     'person': 'Jarod Kintz'
   },
   {
