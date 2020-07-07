@@ -56,9 +56,10 @@
 import Cell from './Cell'
 import { quotes, braille, mods } from "./Quotes"
 import { ScreenSizeMixin } from './ScreenSizeMixin.js'
+import { ApostropheFilter } from './ApostropheFilter.js'
 
 export default {
-  mixins: [ ScreenSizeMixin ], // Gets screen width for mobile styling
+  mixins: [ ScreenSizeMixin, ApostropheFilter ], // Gets screen width for mobile styling
   components: { Cell },
   data() {
     return {
@@ -96,7 +97,7 @@ export default {
   },
   computed: {
     qMatch() {
-      var resp = this.responseQ
+      var resp = this.apostrophes(this.responseQ)
       var ans = this.answer.quote
       var len = Math.min(this.responseQ.length, this.answer.quote.length)
       var compare = []
@@ -107,7 +108,7 @@ export default {
     },
     pMatch() { // condensed version of the prior method
       var comp = Number(this.responseP.length <= this.answer.person.length)
-      var strs = [[...this.answer.person], [...this.responseP]]
+      var strs = [[...this.answer.person], [...this.apostrophes(this.responseP)]]
       return strs[comp].map((s,i) => s===strs[1-comp][i])
     }
   },

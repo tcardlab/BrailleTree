@@ -1,7 +1,9 @@
 import { mods, denseBraille } from './Quotes'
+import { ApostropheFilter } from './ApostropheFilter.js'
 const isEqual = require('lodash.isequal')
 
 export const BraillePickerMixin = {
+  mixins: [ApostropheFilter],
   data() {
     return {
       picked: {},
@@ -43,7 +45,8 @@ export const BraillePickerMixin = {
     },
     checkAnswer() {
       const answer = typeof this.response === 'string' ? this.answer : this.bArr
-      if(isEqual(this.response, answer)) {
+      const resp = this.apostrophes(this.response)
+      if(isEqual(resp, answer)) {
         this.score += 1
         this.pick()
       }
