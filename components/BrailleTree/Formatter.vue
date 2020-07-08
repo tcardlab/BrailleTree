@@ -33,6 +33,12 @@ BrailleTree features
         />
         <span>{{ _$.gap }} mm</span>
       </div>
+      <b-button
+        class="btn"
+        @click="$store.commit('setActive')"
+      >
+        Reset
+      </b-button>
     </div>
 </template>
 
