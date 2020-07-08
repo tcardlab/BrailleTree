@@ -23,10 +23,8 @@ export const state = () => ({
   }
 })
 
-//import Vue from "vue"
 export const mutations = {
   setActive (state) {
-    //state.active = Vue.set(state, "active", state.init)
     state.active = {...state.init}
   }
 }
