@@ -1,5 +1,7 @@
 export const strict = false
 export const state = () => ({
+  active: {},
+  init: {
     boarder: 20, // 10, 3
     // tree
     x1: 25, // 25
@@ -18,4 +20,12 @@ export const state = () => ({
     vuelabel: true,
     // All
     display: 1 // 0(first 12),1(dot3),2(dot3&6),3(all)
-  })
+  }
+})
+
+export const mutations = {
+  setActive (state) {
+    state.active = {...state.init}
+  }
+}
+

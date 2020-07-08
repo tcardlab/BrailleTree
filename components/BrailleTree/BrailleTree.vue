@@ -67,6 +67,9 @@ export default {
         return +this._$.x1 + +this._$.x2 + 4 + 2 * this._$.boarder
       }
     },
+  },
+  beforeCreate() {
+    this.$store.commit("setActive")
   }
 }
 </script>
