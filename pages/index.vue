@@ -88,7 +88,8 @@
       the inherent organization. memorization not just letters, but words, groupings, contractions and ultimately G2.
     -->
 
-    <Explained style="width: 90%; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.3rem"/>
+    <Explained class="d-none d-sm-flex" style="width: 90%; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.3rem"/>
+    <ExplainMobile class="d-sm-none"/>
 
     <h3> Punctuation: </h3>
 
@@ -102,13 +103,15 @@
 import BaseCheckbox from '~/components/BrailleTree/BaseCheckbox.vue'
 import BrailleTree from '~/components/BrailleTree/BrailleTree.vue'
 import Explained from '~/components/Explanation/Explained.vue'
+import ExplainMobile from '~/components/Explanation/ExplainMobile.vue'
 
 export default {
   layout: 'basic',
   components: {
     BrailleTree,
     BaseCheckbox,
-    Explained
+    Explained,
+    ExplainMobile
   },
 }
 </script>
