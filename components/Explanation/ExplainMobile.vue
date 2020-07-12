@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div> <!-- #d1ecf1 #ababab -->
     <b-carousel
       v-model="slide"
       :interval="0"
       indicators
       background="#ababab"
-      style="text-shadow: 1px 1px 2px #333; padding-top: 15px; "
+      style="text-shadow: 1px 1px 2px #333; padding: 15px 0px 15% 15px"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd" 
     >
@@ -20,7 +20,7 @@
       <b-carousel-slide 
         v-for="(v,i) in Object.keys(links)"
         :key="'carousel-'+i"
-        style="min-height:50vh; height:auto !important"
+        style="min-height:20vh; height:auto !important"
       >
         <b-row>
           <div style="width: 90%">
