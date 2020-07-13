@@ -37,7 +37,8 @@
 
 
       To the uninitiated, Braille may seem bewildering and in fact, it is recognized that
-      <a href="https://en.wikipedia.org/wiki/Braille#Derivation">
+      <a href="https://en.wikipedia.org/wiki/Braille#Derivation#:~:text=the%20dots%20are%20assigned%20in%20no%20obvious%20order"> 
+      <!-- "https://en.wikipedia.org/wiki/Braille#Derivation"-->
        "[...] the dots are assigned in no obvious order" <font-awesome-icon icon="external-link-alt"  style="font-size: 0.75rem"/>
       </a>.
       <br><br>
