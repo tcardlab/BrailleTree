@@ -1,11 +1,10 @@
 <template>
-  <div> <!-- #d1ecf1 #ababab -->
+  <div> <!--background="#ababab" #d1ecf1 #ababab text-shadow: 1px 1px 2px #333;-->
     <b-carousel
       v-model="slide"
       :interval="0"
       indicators
-      background="#ababab"
-      style="text-shadow: 1px 1px 2px #333; padding: 15px 0px 15% 15px"
+      style="padding: 15px 0px 15% 15px"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd" 
     >
@@ -23,7 +22,7 @@
         style="min-height:20vh; height:auto !important"
       >
         <b-row>
-          <div style="width: 90%">
+          <div style="width: 90%; color: #0c5460">
             <h5 class="expHead">{{titles[i]}}</h5>
             <div class="expBody" v-html="text[i]">
             </div>
@@ -69,4 +68,11 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+/*.carousel-indicators {
+  background-color: aqua;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%
+}*/
 </style>

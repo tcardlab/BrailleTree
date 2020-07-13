@@ -89,7 +89,7 @@
     -->
 
     <Explained class="d-none d-sm-flex" style="width: 90%; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.3rem"/>
-    <ExplainMobile class="d-sm-none"/>
+    <ExplainMobile class="d-sm-none" style=" width: 100vw; margin-left: -15px; background-color: #d1ecf1 "/>
 
     <h3> Punctuation: </h3>
 
