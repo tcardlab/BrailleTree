@@ -26,7 +26,7 @@
           </transition-group>
         </b-col>
       </b-row>
-      <b-row style="width: 90%; margin-top: 15px">
+      <b-row style="padding-top:5%; padding-left:5%; background-color: #d1ecf1; color: #0c5460">
         <div style="width: 90%">
           <h5 class="expHead">{{titles[slotProps.index]}}</h5>
           <div class="expBody" v-html="text[slotProps.index]">
@@ -84,5 +84,39 @@ export default {
 
 .expBody > ul > li {
   text-align: left;
+}
+
+/* THEME */
+.list-group-item.active {
+  border: 1px solid rgba(12, 84, 96, .125);
+  border-right: 1px solid #fff;
+  /*border-left: 1px solid rgba(0,0,0,.125);*/
+}
+.list-group-item.active {
+  z-index: 2;
+  color: #000;
+  background-color: #fff;
+  border-color: auto;
+}
+.list-group-item:last-child {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.list-group-item.active:last-child {
+  border-bottom: 1px solid #fff;
+}
+.list-group-item.active:first-child {
+  border-top: 1px solid #fff;
+}
+
+.list-group-item {
+  z-index: 2;
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border: 1px solid rgba(12, 84, 96, .125);/*1px solid rgba(0,0,0,.125);*/
 }
 </style>
