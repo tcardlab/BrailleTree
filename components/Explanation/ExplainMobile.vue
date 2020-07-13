@@ -4,6 +4,8 @@
       v-model="slide"
       :interval="0"
       indicators
+      controls
+      no-touch="true"
       style="padding: 15px 0px 15% 15px"
       @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd" 
