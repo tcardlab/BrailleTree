@@ -7,7 +7,7 @@
       <br>
       <strong>3D models are available as teaching aid to the blind at 
         <b-badge
-          href="https://www.thingiverse.com/Tcardlab/about"
+          href="https://www.thingiverse.com/thing:4809012"
           target="_blank" rel="noopener noreferrer"
           variant="info"
         >
