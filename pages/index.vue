@@ -16,7 +16,7 @@
         </b-badge>
         and
         <b-badge 
-          href="https://3dprint.nih.gov/users/thomas-card/model"
+          href="https://3dprint.nih.gov/discover/3dpx-015596"
           target="_blank" rel="noopener noreferrer"
           variant="info"
         >
