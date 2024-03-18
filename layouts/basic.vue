@@ -11,10 +11,10 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item to="/practice">Practice</b-nav-item>
-          <b-nav-item to="/proficiency">Proficiency</b-nav-item>
-          <b-nav-item to="/faq">FAQ</b-nav-item>
+          <!-- <b-nav-item to="/proficiency">Proficiency</b-nav-item> -->
+          <!-- <b-nav-item to="/faq">FAQ</b-nav-item> -->
            <b-nav-item to="/format">Editor</b-nav-item>
-          <b-nav-item to="/gallery">More Braille</b-nav-item>
+          <!-- <b-nav-item to="/gallery">More Braille</b-nav-item> -->
         </b-navbar-nav>
 
       </b-collapse>
@@ -37,20 +37,20 @@
       </b-row>
     </div>
 
-    <div style="height:100px; background:red;">
+   <!--  <div style="height:100px; background:red;">
       github<br>
       other sites<br>
       contact
-    </div>
+    </div> -->
 
-    <b-alert
+   <!--  <b-alert
       v-model="showBottom"
       class="position-fixed fixed-bottom m-0 rounded-0 text-center"
       style="z-index: 2000;"
       variant="warning"
     >
       NOTE: Under active development. Written content is currently being added. 
-    </b-alert>
+    </b-alert> -->
 
   </div>
 </template>
@@ -66,6 +66,10 @@ export default {
 </script>
 
 <style>
+body {
+  overscroll-behavior-y: none;
+}
+
 .container {
   height: 100vh;
 }
