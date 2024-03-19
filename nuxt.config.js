@@ -14,7 +14,19 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/BrailleTree.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/BrailleTree.ico' }],
+    script: [
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-DTYD80K4N2',
+        async: true,
+        callback: () => {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', 'G-DTYD80K4N2');
+        }
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
