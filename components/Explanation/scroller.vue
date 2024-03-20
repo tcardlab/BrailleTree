@@ -16,7 +16,7 @@ export default {
   },
   watch: {
     scroll() {
-      const deltaIndex = this.scroll / 50 | 0
+      const deltaIndex = this.scroll / 250 | 0
       if (deltaIndex !== 0) {
         const sum = this.index + deltaIndex
         this.index = sum <= 0 ? 0 : sum >= +this.maxIndex ? +this.maxIndex : sum
