@@ -3,14 +3,15 @@
     <!--<img  height="200" :src="require(`~/static/BrailleImages/${links[slotProps.index]}`)"/>-->
     <b-container fluid>
       <b-row align-v="center">
-        <b-col cols="4" style="padding: 0">
+        <b-col cols="3" style="padding: 0">
           <b-list-group>
             <b-list-group-item 
               v-for="(v,i) in Object.keys(links)"
               @click="$refs.scroller.setIndex(i)" 
               :key="'pick-'+i" 
               :active="i===slotProps.index"> 
-                Step {{+i+1}}
+                <!-- Step {{+i+1}} -->
+                {{ `${i}. ${titles[i]}` }}
             </b-list-group-item>
           </b-list-group>
         </b-col>
@@ -28,7 +29,7 @@
       </b-row>
       <b-row style="padding-top:5%; padding-left:5%; background-color: #d1ecf1; color: #0c5460">
         <div style="width: 90%">
-          <h5 class="expHead">{{titles[slotProps.index]}}</h5>
+          <h5 class="expHead">{{titles[slotProps.index]}}:</h5>
           <div class="expBody" v-html="text[slotProps.index]">
           </div>
         </div>
@@ -67,6 +68,7 @@ export default {
 
 .container_row{
   display: grid;
+  margin-left: 25%;
 }
 
 .expBody > p{
@@ -114,6 +116,7 @@ export default {
 }
 
 .list-group-item {
+  text-align: left;
   z-index: 2;
   color: #0c5460;
   background-color: #d1ecf1;

@@ -1,10 +1,10 @@
 const titles = {
-  0: "Step 1) Generating the Tree:",
-  1: "Step 2) Assigning Columns:",
-  2: "Step 3) Assigning Dots to Columns",
-  3: "Step 4) Reserve Punctuation:",
-  4: "Step 5) Assignment Order:",
-  5: "Step 6) Alphanumeric Sets:"
+  0: "Generating the Tree",
+  1: "Assigning Columns",
+  2: "Assigning Dots to Columns",
+  3: "Reserve Punctuation",
+  4: "Assignment Order",
+  5: "Alphanumeric Sets"
 }
 
 const links = {
