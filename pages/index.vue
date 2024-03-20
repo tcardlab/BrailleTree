@@ -53,7 +53,13 @@
 
     <h3 align="left">Braille In 1 Minute:</h3>
     <br>
-    <iframe style="max-width: 100%; max-height: 80vw;" src='https://gfycat.com/ifr/WarlikeGreatAltiplanochinchillamouse?autoplay=0' frameborder='0' scrolling='no' allowfullscreen width='640' height='517'></iframe>
+
+    <iframe class="giphy-embed" style="max-width: 100%; max-height: 80vw;" src="https://giphy.com/embed/0YK1GuQPlWr497u2K5" frameBorder="0" scrolling='no' allowFullScreen width='640' height='517'></iframe>
+
+    <!--
+      gfycat shut down... only had ~3k views
+      <iframe style="max-width: 100%; max-height: 80vw;" src='https://gfycat.com/ifr/WarlikeGreatAltiplanochinchillamouse?autoplay=0' frameborder='0' scrolling='no' allowfullscreen width='640' height='517'></iframe> 
+    -->
     <!-- <p> <a href="https://gfycat.com/warlikegreataltiplanochinchillamouse-braille-in-one-minute-accessibility">via Gfycat</a></p> -->
 
 
